@@ -5,6 +5,8 @@
 //-1 for no answer, 0 for incorrect answer and 1 for correct answer
 $(document).ready(function () {
 });
+
+selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
@@ -135,7 +137,7 @@ function dragMoveListener(event) {
 interact('.pipette')
   .draggable({
       // enable inertial throwing
-      inertia: true,
+      inertia: false,
       // keep the element within the area of it's parent
 
       restrict: {
@@ -254,38 +256,49 @@ interact('.tube').dropzone({
     }
 });
 
+interact('.tube')
+.draggable({
+    // enable inertial throwing
+    inertia: false,
+    // keep the element within the area of it's parent
+
+    restrict: {
+        restriction: "parent",
+        endOnly: true,
+        elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    // enable autoScroll
+    autoScroll: true,
+
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function (event) {
+        var textEl = event.target.querySelector('p');
+
+        textEl && (textEl.textContent =
+          'moved a distance of '
+          + (Math.sqrt(event.dx * event.dx +
+                       event.dy * event.dy) | 0) + 'px');
+    }
+});
 
 //state 2 
 function state2() {
     var state = 0;
     $("#pipette1").hide();
     $("#pipette2").show();
+    
     interact('.tube')
-  .draggable({
-      // enable inertial throwing
-      inertia: true,
-      // keep the element within the area of it's parent
+    .draggable({
+        // keep the element within the area of it's parent
 
-      restrict: {
-          restriction: "#part2",
-          endOnly: true,
-          elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-      },
-      // enable autoScroll
-      autoScroll: true,
-
-      // call this function on every dragmove event
-      onmove: dragMoveListener,
-      // call this function on every dragend event
-      onend: function (event) {
-          var textEl = event.target.querySelector('p');
-
-          textEl && (textEl.textContent =
-            'moved a distance of '
-            + (Math.sqrt(event.dx * event.dx +
-                         event.dy * event.dy) | 0) + 'px');
-      }
-  });
+        restrict: {
+            restriction: "#part2",
+            endOnly: true,
+            elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+        },
+    });
     interact('.icebox').dropzone({
         // only accept elements matching this CSS selector
         accept: '.tube',
