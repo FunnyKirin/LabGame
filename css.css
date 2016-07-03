@@ -120,6 +120,12 @@
     width: 12%;
     height: 12%;
 }
+
+#nameDisplay{
+    position:absolute;
+    left:60%;
+    top:40%;
+}
 #tube2Pos {
     position: absolute;
     left: 43%;

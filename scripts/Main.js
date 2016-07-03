@@ -4,8 +4,16 @@
 //boolean for checking correct answer
 //-1 for no answer, 0 for incorrect answer and 1 for correct answer
 $(document).ready(function () {
+
 });
 
+$('#tube1').click(function (e) {
+    $("#nameField").show();
+});
+
+$('#nameField').bind('keydown keyup keypress', function () {
+    $('#nameDisplay').html(this.value);
+});
 selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
@@ -256,7 +264,7 @@ interact('.tube').dropzone({
     }
 });
 
-interact('.tube')
+interact('.tubeItem')
 .draggable({
     // enable inertial throwing
     inertia: false,
@@ -289,7 +297,7 @@ function state2() {
     $("#pipette1").hide();
     $("#pipette2").show();
     
-    interact('.tube')
+    interact('.tubeItem')
     .draggable({
         // keep the element within the area of it's parent
 
@@ -349,3 +357,4 @@ function state2() {
 window.setInterval(function () {
     $("#debug").text("game state: "+gameState);
 }, 500);
+

@@ -101,20 +101,27 @@
     <div id="part2" class="main" style="display: none;">
         <img id="table" src="pictures/0001.png" />
        
-         
-        <div id="tube2Pos">
+        <div id="tube1Pos" class="tubeItem">
+            <img id="tube1" class="tube" src="pictures/open centrifuge tube without fluid.svg" data-state="0" />
+            <label id='nameDisplay'></label>
+        </div>
+        <div id="tube2Pos" class="tubeItem">
             <img id="tube2" class="tube" src="pictures/open centrifuge tube without fluid.svg" data-state="0" />
         </div>
-        <div id="tube1Pos">
-            <img id="tube1" class="tube" src="pictures/open centrifuge tube without fluid.svg" data-state="0" />
-        </div>
+
         <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" />
 
         <img id="pipette1" class="pipette" src="pictures/Resized pipette without fluid.svg" />
         <img id="pipette2" class="pipette" src="pictures/Resized pipette without fluid.svg" />
         <img id="petriDish1" class="petriDish" src="pictures/control petri dish.svg" />
         <img id="container" class="container" src="pictures/Resized container with fluid.svg" />
+
     </div>
+
+    <form>
+        <input type='text' id='nameField' style="display: none;">
+    </form>
+    
     <div id="debug" class="debug">
 
     </div>
