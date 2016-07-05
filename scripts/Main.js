@@ -244,8 +244,8 @@ interact('.tube').dropzone({
     ondrop: function (event) {
         if (pipetteFluid == true && $("#pipette1").offset().top + $("#pipette1").height() < ($(event.target).offset().top + $(event.target).height())) {
             event.target.setAttribute("src", "pictures/open centrifuge tube with fluid.svg");
-            if (event.target.getAttribute("data-state") == "0") {
-                event.target.setAttribute("data-state", "1")
+            if (event.target.parentElement.getAttribute("data-state") == "0") {
+                event.target.parentElement.setAttribute("data-state", "1")
                 tube++;
 
                 if (tube == 2) {
@@ -309,7 +309,7 @@ function state2() {
     });
     interact('.icebox').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.tube',
+        accept: '.tubeItem',
         // Require a 75% element overlap for a drop to be possible
         overlap: 0.50,
 
