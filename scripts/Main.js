@@ -291,6 +291,33 @@ interact('.tubeItem')
     }
 });
 
+interact('.loop')
+  .draggable({
+      // enable inertial throwing
+      inertia: false,
+      // keep the element within the area of it's parent
+
+      restrict: {
+          restriction: "#part2",
+          endOnly: true,
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+      },
+      // enable autoScroll
+      autoScroll: true,
+
+      // call this function on every dragmove event
+      onmove: dragMoveListener,
+      // call this function on every dragend event
+      onend: function (event) {
+          var textEl = event.target.querySelector('p');
+
+          textEl && (textEl.textContent =
+            'moved a distance of '
+            + (Math.sqrt(event.dx * event.dx +
+                         event.dy * event.dy) | 0) + 'px');
+      }
+  });
+
 //state 2 
 function state2() {
     var state = 0;

@@ -134,3 +134,7 @@
     width: 12%;
     height: 12%;
 }
+
+#loop{
+    transform: rotate(20deg);
+}
