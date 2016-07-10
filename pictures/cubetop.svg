@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="cube.svg">
+   sodipodi:docname="cubetop.svg">
   <defs
      id="defs4">
     <inkscape:perspective
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,13 +63,8 @@
      transform="translate(0,-407.48059)">
     <path
        inkscape:connector-curvature="0"
-       id="path4246"
-       style="fill:#00b9b9;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;image-rendering:auto;fill-opacity:0.66883117"
-       d="m 705.90407,574.83717 2.48296,474.20673 49.11209,-147.56764 -2.48297,-474.20668 z" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path4248"
-       style="fill:#00f5f5;fill-opacity:0.66883114;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;image-rendering:auto"
-       d="m 12.453495,573.37064 693.859015,-0.0969 2.48296,474.20666 -693.859015,0.097 z" />
+       id="path4244"
+       style="fill:#00cdcd;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;image-rendering:auto;fill-opacity:0.66883117"
+       d="m 12.045097,574.93405 693.858973,-0.0969 49.11208,-147.56759 -693.85897,0.0969 z" />
   </g>
 </svg>
