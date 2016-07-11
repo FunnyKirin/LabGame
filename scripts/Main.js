@@ -121,6 +121,12 @@ var gameState = 1;
 var tube = 0;
 var pipetteFluid = false;
 $("#pipette2").hide();
+
+$("#tube1Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 + 3 + "%");
+$("#tube1Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
+$("#tube2Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 -3 + "%");
+$("#tube2Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
+
 function setupTable() {
     //$("#tube1").css("left","90%")
 }
@@ -203,7 +209,7 @@ interact('.container').dropzone({
     ondrop: function (event) {
         if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height()))
             $("#pipette1").attr("src", "pictures/Resized pipette with fluid.svg");
-        
+
         pipetteFluid = true;
     },
     ondropdeactivate: function (event) {
@@ -321,7 +327,7 @@ function state2() {
     var state = 0;
     $("#pipette1").hide();
     $("#pipette2").show();
-    
+
     interact('.tubeItem')
     .draggable({
         // keep the element within the area of it's parent
@@ -362,6 +368,22 @@ function state2() {
         ondrop: function (event) {
             if (event.relatedTarget.getAttribute("data-state") == "1") {
                 event.relatedTarget.setAttribute("data-state", "2");
+                if (event.relatedTarget.getAttribute("id") == "tube1Pos") {
+                    var left = $(event.target).position().left / $("#part2").width() * 100 + 8;
+                    $(event.relatedTarget).css("left", left + "%");
+                    var top = $(event.target).position().top / $("#part2").height() * 100 - 3;
+                    $(event.relatedTarget).css("top", top + "%");
+                    $(event.relatedTarget).css("transform", "");
+                }
+                if (event.relatedTarget.getAttribute("id") == "tube2Pos") {
+                    var left = $(event.target).position().left / $("#part2").width() * 100;
+                    $(event.relatedTarget).css("left", left + "%");
+                    var top = $(event.target).position().top / $("#part2").height() * 100 - 3;
+                    $(event.relatedTarget).css("top", top + "%");
+                    $(event.relatedTarget).css("transform", "");
+                }
+                event.relatedTarget.setAttribute("data-x", "0");
+                event.relatedTarget.setAttribute("data-y", "0");
                 state++;
             }
             if (state == 2) {
@@ -380,6 +402,6 @@ function state2() {
 
 
 window.setInterval(function () {
-    $("#debug").text("game state: "+gameState);
+    $("#debug").text("game state: " + gameState);
 }, 500);
 
