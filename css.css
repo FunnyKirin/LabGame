@@ -120,7 +120,6 @@
     top: 30%;
     left: 50%;
     opacity: 1;
-    filter: alpha(opacity=100);
     pointer-events: none;
 }
 

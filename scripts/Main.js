@@ -124,7 +124,7 @@ $("#pipette2").hide();
 
 $("#tube1Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 + 3 + "%");
 $("#tube1Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
-$("#tube2Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 -3 + "%");
+$("#tube2Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 - 3 + "%");
 $("#tube2Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
 
 function setupTable() {
@@ -388,6 +388,7 @@ function state2() {
             }
             if (state == 2) {
                 gameState++;
+                state3();
             }
         },
         ondropdeactivate: function (event) {
@@ -399,7 +400,152 @@ function state2() {
     });
 
 }
+//state 3 
+function state3() {
+    interact('.cube').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.tubeItem',
+        // Require a 75% element overlap for a drop to be possible
+        overlap: 0.50,
 
+        // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+
+        },
+        ondragenter: function (event) {
+
+            var draggableElement = event.relatedTarget,
+                dropzoneElement = event.target;
+
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        },
+        ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        },
+        ondrop: function (event) {
+            if (event.relatedTarget.getAttribute("id") == "tube1Pos") {
+                $("#tube1Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 + 3 + "%");
+                $("#tube1Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
+                $(event.relatedTarget).css("transform", "");
+            }
+            if (event.relatedTarget.getAttribute("id") == "tube2Pos") {
+                $("#tube2Pos").css("left", $("#cube").position().left / $("#part2").width() * 100 - 3 + "%");
+                $("#tube2Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
+                $(event.relatedTarget).css("transform", "");
+            }
+            event.relatedTarget.setAttribute("data-x", "0");
+            event.relatedTarget.setAttribute("data-y", "0");
+            gameState++;
+
+            if (event.relatedTarget.getAttribute("data-state") == "2") {
+                event.relatedTarget.setAttribute("data-state", "3");
+            }
+        },
+        ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+
+        }
+    });
+
+    interact('.petriDish').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.loop',
+        // Require a 75% element overlap for a drop to be possible
+        overlap: 0.05,
+
+        // listen for drop related events:
+
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+
+        },
+        ondragenter: function (event) {
+
+            var draggableElement = event.relatedTarget,
+                dropzoneElement = event.target;
+
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        },
+        ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        },
+        ondrop: function (event) {
+            if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
+                
+                if (event.relatedTarget.getAttribute("data-state") == "0") {
+                    event.relatedTarget.setAttribute("data-state", "1")
+                }
+            }
+
+        },
+        ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+
+        }
+    });
+    interact('.tubeItem').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.loop',
+        // Require a 75% element overlap for a drop to be possible
+        overlap: 0.05,
+
+        // listen for drop related events:
+
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+
+        },
+        ondragenter: function (event) {
+
+            var draggableElement = event.relatedTarget,
+                dropzoneElement = event.target;
+
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        },
+        ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        },
+        ondrop: function (event) {
+            if (event.relatedTarget.getAttribute("data-state") == "1") {
+                if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
+
+                    if (event.target.getAttribute("data-state") == "3") {
+                        event.target.setAttribute("data-state", "4")
+                        $("#loop2").show();
+                        $(event.relatedTarget).hide();
+                    }
+                }
+
+            }
+        },
+        ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+
+        }
+    });
+}
 
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
