@@ -7,6 +7,8 @@ $(document).ready(function () {
 
 });
 
+selectPractice();
+
 $('#tube1').click(function (e) {
     $("#nameField").show();
 });
@@ -14,7 +16,6 @@ $('#tube1').click(function (e) {
 $('#nameField').bind('keydown keyup keypress', function () {
     $('#nameDisplay').html(this.value);
 });
-selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
@@ -402,6 +403,7 @@ function state2() {
 }
 //state 3 
 function state3() {
+    var state = 0;
     interact('.cube').dropzone({
         // only accept elements matching this CSS selector
         accept: '.tubeItem',
@@ -533,6 +535,10 @@ function state3() {
                         event.target.setAttribute("data-state", "4")
                         $("#loop2").show();
                         $(event.relatedTarget).hide();
+                        state++;
+                        if (state == 2) {
+                            state4();
+                        }
                     }
                 }
 
@@ -545,6 +551,10 @@ function state3() {
 
         }
     });
+}
+
+function state4() {
+
 }
 
 window.setInterval(function () {
