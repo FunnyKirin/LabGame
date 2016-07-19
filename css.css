@@ -40,8 +40,6 @@
     position: absolute;
 }
 
-
-
 .pipet {
     width: auto;
     height: 6%;
@@ -54,8 +52,16 @@
     width: auto;
     height: 25%;
     position: absolute;
-    left: 30%;
-    top: 53%;
+}
+
+#container {
+    left: 35%;
+    top: 50%;
+}
+
+#plasmidContainer {
+    left: 20%;
+    top: 50%;
 }
 
 .pipette {
@@ -86,13 +92,18 @@
     left: 15%;
     top: 78%;
 }
+
 #petriDish2 {
     left: 32%;
     top: 78%;
-}#petriDish3 {
+}
+
+#petriDish3 {
     left: 49%;
     top: 78%;
-}#petriDish4 {
+}
+
+#petriDish4 {
     left: 66%;
     top: 78%;
 }
@@ -127,26 +138,25 @@
     position: absolute;
     left: 60%;
     top: 60%;
-
     width: 12%;
     height: 12%;
 }
 
-#nameDisplay{
-    position:absolute;
-    left:60%;
-    top:40%;
+#nameDisplay {
+    position: absolute;
+    left: 60%;
+    top: 40%;
 }
+
 #tube2Pos {
     position: absolute;
     left: 43%;
     top: 60%;
-
     width: 12%;
     height: 12%;
 }
 
-.loop{
+.loop {
     position: absolute;
     top: 2%;
     left: 7%;
@@ -154,19 +164,19 @@
     height: 50%;
 }
 
-.cube{
-   width:auto;
-   height:20%;
-   position:absolute;
-   left:50%;
-   top: 50%;
-   pointer-events: none;
+.cube {
+    width: auto;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
 }
 
-.cubeTop{
-   width:auto;
-   height:20%;
-   position:absolute;
-   left:50%;
-   top: 50%;
+.cubeTop {
+    width: auto;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
