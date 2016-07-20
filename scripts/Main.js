@@ -239,7 +239,7 @@ interact('.loop').draggable({
     // enable inertial throwing
     inertia: false, // keep the element within the area of it's parent
     restrict: {
-        restriction: "parent",
+        //restriction: "parent",
         endOnly: true,
         elementRect: {
             top: 0,
@@ -373,7 +373,7 @@ function state3() {
             event.target.classList.remove('drop-target');
         }
     });
-    interact('.petriDish').dropzone({
+    interact('.starterPlate').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop', // Require a 75% element overlap for a drop to be possible
         overlap: 0.05, // listen for drop related events:
@@ -476,7 +476,7 @@ function state4() {
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     event.relatedTarget.setAttribute("data-state", 1);
-                    
+
                 }
             }
         },
@@ -486,6 +486,27 @@ function state4() {
             event.target.classList.remove('drop-target');
         }
     });
+
+    interact('.tube').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.loop', // Require a 75% element overlap for a drop to be possible
+        overlap: 0.10, // listen for drop related events:
+
+
+        ondrop: function (event) {
+            if (pipetteFluid == true && $("#pipette1").offset().top + $("#pipette1").height() < ($(event.target).offset().top + $(event.target).height())) {
+                event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid.svg");
+
+                gameState++;
+                $(event.relatedTarget).hide();
+            }
+        },
+    });
+
+    $(".tube").click(function (event) {
+        event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid.svg");
+    });
+
 }
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
