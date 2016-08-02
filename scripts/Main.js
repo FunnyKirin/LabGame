@@ -99,6 +99,7 @@ function backToMenu() {
     $("#selectPanel").show();
 }
 //paractice mode
+
 var gameState = 1;
 var tube = 0;
 var pipetteFluid = false;
@@ -122,6 +123,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
+
 //state 1
 interact('.pipette').draggable({
     // enable inertial throwing
@@ -158,13 +160,11 @@ interact('#container').dropzone({
         // feedback the possibility of a drop
         dropzoneElement.classList.add('drop-target');
         draggableElement.classList.add('can-drop');
-        draggableElement.textContent = 'Dragged in';
     },
     ondragleave: function (event) {
         // remove the drop feedback style
         event.target.classList.remove('drop-target');
         event.relatedTarget.classList.remove('can-drop');
-        event.relatedTarget.textContent = 'Dragged out';
     },
     ondrop: function (event) {
         if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) $("#pipette1").attr("src", "pictures/Resized pipette with fluid.svg");
@@ -317,6 +317,7 @@ function state2() {
             if (state == 2) {
                 gameState++;
                 state3();
+                state++;
             }
         },
         ondropdeactivate: function (event) {
@@ -360,11 +361,13 @@ function state3() {
                 $("#tube2Pos").css("top", $("#cube").position().top / $("#part2").height() * 100 + 1 + "%");
                 $(event.relatedTarget).css("transform", "");
             }
+
             event.relatedTarget.setAttribute("data-x", "0");
             event.relatedTarget.setAttribute("data-y", "0");
-            gameState++;
             if (event.relatedTarget.getAttribute("data-state") == "2") {
                 event.relatedTarget.setAttribute("data-state", "3");
+
+                gameState++;
             }
         },
         ondropdeactivate: function (event) {
@@ -454,8 +457,9 @@ function state3() {
 function state4() {
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.loop', // Require a 75% element overlap for a drop to be possible
-        overlap: 0.05, // listen for drop related events:
+        accept: '.loop',
+        overlap: 0.05,
+        // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
@@ -486,7 +490,7 @@ function state4() {
             event.target.classList.remove('drop-target');
         }
     });
-//testing
+    //testing
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop', // Require a 75% element overlap for a drop to be possible
@@ -499,6 +503,7 @@ function state4() {
 
                 gameState++;
                 $(event.relatedTarget).hide();
+                state5();
             }
         },
     });
@@ -506,6 +511,71 @@ function state4() {
     $(".tube").click(function (event) {
         event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid.svg");
     });
+
+}
+
+function state5() {
+    $("#cubeWithTubes").show();
+    $(".origin").hide();
+    interact('#cubeWithTubes').draggable({
+        // enable inertial throwing
+        inertia: false, // keep the element within the area of it's parent
+        restrict: {
+            restriction: "#part2",
+            endOnly: true,
+            elementRect: {
+                top: 0,
+                left: 0,
+                bottom: 1,
+                right: 1
+            }
+        }, // enable autoScroll
+        autoScroll: true, // call this function on every dragmove event
+        onmove: dragMoveListener, // call this function on every dragend event
+        onend: function (event) {
+            var textEl = event.target.querySelector('p');
+            textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+        }
+    });
+
+    interact('#waterBath1').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '#cubeWithTubes', // Require a 75% element overlap for a drop to be possible
+        overlap: 0.10, // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+        },
+        ondragenter: function (event) {
+            var draggableElement = event.relatedTarget,
+                dropzoneElement = event.target;
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+            $("#waterBath2").css("animation", "waterBathRight 1s forwards");
+            $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
+        },
+        ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        },
+        ondrop: function (event) {
+            $(event.relatedTarget).hide();
+            $("#tubeInWaterbath").show();
+            $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
+            $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
+            
+            
+        },
+        ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+        }
+    });
+
+
 
 }
 window.setInterval(function () {

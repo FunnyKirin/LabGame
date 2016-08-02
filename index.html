@@ -76,12 +76,22 @@
     </div>
     <div id="part2" class="main" style="display: none;">
         <img id="table" src="pictures/0001.png" />
-        <img id="cubeTop" class="cubeTop" src="pictures/cubetop.svg" />
-        <div id="tube1Pos" class="tubeItem" data-state="0">
+
+        <div hidden id="tubeInWaterbath">
+            <img id="WBTube1" src="pictures/closed centrifuge tube with fluid.svg" />
+            <img id="WBTube2" src="pictures/closed centrifuge tube with fluid.svg" />
+        </div>
+
+        <img id="waterBath1" src="pictures/water bath1.svg" />
+        <img id="waterBath2" src="pictures/water bath2.svg" />
+        <img id="waterBath3" src="pictures/water bath3.svg" />
+
+        <img id="cubeTop" class="cubeTop origin" src="pictures/cubetop.svg" />
+        <div id="tube1Pos" class="tubeItem origin" data-state="0">
             <img id="tube1" class="tube" src="pictures/open centrifuge tube without fluid.svg" />
             <label id='nameDisplay'></label>
         </div>
-        <div id="tube2Pos" class="tubeItem" data-state="0">
+        <div id="tube2Pos" class="tubeItem origin" data-state="0">
             <img id="tube2" class="tube" src="pictures/open centrifuge tube without fluid.svg" />
         </div>
         <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" />
@@ -97,7 +107,15 @@
         <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" />
         <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" />
         <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" />
-        <img id="cube" class="cube" src="pictures/cube.svg" />
+        <img id="cube" class="cube origin" src="pictures/cube.svg" />
+        <div hidden id="cubeWithTubes">
+            <img id="CWTcubeTop" src="pictures/cubetop.svg" />
+            <img id="CWTTube1" src="pictures/closed centrifuge tube with fluid.svg" />
+            <img id="CWTTube2" src="pictures/closed centrifuge tube with fluid.svg" />
+            <img id="CWTcube" src="pictures/cube.svg" />
+
+        </div>
+
     </div>
     <form>
         <input type='text' id='nameField' style="display: none;">

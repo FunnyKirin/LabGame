@@ -82,7 +82,7 @@
     background-color: #e8e9e8;
 }
 
-.starterPlate{
+.starterPlate {
     position: absolute;
     top: 35%;
     left: 25%;
@@ -185,4 +185,128 @@
     position: absolute;
     left: 50%;
     top: 50%;
+}
+
+#waterBath1 {
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    width: auto;
+    height: 20%;
+}
+
+#waterBath2 {
+    position: absolute;
+    left: 81.3%;
+    top: 45.5%;
+    width: auto;
+    height: 4.8%;
+}
+
+#waterBath3 {
+    position: absolute;
+    left: 72.9%;
+    top: 46.3%;
+    width: auto;
+    height: 4%;
+}
+
+@keyframes waterBathLeft {
+    0% {
+        left: 72.9%;
+    }
+    100% {
+        left: 68%
+    }
+}
+
+@keyframes waterBathRight {
+    0% {
+        left: 81.3%;
+    }
+    100% {
+        left: 86%
+    }
+}
+
+@keyframes waterBathLeft2 {
+    0% {
+        left: 68%
+    }
+    100% {
+        left: 72.9%;
+    }
+}
+
+@keyframes waterBathRight2 {
+    0% {
+        left: 86%
+    }
+    100% {
+        left: 81.3%;
+    }
+}
+
+#cubeWithTubes {
+    position: absolute;
+    left: 47%;
+    top: 50%;
+    width: 20%;
+    height: 20%;
+}
+
+#CWTcubeTop {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 15%;
+    top: 0%;
+}
+
+#CWTTube1 {
+    position: absolute;
+    width: auto;
+    height: 59%;
+    left: 25%;
+    top: 7.4%;
+}
+
+#CWTTube2 {
+    position: absolute;
+    width: auto;
+    height: 59%;
+    left: 55%;
+    top: 7.4%;
+}
+
+#CWTcube {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 15%;
+    top: 0%;
+}
+
+#tubeInWaterbath {
+    position: absolute;
+    left: 76%;
+    top: 48%;
+    width: 10%;
+    height: 10%;
+}
+
+#WBTube1 {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 10%;
+    top: 5%;
+}
+
+#WBTube2 {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 5%;
 }
