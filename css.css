@@ -311,8 +311,32 @@
     top: 5%;
 }
 
-#BrothContainer{
-        position: absolute;
+#BrothContainer {
+    position: absolute;
     left: 10%;
     top: 50%;
+}
+
+#IceboxTube1 {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 10%;
+    top: 5%;
+}
+
+#IceboxTube2 {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 70%;
+    top: 5%;
+}
+
+#tubeInIcebox {
+    position: absolute;
+    left: 55%;
+    top: 28%;
+    width: 10%;
+    height: 10%;
 }

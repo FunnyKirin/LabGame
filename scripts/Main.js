@@ -3,7 +3,7 @@
 //boolean for checking correct answer
 //-1 for no answer, 0 for incorrect answer and 1 for correct answer
 $(document).ready(function () {});
-selectPractice();
+
 $('#tube1').click(function (e) {
     $("#nameField").show();
 });
@@ -99,7 +99,7 @@ function backToMenu() {
     $("#selectPanel").show();
 }
 //paractice mode
-
+state5();
 var gameState = 1;
 var tube = 0;
 var pipetteFluid = false;
@@ -552,21 +552,21 @@ function state5() {
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-            $("#waterBath2").css("animation", "waterBathRight 1s forwards");
-            $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
+            openWaterBath();
         },
         ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
+            closeWaterBath();
         },
         ondrop: function (event) {
-            $(event.relatedTarget).hide();
-            $("#tubeInWaterbath").show();
-            $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
-            $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
-            
-            
+            $(event.relatedTarget).hide(1000, function(){$("#tubeInWaterbath").show()});
+            closeWaterBath()
+            setTimeout(openWaterBath, 2500);
+            setTimeout(function(){$("#tubeInWaterbath").hide()}, 3000);
+            setTimeout(function(){$(event.relatedTarget).show(1000)},3000);
+            state6();
         },
         ondropdeactivate: function (event) {
             // remove active dropzone feedback
@@ -574,10 +574,33 @@ function state5() {
             event.target.classList.remove('drop-target');
         }
     });
-
-
-
 }
+
+function state6(){
+    interact('#icebox').dropzone({
+        accept: "#cubeWithTubes",
+        ondrop: function(event){
+            
+            $(event.relatedTarget).hide(1000, function(){$("#tubeInIcebox").show()});
+            setTimeout(function(){
+                $("#tubeInIcebox").hide();
+                $(event.relatedTarget).show(1000);
+            },2000);
+        }
+    });
+}
+                                     
+function openWaterBath(){
+        
+            $("#waterBath2").css("animation", "waterBathRight 1s forwards");
+            $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
+    }
+function closeWaterBath(){
+    
+            $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
+            $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
+}
+                                     
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
 }, 500);
