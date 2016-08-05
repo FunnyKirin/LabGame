@@ -340,3 +340,11 @@
     width: 10%;
     height: 10%;
 }
+
+#showAnswer{
+    position: fixed;
+    left: 35%;
+    top: 40%;
+    border : 10px solid #abcdef;
+    width: 27%;
+}

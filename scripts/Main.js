@@ -11,6 +11,9 @@ $('#nameField').bind('keydown keyup keypress', function () {
     $('#nameDisplay').html(this.value);
 });
 //Select Panel
+
+selectIntro();
+
 $('#introSelectButton').click(function () {
     selectIntro();
 });
@@ -28,10 +31,13 @@ function selectPractice() {
     $("#part2").show();
     setupTable();
 }
+
+
+
 $(".answer").on('mouseover', function () {
     $(this).css('background-color', 'yellow');
     var number = $(this).attr("data-pic");
-    $("#displayImg").attr("src", "pictures/" + number + ".PNG");
+    $("#answerImg").attr("src", "pictures/" + number + ".PNG");
     if ($(this).attr("id") == "answer1") {}
 }).mouseout(function () {
     $(this).css('background-color', 'white');
@@ -41,7 +47,6 @@ $("#backFromIntro").click(function () {
     backToMenu();
 })
 var answer = false;
-
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -49,13 +54,17 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
+
 //drop event handler
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     var dropElement = document.getElementById(data);
     //check drop position
-    ev.target.appendChild(dropElement);
+    if (ev.target.className == "position"&&$(ev.target).children().length ==0 ) {
+        ev.target.appendChild(dropElement);
+        
+    }
     //if all correct -> go to next part, otherwise restart
     for (i = 1; i <= 12; i++) {
         if ($("#answer" + i).parent().attr("id") == "position" + i) {
@@ -561,11 +570,17 @@ function state5() {
             closeWaterBath();
         },
         ondrop: function (event) {
-            $(event.relatedTarget).hide(1000, function(){$("#tubeInWaterbath").show()});
+            $(event.relatedTarget).hide(1000, function () {
+                $("#tubeInWaterbath").show()
+            });
             closeWaterBath()
             setTimeout(openWaterBath, 2500);
-            setTimeout(function(){$("#tubeInWaterbath").hide()}, 3000);
-            setTimeout(function(){$(event.relatedTarget).show(1000)},3000);
+            setTimeout(function () {
+                $("#tubeInWaterbath").hide()
+            }, 3000);
+            setTimeout(function () {
+                $(event.relatedTarget).show(1000)
+            }, 3000);
             state6();
         },
         ondropdeactivate: function (event) {
@@ -576,31 +591,34 @@ function state5() {
     });
 }
 
-function state6(){
+function state6() {
     interact('#icebox').dropzone({
         accept: "#cubeWithTubes",
-        ondrop: function(event){
-            
-            $(event.relatedTarget).hide(1000, function(){$("#tubeInIcebox").show()});
-            setTimeout(function(){
+        ondrop: function (event) {
+
+            $(event.relatedTarget).hide(1000, function () {
+                $("#tubeInIcebox").show()
+            });
+            setTimeout(function () {
                 $("#tubeInIcebox").hide();
                 $(event.relatedTarget).show(1000);
-            },2000);
+            }, 2000);
         }
     });
 }
-                                     
-function openWaterBath(){
-        
-            $("#waterBath2").css("animation", "waterBathRight 1s forwards");
-            $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
-    }
-function closeWaterBath(){
-    
-            $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
-            $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
+
+function openWaterBath() {
+
+    $("#waterBath2").css("animation", "waterBathRight 1s forwards");
+    $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
 }
-                                     
+
+function closeWaterBath() {
+
+    $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
+    $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
+}
+
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
 }, 500);
