@@ -17,64 +17,55 @@
         </div>
     </div>
     <div id="part1" class="main" style="display: none;">
-        <div>
-            <h1 id="header">Introduction</h1>
-            <input id="backFromIntro" type="button" value="Back" />
+        <div id="answerDiv">
+
+            <div class="answer" id="answer2" data-answer="2" data-pic="02">
+                <img class="answerIcon" src="pictures/p02.PNG" />
+            </div>
+            <div class="answer" id="answer1" data-answer="1" data-pic="01">
+                <img class="answerIcon" src="pictures/p01.PNG" align="middle">
+            </div>
+            <div class="answer" id="answer3" data-answer="3" data-pic="03">
+                <img class="answerIcon" src="pictures/p03.PNG" />
+
+            </div>
+            <div class="answer" id="answer4" data-answer="4" data-pic="04">
+                <img class="answerIcon" src="pictures/p04.PNG" />
+            </div>
+            <div class="answer" id="answer5" data-answer="5" data-pic="05">
+                <img class="answerIcon" src="pictures/p05.PNG" />
+            </div>
+            <div class="answer" id="answer6" data-answer="6" data-pic="06">
+                <img class="answerIcon" src="pictures/p06.PNG" />
+            </div>
+            <div class="answer" id="answer7" data-answer="7" data-pic="07">
+                <img class="answerIcon" src="pictures/p07.PNG" />
+            </div>
+            <div class="answer" id="answer8" data-answer="8" data-pic="08">
+                <img class="answerIcon" src="pictures/p08.PNG" />
+            </div>
+            <div class="answer" id="answer9" data-answer="9" data-pic="09">
+                <img class="answerIcon" src="pictures/p09.PNG" />
+            </div>
+            <div class="answer" id="answer10" data-answer="10" data-pic="10">
+                <img class="answerIcon" src="pictures/p10.PNG" />
+            </div>
+            <div class="answer" id="answer11" data-answer="11" data-pic="11">
+                <img class="answerIcon" src="pictures/p11.PNG" />
+            </div>
+            <div class="answer" id="answer12" data-answer="12" data-pic="12">
+                <img class="answerIcon" src="pictures/p12.PNG" />
+            </div>
+
         </div>
-        <div id="positions" class="positionsLocation">
-            <div class="position" id="position1" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 1 </div>
-            <div class="position" id="position2" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 2 </div>
-            <div class="position" id="position3" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 3 </div>
-            <div class="position" id="position4" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 4 </div>
-            <div class="position" id="position5" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 5 </div>
-            <div class="position" id="position6" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 6 </div>
-            <div class="position" id="position7" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 7 </div>
-            <div class="position" id="position8" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 8 </div>
-            <div class="position" id="position9" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 9 </div>
-            <div class="position" id="position10" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 10 </div>
-            <div class="position" id="position11" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 11 </div>
-            <div class="position" id="position12" ondrop="drop(event)" ondragover="allowDrop(event)"> Step 12 </div>
+        <div id="showAnswer">
+            <img id="answerImg">
         </div>
-        <div class="answerDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="answer" id="answer1" draggable="true" ondragstart="drag(event)" data-answer="1" data-pic="01">
-                <p>Step 1</p>
-            </div>
-            <div class="answer" id="answer2" draggable="true" ondragstart="drag(event)" data-answer="2" data-pic="02">
-                <p>Step 2</p>
-            </div>
-            <div class="answer" id="answer3" draggable="true" ondragstart="drag(event)" data-answer="3" data-pic="03">
-                <p>Step 3</p>
-            </div>
-            <div class="answer" id="answer4" draggable="true" ondragstart="drag(event)" data-answer="4" data-pic="04">
-                <p>Step 4</p>
-            </div>
-            <div class="answer" id="answer5" draggable="true" ondragstart="drag(event)" data-answer="5" data-pic="05">
-                <p>Step 5</p>
-            </div>
-            <div class="answer" id="answer6" draggable="true" ondragstart="drag(event)" data-answer="6" data-pic="06">
-                <p>Step 6</p>
-            </div>
-            <div class="answer" id="answer7" draggable="true" ondragstart="drag(event)" data-answer="7" data-pic="07">
-                <p>Step 7</p>
-            </div>
-            <div class="answer" id="answer8" draggable="true" ondragstart="drag(event)" data-answer="8" data-pic="08">
-                <p>Step 8</p>
-            </div>
-            <div class="answer" id="answer9" draggable="true" ondragstart="drag(event)" data-answer="9" data-pic="09">
-                <p>Step 9</p>
-            </div>
-            <div class="answer" id="answer10" draggable="true" ondragstart="drag(event)" data-answer="10" data-pic="10">
-                <p>Step 10</p>
-            </div>
-            <div class="answer" id="answer11" draggable="true" ondragstart="drag(event)" data-answer="11" data-pic="11">
-                <p>Step 11</p>
-            </div>
-            <div class="answer" id="answer12" draggable="true" ondragstart="drag(event)" data-answer="12" data-pic="12">
-                <p>Step 12</p>
-            </div>
-            <div id="showAnswer">
-                <img id="answerImg">
-            </div>
+        
+        <div class="title">
+            <p id="header">Introduction</p>
+            <input id="backFromIntro"  value="Back" alt="back" />
+            
         </div>
     </div>
     <div id="part2" class="main" style="display: none;">
@@ -97,7 +88,7 @@
         <div id="tube2Pos" class="tubeItem origin" data-state="0">
             <img id="tube2" class="tube" src="pictures/open centrifuge tube without fluid.svg" />
         </div>
-        
+
         <div hidden id="tubeInIcebox">
             <img id="IceboxTube1" src="pictures/closed centrifuge tube with fluid.svg" />
             <img id="IceboxTube2" src="pictures/closed centrifuge tube with fluid.svg" />
@@ -112,7 +103,7 @@
         <img id="petriDish4" class="petriDish" src="pictures/control petri dish.svg" />
         <img id="container" class="container" src="pictures/Resized container with fluid.svg" />
         <img id="plasmidContainer" class="container" src="pictures/Resized container with fluid.svg" />
-         <img id="BrothContainer" class="container" src="pictures/Resized container with fluid.svg" />
+        <img id="BrothContainer" class="container" src="pictures/Resized container with fluid.svg" />
         <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" />
         <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" />
         <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" />
@@ -124,11 +115,13 @@
             <img id="CWTcube" src="pictures/cube.svg" />
 
         </div>
+
+        <form>
+            <input type='text' id='nameField' style="display: none;">
+        </form>
+        <div id="debug" class="debug"> </div>
     </div>
-    <form>
-        <input type='text' id='nameField' style="display: none;">
-    </form>
-    <div id="debug" class="debug"> </div>
+    <script src="Sortable.js"></script>
     <script src="interact.js"></script>
     <script src="jquery-1.12.4.min.js"></script>
     <script src="scripts/Main.js"></script>

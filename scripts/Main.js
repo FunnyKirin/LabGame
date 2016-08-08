@@ -32,52 +32,41 @@ function selectPractice() {
     setupTable();
 }
 
+//Intro Mode
+$("#backFromIntro").click(function () {
+    backToMenu();
+})
 
+
+var el = document.getElementById('answerDiv');
+var sortable = Sortable.create(el, {
+    animation: 400,
+    onUpdate: function ( /**Event*/ evt) {
+        evt.oldIndex; // element index within parent
+        if(checkAnswer()){
+            succeed();
+        }
+    }
+});
+
+function checkAnswer() {
+    for (i = 1; i < 12; i++) {
+            if($("#answer"+i).index()!=i-1){
+                return false;
+            }
+    }
+    return true;
+}
 
 $(".answer").on('mouseover', function () {
-    $(this).css('background-color', 'yellow');
     var number = $(this).attr("data-pic");
     $("#answerImg").attr("src", "pictures/" + number + ".PNG");
     if ($(this).attr("id") == "answer1") {}
 }).mouseout(function () {
     $(this).css('background-color', 'white');
 });
-//Intro Mode
-$("#backFromIntro").click(function () {
-    backToMenu();
-})
-var answer = false;
-function allowDrop(ev) {
-    ev.preventDefault();
-}
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
 
-//drop event handler
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    var dropElement = document.getElementById(data);
-    //check drop position
-    if (ev.target.className == "position"&&$(ev.target).children().length ==0 ) {
-        ev.target.appendChild(dropElement);
-        
-    }
-    //if all correct -> go to next part, otherwise restart
-    for (i = 1; i <= 12; i++) {
-        if ($("#answer" + i).parent().attr("id") == "position" + i) {
-            answer = true;
-        } else {
-            answer = false;
-            break;
-        }
-    }
-    if (answer == true) {
-        succeed();
-    }
-}
 
 function succeed() {
     answer = true
