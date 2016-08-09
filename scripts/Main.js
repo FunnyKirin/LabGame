@@ -12,8 +12,6 @@ $('#nameField').bind('keydown keyup keypress', function () {
 });
 //Select Panel
 
-selectIntro();
-
 $('#introSelectButton').click(function () {
     selectIntro();
 });

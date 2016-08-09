@@ -1,26 +1,107 @@
-body {
-    background-color: gainsboro;
+    body {
+    background-color: lightblue;
+}
+
+#selectPanel {
+    position: absolute;
+    top: 6%;
+    left: 0%;
+    height: 88%;
+    width: 100%;
+    background-color: white;
+}
+
+#mainTitle {
+    position: absolute;
+    left: 44%;
+    top: 20%;
+    color: white;
+    font-size: 50px;
+    width: 20%;
+    height: 90px;
+    line-height: 90px;
+}
+
+#subTitle {
+    position: absolute;
+    left: 41.5%;
+    top: 35%;
+    color: white;
+    font-size: 25px;
+    width: 20%;
+    height: 90px;
+    font-family: Arial;
+}
+
+#introSelectButton {
+    position: absolute;
+    background-color: deepskyblue;
+    top: 60%;
+    left: 30%;
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    line-height: 300%;
+}
+
+#practiceSelectButton {
+    position: absolute;
+    background-color: deepskyblue;
+    top: 60%;
+    left: 45%;
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    line-height: 300%;
+}
+
+#advancedSelectButton {
+    position: absolute;
+    background-color: deepskyblue;
+    top: 60%;
+    left: 60%;
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    line-height: 300%;
+}
+
+#bottominfo {
+    position: absolute;
+    bottom: 0%;
+    left: 42%;
+    color: black;
+    font-family: monospace;
+    font-size: 120%;
 }
 
 #part1 {
     position: absolute;
-    top: 4%;
-    left: 2%;
-    height: 92%;
-    width: 94%;
+    top: 6%;
+    left: 0%;
+    height: 88%;
+    width: 100%;
     background-color: white;
+}
+
+#head {
+    top: 0%;
+    left: 2%;
+    position: absolute;
+    height: 15%;
+    width: 97%;
 }
 
 .title {
     position: absolute;
-    height: 8%;
-    width: 12.5%;
+    height: 58%;
+    width: 13.5%;
     display: left;
     flex-direction: row;
-    top: 4%;
-    left: 2%;
+    top: -20%;
+    left: 0%;
     flex-wrap: nowrap;
-    background-color: darkorange;
+    background-color: deepskyblue;
     color: white;
     font-family: Arial;
     font-size: 40px;
@@ -28,31 +109,43 @@ body {
 
 #header {
     position: absolute;
-    left: 5%;
+    left: 8.5%;
     top: -30%;
     width: 18%;
     float: left;
 }
 
+#gameDescription {
+    color: gray;
+    position: absolute;
+    top: 45%;
+    left: 1%;
+    font-size: 20px
+}
+
 #backFromIntro {
     position: absolute;
-    height: 20%;
-    top: 46%;
-    left: 115%;
-    width: 35%;
-    float: left;
-    background-color: darkorange;
+    height: 30%;
+    top: 15%;
+    left: 92.4%;
+    width: 5%;
+    background-color: dimgray;
+    background-blend-mode: color-burn;
+}
+
+.button {
     color: white;
     font-family: Arial;
     font-size: 25px;
-    padding: 5%;
+    padding: 0.2%;
+    cursor: pointer;
 }
 
 #answerDiv {
     position: absolute;
     left: 2%;
-    top: 17%;
-    height: 75%;
+    top: 15%;
+    height: 82%;
     width: 53%;
     background-color: antiquewhite;
 }
@@ -65,28 +158,28 @@ body {
     padding: 0.5%;
     border: 5px solid #abcdef;
     margin: 1.6%;
-    margin-top: 3.5%;
-    background-color: white
+    margin-top: 3%;
+    background-color: white;
+    cursor: pointer;
 }
 
 #showAnswer {
     position: relative;
     left: 57.5%;
-    top: 17%;
-    height: 73%;
+    top: 14.8%;
+    height: 80%;
     border: 10px solid #abcdef;
     width: 38%;
 }
 
 #answerImg {
     max-width: 98%;
-    min-width: 98%;
+    min-width: 96%;
     top: 0.5%;
-    left: 1%;
+    left: 2%;
     margin: auto;
     display: block;
     position: absolute;
-    
 }
 
 .answerIcon {
@@ -411,4 +504,25 @@ body {
     top: 28%;
     width: 10%;
     height: 10%;
+}
+.gradient-pattern {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -webkit-linear-gradient(0deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(0deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), -webkit-linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
+  background: -moz-linear-gradient(90deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), -moz-linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
+  background: linear-gradient(90deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), linear-gradient(90deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
+  background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
 }

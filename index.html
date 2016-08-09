@@ -8,14 +8,23 @@
 </head>
 
 <body>
+
     <div id="select" class="main">
         <div id="selectPanel">
-            <h2>Choose Game Mode</h2>
-            <input id="introSelectButton" type="button" value="Intro" />
-            <input id="practiceSelectButton" type="button" value="Practice" />
-            <input id="advancedSelectButton" type="button" value="Advanced" />
+            <div class="gradient-pattern"></div>
+            <div id="mainTitle">
+                Virtual Lab
+            </div>
+            <div id="subTitle">
+               pGLO Bacterial Transformation
+            </div>
+            <div id="introSelectButton" class="button">Intro</div>
+            <div id="practiceSelectButton" class="button">Practice</div>
+            <div id="advancedSelectButton" class="button">Advanced</div>
+
         </div>
     </div>
+    <p id="bottominfo">Stony Brook University Virtual Lab</p>
     <div id="part1" class="main" style="display: none;">
         <div id="answerDiv">
 
@@ -61,12 +70,15 @@
         <div id="showAnswer">
             <img id="answerImg">
         </div>
-        
-        <div class="title">
-            <p id="header">Introduction</p>
-            <input id="backFromIntro"  value="Back" alt="back" />
-            
+
+        <div id="head">
+            <div class="title">
+                <p id="header">Introduction</p>
+            </div>
+            <input id="backFromIntro" class="button" type="button" value="back" />
+            <p id="gameDescription">Place steps in the correct order. ~!@#$@!# someone write this for me plz.</p>
         </div>
+
     </div>
     <div id="part2" class="main" style="display: none;">
         <img id="table" src="pictures/0001.png" />
