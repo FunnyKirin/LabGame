@@ -1,528 +1,535 @@
     body {
-    background-color: lightblue;
-}
-
-#selectPanel {
-    position: absolute;
-    top: 6%;
-    left: 0%;
-    height: 88%;
-    width: 100%;
-    background-color: white;
-}
-
-#mainTitle {
-    position: absolute;
-    left: 44%;
-    top: 20%;
-    color: white;
-    font-size: 50px;
-    width: 20%;
-    height: 90px;
-    line-height: 90px;
-}
-
-#subTitle {
-    position: absolute;
-    left: 41.5%;
-    top: 35%;
-    color: white;
-    font-size: 25px;
-    width: 20%;
-    height: 90px;
-    font-family: Arial;
-}
-
-#introSelectButton {
-    position: absolute;
-    background-color: deepskyblue;
-    top: 60%;
-    left: 30%;
-    height: 10%;
-    width: 10%;
-    text-align: center;
-    line-height: 300%;
-}
-
-#practiceSelectButton {
-    position: absolute;
-    background-color: deepskyblue;
-    top: 60%;
-    left: 45%;
-    height: 10%;
-    width: 10%;
-    text-align: center;
-    line-height: 300%;
-}
-
-#advancedSelectButton {
-    position: absolute;
-    background-color: deepskyblue;
-    top: 60%;
-    left: 60%;
-    height: 10%;
-    width: 10%;
-    text-align: center;
-    line-height: 300%;
-}
-
-#bottominfo {
-    position: absolute;
-    bottom: 0%;
-    left: 42%;
-    color: black;
-    font-family: monospace;
-    font-size: 120%;
-}
-
-#part1 {
-    position: absolute;
-    top: 6%;
-    left: 0%;
-    height: 88%;
-    width: 100%;
-    background-color: white;
-}
-
-#head {
-    top: 0%;
-    left: 2%;
-    position: absolute;
-    height: 15%;
-    width: 97%;
-}
-
-.title {
-    position: absolute;
-    height: 58%;
-    width: 13.5%;
-    display: left;
-    flex-direction: row;
-    top: -20%;
-    left: 0%;
-    flex-wrap: nowrap;
-    background-color: deepskyblue;
-    color: white;
-    font-family: Arial;
-    font-size: 40px;
-}
-
-#header {
-    position: absolute;
-    left: 8.5%;
-    top: -30%;
-    width: 18%;
-    float: left;
-}
-
-#gameDescription {
-    color: gray;
-    position: absolute;
-    top: 45%;
-    left: 1%;
-    font-size: 20px
-}
-
-#backFromIntro {
-    position: absolute;
-    height: 30%;
-    top: 15%;
-    left: 92.4%;
-    width: 5%;
-    background-color: dimgray;
-    background-blend-mode: color-burn;
-}
-
-.button {
-    color: white;
-    font-family: Arial;
-    font-size: 25px;
-    padding: 0.2%;
-    cursor: pointer;
-}
-
-#answerDiv {
-    position: absolute;
-    left: 2%;
-    top: 15%;
-    height: 82%;
-    width: 53%;
-    background-color: antiquewhite;
-}
-
-.answer {
-    position: relative;
-    float: left;
-    height: 23%;
-    width: 19.7%;
-    padding: 0.5%;
-    border: 5px solid #abcdef;
-    margin: 1.6%;
-    margin-top: 3%;
-    background-color: white;
-    cursor: pointer;
-}
-
-#showAnswer {
-    position: relative;
-    left: 57.5%;
-    top: 14.8%;
-    height: 80%;
-    border: 10px solid #abcdef;
-    width: 38%;
-}
-
-#answerImg {
-    max-width: 98%;
-    min-width: 96%;
-    top: 0.5%;
-    left: 2%;
-    margin: auto;
-    display: block;
-    position: absolute;
-}
-
-.answerIcon {
-    max-width: 100%;
-    min-height: 100%;
-    margin: auto;
-    display: block;
-    object-fit: scale-down;
-}
-
-#display {
-    margin: auto;
-    width: 600px;
-    height: auto;
-    border: 3px solid #73AD21;
-    padding: 10px;
-    background-color: #eeeeee;
-}
-
-.tube {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-.pipet {
-    width: auto;
-    height: 6%;
-    position: absolute;
-    left: 45.5%;
-    top: 60%;
-}
-
-.container {
-    width: auto;
-    height: 25%;
-    position: absolute;
-}
-
-#container {
-    left: 35%;
-    top: 50%;
-}
-
-#plasmidContainer {
-    left: 22.5%;
-    top: 50%;
-}
-
-.pipette {
-    width: auto;
-    height: 50%;
-    position: absolute;
-    left: 2%;
-    top: 2%;
-}
-
-#part2 {
-    top: 5%;
-    left: 10%;
-    width: 70%;
-    height: 90%;
-    position: absolute;
-    vertical-align: top;
-    background-color: #e8e9e8;
-}
-
-.starterPlate {
-    position: absolute;
-    top: 35%;
-    left: 25%;
-}
-
-.petriDish {
-    width: auto;
-    height: 12%;
-    position: absolute;
-}
-
-#petriDish1 {
-    left: 15%;
-    top: 78%;
-}
-
-#petriDish2 {
-    left: 32%;
-    top: 78%;
-}
-
-#petriDish3 {
-    left: 49%;
-    top: 78%;
-}
-
-#petriDish4 {
-    left: 66%;
-    top: 78%;
-}
-
-#debug {
-    position: absolute;
-    left: 70%;
-    width: 200px;
-    padding: 10px;
-    border: 10px solid navy;
-    margin: 50px;
-}
-
-#table {
-    position: absolute;
-    top: -10%;
-    width: 100%;
-    height: 150%;
-    pointer-events: none;
-}
-
-#icebox {
-    position: absolute;
-    height: 15%;
-    top: 30%;
-    left: 50%;
-    opacity: 1;
-    pointer-events: none;
-}
-
-#tube1Pos {
-    position: absolute;
-    left: 60%;
-    top: 60%;
-    width: 12%;
-    height: 12%;
-}
-
-#nameDisplay {
-    position: absolute;
-    left: 60%;
-    top: 40%;
-}
-
-#tube2Pos {
-    position: absolute;
-    left: 43%;
-    top: 60%;
-    width: 12%;
-    height: 12%;
-}
-
-.loop {
-    position: absolute;
-    top: 2%;
-    left: 7%;
-    width: auto;
-    height: 50%;
-}
-
-.cube {
-    width: auto;
-    height: 20%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    pointer-events: none;
-}
-
-.cubeTop {
-    width: auto;
-    height: 20%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}
-
-#waterBath1 {
-    position: absolute;
-    left: 70%;
-    top: 50%;
-    width: auto;
-    height: 20%;
-}
-
-#waterBath2 {
-    position: absolute;
-    left: 81.3%;
-    top: 45.5%;
-    width: auto;
-    height: 4.8%;
-}
-
-#waterBath3 {
-    position: absolute;
-    left: 72.9%;
-    top: 46.3%;
-    width: auto;
-    height: 4%;
-}
-
-@keyframes waterBathLeft {
-    0% {
-        left: 72.9%;
+        background-color: lightblue;
     }
-    100% {
-        left: 68%
+    
+    #selectPanel {
+        position: absolute;
+        top: 6%;
+        left: 0%;
+        height: 88%;
+        width: 100%;
+        background-color: white;
     }
-}
-
-@keyframes waterBathRight {
-    0% {
+    
+    #mainTitle {
+        position: absolute;
+        left: 44%;
+        top: 20%;
+        color: white;
+        font-size: 50px;
+        width: 20%;
+        height: 90px;
+        line-height: 90px;
+    }
+    
+    #subTitle {
+        position: absolute;
+        left: 41.5%;
+        top: 35%;
+        color: white;
+        font-size: 25px;
+        width: 20%;
+        height: 90px;
+        font-family: Arial;
+    }
+    
+    #introSelectButton {
+        position: absolute;
+        background-color: deepskyblue;
+        top: 60%;
+        left: 30%;
+        height: 10%;
+        width: 10%;
+        text-align: center;        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #practiceSelectButton {
+        position: absolute;
+        background-color: deepskyblue;
+        top: 60%;
+        left: 45%;
+        height: 10%;
+        width: 10%;
+        text-align: center;        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #advancedSelectButton {
+        position: absolute;
+        background-color: deepskyblue;
+        top: 60%;
+        left: 60%;
+        height: 10%;
+        width: 10%;
+        text-align: center;
+                text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #bottominfo {
+        position: absolute;
+        bottom: 0%;
+        left: 42%;
+        color: black;
+        font-family: monospace;
+        font-size: 120%;
+    }
+    
+    #part1 {
+        position: absolute;
+        top: 6%;
+        left: 0%;
+        height: 88%;
+        width: 100%;
+        background-color: white;
+    }
+    
+    #head {
+        top: 0%;
+        left: 2%;
+        position: absolute;
+        height: 15%;
+        width: 97%;
+    }
+    
+    .title {
+        position: absolute;
+        height: 58%;
+        width: 13.5%;
+        flex-direction: row;
+        top: -20%;
+        left: 0%;
+        flex-wrap: nowrap;
+        background-color: deepskyblue;
+        color: white;
+        font-family: Arial;
+        font-size: 40px;
+        
+        /*
+        to put text center of div, very important
+        */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #gameDescription {
+        color: gray;
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        font-size: 20px
+    }
+    
+    #backFromIntro {
+        position: absolute;
+        height: 30%;
+        top: 15%;
+        left: 92.4%;
+        width: 5%;
+        background-color: dimgray;
+        background-blend-mode: color-burn;
+    }
+    
+    .button {
+        color: white;
+        font-family: Arial;
+        font-size: 25px;
+        padding: 0.2%;
+        cursor: pointer;
+    }
+    
+    #answerDiv {
+        position: absolute;
+        left: 2%;
+        top: 15%;
+        height: 82%;
+        width: 53%;
+        background-color: antiquewhite;
+    }
+    
+    .answer {
+        position: relative;
+        float: left;
+        height: 23%;
+        width: 19.7%;
+        padding: 0.5%;
+        border: 5px solid #abcdef;
+        margin: 1.6%;
+        margin-top: 3%;
+        background-color: white;
+        cursor: pointer;
+    }
+    
+    #showAnswer {
+        position: relative;
+        left: 57.5%;
+        top: 14.8%;
+        height: 80%;
+        border: 10px solid #abcdef;
+        width: 38%;
+    }
+    
+    #answerImg {
+        max-width: 98%;
+        min-width: 96%;
+        top: 0.5%;
+        left: 2%;
+        margin: auto;
+        display: block;
+        position: absolute;
+    }
+    
+    .answerIcon {
+        max-width: 100%;
+        min-height: 100%;
+        margin: auto;
+        display: block;
+        object-fit: scale-down;
+    }
+    
+    #display {
+        margin: auto;
+        width: 600px;
+        height: auto;
+        border: 3px solid #73AD21;
+        padding: 10px;
+        background-color: #eeeeee;
+    }
+    
+    .tube {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    
+    .pipet {
+        width: auto;
+        height: 6%;
+        position: absolute;
+        left: 45.5%;
+        top: 60%;
+    }
+    
+    .container {
+        width: auto;
+        height: 25%;
+        position: absolute;
+    }
+    
+    #container {
+        left: 35%;
+        top: 50%;
+    }
+    
+    #plasmidContainer {
+        left: 22.5%;
+        top: 50%;
+    }
+    
+    .pipette {
+        width: auto;
+        height: 50%;
+        position: absolute;
+        left: 2%;
+        top: 2%;
+    }
+    
+    #part2 {
+        top: 5%;
+        left: 10%;
+        width: 70%;
+        height: 90%;
+        position: absolute;
+        vertical-align: top;
+        background-color: #e8e9e8;
+    }
+    
+    .starterPlate {
+        position: absolute;
+        top: 35%;
+        left: 25%;
+    }
+    
+    .petriDish {
+        width: auto;
+        height: 12%;
+        position: absolute;
+    }
+    
+    #petriDish1 {
+        left: 15%;
+        top: 78%;
+    }
+    
+    #petriDish2 {
+        left: 32%;
+        top: 78%;
+    }
+    
+    #petriDish3 {
+        left: 49%;
+        top: 78%;
+    }
+    
+    #petriDish4 {
+        left: 66%;
+        top: 78%;
+    }
+    
+    #debug {
+        position: absolute;
+        left: 70%;
+        width: 200px;
+        padding: 10px;
+        border: 10px solid navy;
+        margin: 50px;
+    }
+    
+    #table {
+        position: absolute;
+        top: -10%;
+        width: 100%;
+        height: 150%;
+        pointer-events: none;
+    }
+    
+    #icebox {
+        position: absolute;
+        height: 15%;
+        top: 30%;
+        left: 50%;
+        opacity: 1;
+        pointer-events: none;
+    }
+    
+    #tube1Pos {
+        position: absolute;
+        left: 60%;
+        top: 60%;
+        width: 12%;
+        height: 12%;
+    }
+    
+    #nameDisplay {
+        position: absolute;
+        left: 60%;
+        top: 40%;
+    }
+    
+    #tube2Pos {
+        position: absolute;
+        left: 43%;
+        top: 60%;
+        width: 12%;
+        height: 12%;
+    }
+    
+    .loop {
+        position: absolute;
+        top: 2%;
+        left: 7%;
+        width: auto;
+        height: 50%;
+    }
+    
+    .cube {
+        width: auto;
+        height: 20%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        pointer-events: none;
+    }
+    
+    .cubeTop {
+        width: auto;
+        height: 20%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    
+    #waterBath1 {
+        position: absolute;
+        left: 70%;
+        top: 50%;
+        width: auto;
+        height: 20%;
+    }
+    
+    #waterBath2 {
+        position: absolute;
         left: 81.3%;
+        top: 45.5%;
+        width: auto;
+        height: 4.8%;
     }
-    100% {
-        left: 86%
-    }
-}
-
-@keyframes waterBathLeft2 {
-    0% {
-        left: 68%
-    }
-    100% {
+    
+    #waterBath3 {
+        position: absolute;
         left: 72.9%;
+        top: 46.3%;
+        width: auto;
+        height: 4%;
     }
-}
-
-@keyframes waterBathRight2 {
-    0% {
-        left: 86%
+    
+    @keyframes waterBathLeft {
+        0% {
+            left: 72.9%;
+        }
+        100% {
+            left: 68%
+        }
     }
-    100% {
-        left: 81.3%;
+    
+    @keyframes waterBathRight {
+        0% {
+            left: 81.3%;
+        }
+        100% {
+            left: 86%
+        }
     }
-}
-
-#cubeWithTubes {
-    position: absolute;
-    left: 47%;
-    top: 50%;
-    width: 20%;
-    height: 20%;
-}
-
-#CWTcubeTop {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 15%;
-    top: 0%;
-}
-
-#CWTTube1 {
-    position: absolute;
-    width: auto;
-    height: 59%;
-    left: 25%;
-    top: 7.4%;
-}
-
-#CWTTube2 {
-    position: absolute;
-    width: auto;
-    height: 59%;
-    left: 55%;
-    top: 7.4%;
-}
-
-#CWTcube {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 15%;
-    top: 0%;
-}
-
-#tubeInWaterbath {
-    position: absolute;
-    left: 76%;
-    top: 48%;
-    width: 10%;
-    height: 10%;
-}
-
-#WBTube1 {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 10%;
-    top: 5%;
-}
-
-#WBTube2 {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 50%;
-    top: 5%;
-}
-
-#BrothContainer {
-    position: absolute;
-    left: 10%;
-    top: 50%;
-}
-
-#IceboxTube1 {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 10%;
-    top: 5%;
-}
-
-#IceboxTube2 {
-    position: absolute;
-    width: auto;
-    height: 100%;
-    left: 70%;
-    top: 5%;
-}
-
-#tubeInIcebox {
-    position: absolute;
-    left: 55%;
-    top: 28%;
-    width: 10%;
-    height: 10%;
-}
-.gradient-pattern {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 100%;
-  height: 100%;
-  border: none;
-  font: normal 100%/normal Arial, Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: -webkit-linear-gradient(0deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(0deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), -webkit-linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
-  background: -moz-linear-gradient(90deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), -moz-linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
-  background: linear-gradient(90deg, rgba(255,255,255,0.0666667) 50%, rgba(0,0,0,0) 50%), linear-gradient(90deg, rgba(255,255,255,0.129412) 50%, rgba(0,0,0,0) 50%), linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.168627) 50%), linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.188235) 50%), rgba(25,78,114,1);
-  -webkit-background-origin: padding-box;
-  background-origin: padding-box;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
-  background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
-}
+    
+    @keyframes waterBathLeft2 {
+        0% {
+            left: 68%
+        }
+        100% {
+            left: 72.9%;
+        }
+    }
+    
+    @keyframes waterBathRight2 {
+        0% {
+            left: 86%
+        }
+        100% {
+            left: 81.3%;
+        }
+    }
+    
+    #cubeWithTubes {
+        position: absolute;
+        left: 47%;
+        top: 50%;
+        width: 20%;
+        height: 20%;
+    }
+    
+    #CWTcubeTop {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 15%;
+        top: 0%;
+    }
+    
+    #CWTTube1 {
+        position: absolute;
+        width: auto;
+        height: 59%;
+        left: 25%;
+        top: 7.4%;
+    }
+    
+    #CWTTube2 {
+        position: absolute;
+        width: auto;
+        height: 59%;
+        left: 55%;
+        top: 7.4%;
+    }
+    
+    #CWTcube {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 15%;
+        top: 0%;
+    }
+    
+    #tubeInWaterbath {
+        position: absolute;
+        left: 76%;
+        top: 48%;
+        width: 10%;
+        height: 10%;
+    }
+    
+    #WBTube1 {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 10%;
+        top: 5%;
+    }
+    
+    #WBTube2 {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 50%;
+        top: 5%;
+    }
+    
+    #BrothContainer {
+        position: absolute;
+        left: 10%;
+        top: 50%;
+    }
+    
+    #IceboxTube1 {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 10%;
+        top: 5%;
+    }
+    
+    #IceboxTube2 {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 70%;
+        top: 5%;
+    }
+    
+    #tubeInIcebox {
+        position: absolute;
+        left: 55%;
+        top: 28%;
+        width: 10%;
+        height: 10%;
+    }
+    
+    .gradient-pattern {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
+        border: none;
+        font: normal 100%/normal Arial, Helvetica, sans-serif;
+        color: rgb(255, 255, 255);
+        -o-text-overflow: clip;
+        text-overflow: clip;
+        background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.0666667) 50%, rgba(0, 0, 0, 0) 50%), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.129412) 50%, rgba(0, 0, 0, 0) 50%), -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.168627) 50%), -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.188235) 50%), rgba(25, 78, 114, 1);
+        background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0.0666667) 50%, rgba(0, 0, 0, 0) 50%), -moz-linear-gradient(90deg, rgba(255, 255, 255, 0.129412) 50%, rgba(0, 0, 0, 0) 50%), -moz-linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.168627) 50%), -moz-linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.188235) 50%), rgba(25, 78, 114, 1);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.0666667) 50%, rgba(0, 0, 0, 0) 50%), linear-gradient(90deg, rgba(255, 255, 255, 0.129412) 50%, rgba(0, 0, 0, 0) 50%), linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.168627) 50%), linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.188235) 50%), rgba(25, 78, 114, 1);
+        -webkit-background-origin: padding-box;
+        background-origin: padding-box;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
+        background-size: 13px 13px, 29px 29px, 37px 37px, 53px 53px;
+    }
