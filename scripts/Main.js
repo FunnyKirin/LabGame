@@ -212,7 +212,7 @@ function state1() {
             event.relatedTarget.classList.remove('can-drop');
         },
         ondrop: function (event) {
-            if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) $("#pipette1").attr("src", "pictures/Resized pipette with fluid.svg");
+            if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
             pipetteFluid = true;
         },
         ondropdeactivate: function (event) {

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36.455048mm"
+   height="117.75644mm"
+   viewBox="0 0 129.17143 417.24722"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="plasmid DNA container.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="16.45605"
+     inkscape:cy="191.82524"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-299.7,-218.98634)">
+    <rect
+       style="opacity:0.85;fill:#f2f2f2;stroke:#000000;stroke-width:0.37035024;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3336"
+       width="125.94393"
+       height="323.80106"
+       x="302.74231"
+       y="312.24734"
+       rx="0"
+       ry="32.612995" />
+    <rect
+       style="opacity:0.85;fill:#f2f2f2;stroke:none;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4140"
+       width="95.944527"
+       height="91.428574"
+       x="315.97427"
+       y="260.94849"
+       ry="17.950001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.96056539px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 315.61712,276.54113 0,44.81618"
+       id="path4146"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.01068282px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 412.11212,275.27401 -0.1521,43.90154"
+       id="path4148"
+       inkscape:connector-curvature="0" />
+    <rect
+       ry="3.6684482"
+       y="224.03711"
+       x="312.13712"
+       height="46.467018"
+       width="102.53048"
+       id="rect4152"
+       style="opacity:1;fill:#999999;stroke:none;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="opacity:0.85;fill:#f2f2f2;stroke:#000000;stroke-width:0.5029546;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4144"
+       width="128.66847"
+       height="52.159401"
+       x="299.95148"
+       y="223.42535"
+       ry="16.049046" />
+    <rect
+       style="opacity:1;fill:#999999;stroke:none;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4150"
+       width="112.12693"
+       height="8.5862961"
+       x="307.08636"
+       y="218.98634"
+       ry="4.293148" />
+    <rect
+       style="opacity:0.85;fill:#ffff00;stroke:none;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4156"
+       width="124.28571"
+       height="201.42857"
+       x="303.57144"
+       y="367.36221"
+       ry="1.7632855" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.7042408px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="320.40945"
+       y="417.05142"
+       id="text4158"
+       sodipodi:linespacing="125%"
+       transform="scale(0.95990883,1.0417656)"><tspan
+         sodipodi:role="line"
+         id="tspan4160"
+         x="320.40945"
+         y="417.05142">pGLO Plasmid</tspan></text>
+  </g>
+</svg>
