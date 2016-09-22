@@ -9,60 +9,60 @@
 
 <body>
 
-    <div id="select" class="main">
+    <div id="select" class="main screen">
         <div id="selectPanel">
-            <div class="gradient-pattern"></div>
-            <div id="mainTitle">
+            <div class="bluePanel"></div>
+            <div id="mainTitle" class="fs-80">
                 Virtual Lab
             </div>
-            <div id="subTitle">
-               pGLO Bacterial Transformation
+            <div id="subTitle" class="fs-30">
+                pGLO Bacterial Transformation
             </div>
-            <div id="introSelectButton" class="button">Intro</div>
-            <div id="practiceSelectButton" class="button">Practice</div>
-            <div id="advancedSelectButton" class="button">Advanced</div>
+            <div id="introSelectButton" class="button fs-30">Intro</div>
+            <div id="practiceSelectButton" class="button fs-30">Practice</div>
+            <div id="advancedSelectButton" class="button fs-30">Advanced</div>
 
         </div>
     </div>
-    <p id="bottominfo">Stony Brook University Virtual Lab</p>
-    <div id="part1" class="main" style="display: none;">
-        <div id="answerDiv">
+    <p id="bottominfo" class="fs-15">Stony Brook University Virtual Lab</p>
+    <div id="part1" class="main screen" style="display: none;">
+        <div id="answerDiv" class="list-group">
 
-            <div class="answer" id="answer2" data-answer="2" data-pic="02">
+            <div class="answer list-group-item" id="answer2" data-answer="2" data-pic="02">
                 <img class="answerIcon" src="pictures/p02.png" />
             </div>
-            <div class="answer" id="answer1" data-answer="1" data-pic="01">
-                <img class="answerIcon" src="pictures/p01.png" align="middle">
+            <div class="answer list-group-item" id="answer1" data-answer="1" data-pic="01">
+                <img class="answerIcon" src="pictures/p01.png" />
             </div>
-            <div class="answer" id="answer3" data-answer="3" data-pic="03">
+            <div class="answer list-group-item" id="answer3" data-answer="3" data-pic="03">
                 <img class="answerIcon" src="pictures/p03.png" />
 
             </div>
-            <div class="answer" id="answer4" data-answer="4" data-pic="04">
+            <div class="answer list-group-item" id="answer4" data-answer="4" data-pic="04">
                 <img class="answerIcon" src="pictures/p04.png" />
             </div>
-            <div class="answer" id="answer5" data-answer="5" data-pic="05">
+            <div class="answer list-group-item" id="answer5" data-answer="5" data-pic="05">
                 <img class="answerIcon" src="pictures/p05.png" />
             </div>
-            <div class="answer" id="answer6" data-answer="6" data-pic="06">
+            <div class="answer list-group-item" id="answer6" data-answer="6" data-pic="06">
                 <img class="answerIcon" src="pictures/p06.png" />
             </div>
-            <div class="answer" id="answer7" data-answer="7" data-pic="07">
+            <div class="answer list-group-item" id="answer7" data-answer="7" data-pic="07">
                 <img class="answerIcon" src="pictures/p07.png" />
             </div>
-            <div class="answer" id="answer8" data-answer="8" data-pic="08">
+            <div class="answer list-group-item" id="answer8" data-answer="8" data-pic="08">
                 <img class="answerIcon" src="pictures/p08.png" />
             </div>
-            <div class="answer" id="answer9" data-answer="9" data-pic="09">
+            <div class="answer list-group-item" id="answer9" data-answer="9" data-pic="09">
                 <img class="answerIcon" src="pictures/p09.png" />
             </div>
-            <div class="answer" id="answer10" data-answer="10" data-pic="10">
+            <div class="answer list-group-item" id="answer10" data-answer="10" data-pic="10">
                 <img class="answerIcon" src="pictures/p10.png" />
             </div>
-            <div class="answer" id="answer11" data-answer="11" data-pic="11">
+            <div class="answer list-group-item" id="answer11" data-answer="11" data-pic="11">
                 <img class="answerIcon" src="pictures/p11.png" />
             </div>
-            <div class="answer" id="answer12" data-answer="12" data-pic="12">
+            <div class="answer list-group-item" id="answer12" data-answer="12" data-pic="12">
                 <img class="answerIcon" src="pictures/p12.png" />
             </div>
 
@@ -72,70 +72,113 @@
         </div>
 
         <div id="head">
-            <div class="title">
+            <div class="title fs-40">
                 Introduction
             </div>
-            <input id="backFromIntro" class="button" type="button" value="back" />
-            <p id="gameDescription">Place steps in the correct order. ~!@#$@!# someone write this for me plz.</p>
+            <input id="backFromIntro" class="button fs-25" type="button" value="back" />
+            <p id="gameDescription" class="fs-20">Place steps in the correct order. ~!@#$@!# someone write this for me plz.</p>
         </div>
 
     </div>
-    <div id="part2" class="main" style="display: none;">
-        <img id="table" src="pictures/0001.png" />
+    <div id="part2" class="main screen" style="display: none;">
+        <input id="backFromPractice" class="button fs-25" type="button" value="back" />
+        <div id="gameTable">
+            <img id="table" src="pictures/0001.png" />
+            <div hidden id="tubeInWaterbath">
+                <img id="WBTube1" src="pictures/closed centrifuge tube with fluid P.svg" />
+                <img id="WBTube2" src="pictures/closed centrifuge tube with fluid M.svg" />
+            </div>
 
-        <div hidden id="tubeInWaterbath">
-            <img id="WBTube1" src="pictures/closed centrifuge tube with fluid.svg" />
-            <img id="WBTube2" src="pictures/closed centrifuge tube with fluid.svg" />
+            <img id="waterBath1" src="pictures/water bath1.svg" />
+            <img id="waterBath2" src="pictures/water bath2.svg" />
+            <img id="waterBath3" src="pictures/water bath3.svg" />
+
+            <img id="cubeTop" class="cubeTop origin" src="pictures/cubetop.svg" />
+
+            <img id="tube1" class="tube origin" src="pictures/open centrifuge tube without fluid.svg" data-state="-1" />
+
+            <img id="tube2" class="tube origin" src="pictures/open centrifuge tube without fluid.svg" data-state="-1" />
+
+
+            <div hidden id="tubeInIcebox">
+                <img id="IceboxTube1" src="pictures/closed centrifuge tube with fluid P.svg" />
+                <img id="IceboxTube2" src="pictures/closed centrifuge tube with fluid M.svg" />
+            </div>
+            <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" />
+            <img id="pipette1" class="pipette" src="pictures/Resized pipette without fluid.svg" />
+            <img id="pipette2" class="pipette" src="pictures/Resized pipette without fluid.svg" data-state="0"/>
+            <img id="starterPlate" class="starterPlate" src="pictures/control petri dish.svg" />
+            <img id="petriDish1" class="petriDish" src="pictures/control petri dish.svg" data-state="P"/>
+            <img id="petriDish2" class="petriDish" src="pictures/control petri dish.svg" data-state="P"/>
+            <img id="petriDish3" class="petriDish" src="pictures/control petri dish.svg" data-state="M"/>
+            <img id="petriDish4" class="petriDish" src="pictures/control petri dish.svg" data-state="M"/>
+            <img id="container" class="container" src="pictures/Resized container with fluid.svg" />
+            <img id="plasmidContainer" class="container" src="pictures/Resized container with fluid.svg" />
+            <img id="BrothContainer" class="container" src="pictures/Resized container with fluid.svg" />
+            <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" />
+            <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" />
+            <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" />
+            <img id="cube" class="cube origin" src="pictures/cube.svg" />
+            <div hidden id="cubeWithTubes">
+                <img id="CWTcubeTop" src="pictures/cubetop.svg" />
+                <img id="CWTTube1" src="pictures/closed centrifuge tube with fluid P.svg" />
+                <img id="CWTTube2" src="pictures/closed centrifuge tube with fluid M.svg" />
+                <img id="CWTcube" src="pictures/cube.svg" />
+            </div>
+            
+            <div hidden id="penMover">
+                <img  id="pen" class="mover" src="pictures/black-ink-pen.svg">
+            </div>
+
+            <form>
+                <input type='text' id='nameField' style="display: none;">
+            </form>
+            <div id="debug" class="debug"> </div>
         </div>
-
-        <img id="waterBath1" src="pictures/water bath1.svg" />
-        <img id="waterBath2" src="pictures/water bath2.svg" />
-        <img id="waterBath3" src="pictures/water bath3.svg" />
-
-        <img id="cubeTop" class="cubeTop origin" src="pictures/cubetop.svg" />
-        <div id="tube1Pos" class="tubeItem origin" data-state="0">
-            <img id="tube1" class="tube" src="pictures/open centrifuge tube without fluid.svg" />
-            <label id='nameDisplay'></label>
+        <div id="instructionTable">
+            <div id="step1" class="step fs-17">
+                step1 ~!@#$%^&
+            </div>
+            <img id="insPic" src="pictures/01.PNG">
+            <div id="step2" class="step fs-17">
+                step2 ~!@#$%^&
+            </div>
+            <div id="step3" class="step fs-17">
+                step3 ~!@#$%^&
+            </div>
+            <div id="step4" class="step fs-17">
+                step4 ~!@#$%^&
+            </div>
+            <div id="step5" class="step fs-17">
+                step5 ~!@#$%^&
+            </div>
+            <div id="step6" class="step fs-17">
+                step6 ~!@#$%^&
+            </div>
+            <div id="step7" class="step fs-17">
+                step7 ~!@#$%^&
+            </div>
+            <div id="step8" class="step fs-17">
+                step8 ~!@#$%^&
+            </div>
+            <div id="step9" class="step fs-17">
+                step9 ~!@#$%^&
+            </div>
+            <div id="step10" class="step fs-17">
+                step10 ~!@#$%^&
+            </div>
+            <div id="step11" class="step fs-17">
+                step11 ~!@#$%^&
+            </div>
+            <div id="step12" class="step fs-17">
+                step12 ~!@#$%^&
+            </div>
         </div>
-        <div id="tube2Pos" class="tubeItem origin" data-state="0">
-            <img id="tube2" class="tube" src="pictures/open centrifuge tube without fluid.svg" />
-        </div>
-
-        <div hidden id="tubeInIcebox">
-            <img id="IceboxTube1" src="pictures/closed centrifuge tube with fluid.svg" />
-            <img id="IceboxTube2" src="pictures/closed centrifuge tube with fluid.svg" />
-        </div>
-        <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" />
-        <img id="pipette1" class="pipette" src="pictures/Resized pipette without fluid.svg" />
-        <img id="pipette2" class="pipette" src="pictures/Resized pipette without fluid.svg" />
-        <img id="starterPlate" class="starterPlate" src="pictures/control petri dish.svg" />
-        <img id="petriDish1" class="petriDish" src="pictures/control petri dish.svg" />
-        <img id="petriDish2" class="petriDish" src="pictures/control petri dish.svg" />
-        <img id="petriDish3" class="petriDish" src="pictures/control petri dish.svg" />
-        <img id="petriDish4" class="petriDish" src="pictures/control petri dish.svg" />
-        <img id="container" class="container" src="pictures/Resized container with fluid.svg" />
-        <img id="plasmidContainer" class="container" src="pictures/Resized container with fluid.svg" />
-        <img id="BrothContainer" class="container" src="pictures/Resized container with fluid.svg" />
-        <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" />
-        <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" />
-        <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" />
-        <img id="cube" class="cube origin" src="pictures/cube.svg" />
-        <div hidden id="cubeWithTubes">
-            <img id="CWTcubeTop" src="pictures/cubetop.svg" />
-            <img id="CWTTube1" src="pictures/closed centrifuge tube with fluid.svg" />
-            <img id="CWTTube2" src="pictures/closed centrifuge tube with fluid.svg" />
-            <img id="CWTcube" src="pictures/cube.svg" />
-
-        </div>
-
-        <form>
-            <input type='text' id='nameField' style="display: none;">
-        </form>
-        <div id="debug" class="debug"> </div>
     </div>
     <script src="Sortable.js"></script>
     <script src="interact.js"></script>
     <script src="jquery-1.12.4.min.js"></script>
+    <script src="scripts/resize.js"></script>
     <script src="scripts/Main.js"></script>
 </body>
 
