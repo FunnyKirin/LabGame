@@ -122,7 +122,6 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
-
 function state0() {
     var state01 = 0;
     $("#tube1").click(function () {
@@ -818,13 +817,11 @@ function state8() {
 }
 
 function openWaterBath() {
-    $("#waterBath2").css("animation", "waterBathRight 1s forwards");
-    $("#waterBath3").css("animation", "waterBathLeft 1s forwards");
+    $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
 }
 
 function closeWaterBath() {
-    $("#waterBath2").css("animation", "waterBathRight2 1s forwards");
-    $("#waterBath3").css("animation", "waterBathLeft2 1s forwards");
+    $("#waterBath2").css("animation", "waterBathLeft2 1s forwards");
 }
 
 function instruction() {

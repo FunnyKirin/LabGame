@@ -260,14 +260,13 @@ body {
 #container {
     left: 35%;
     top: 55%;
-    
     height: 20%;
 }
 
 #plasmidContainer {
     left: 25.5%;
     top: 55%;
-     height: 20%;
+    height: 20%;
 }
 
 .pipette {
@@ -425,53 +424,36 @@ body {
 
 #waterBath2 {
     position: absolute;
-    left: 81.3%;
+    left: 73.8%;
     top: 45.5%;
     width: auto;
     height: 4.8%;
 }
 
-#waterBath3 {
-    position: absolute;
-    left: 72.9%;
-    top: 46.3%;
-    width: auto;
-    height: 4%;
-}
-
 @keyframes waterBathLeft {
     0% {
-        left: 72.9%;
+        left: 73.8%;
+        top: 45.5%;
+        
     }
     100% {
-        left: 68%
-    }
-}
-
-@keyframes waterBathRight {
-    0% {
-        left: 81.3%;
-    }
-    100% {
-        left: 86%
+        left: 80%;
+        top: 33.5%;
+        
+        transform: rotate(60deg);
     }
 }
 
 @keyframes waterBathLeft2 {
     0% {
-        left: 68%
+        left: 80%;
+        top: 33.5%;
+        
+        transform: rotate(60deg);
     }
     100% {
-        left: 72.9%;
-    }
-}
-
-@keyframes waterBathRight2 {
-    0% {
-        left: 86%
-    }
-    100% {
-        left: 81.3%;
+        left: 73.8%;
+        top: 45.5%;
     }
 }
 
