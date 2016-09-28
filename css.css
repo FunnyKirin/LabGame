@@ -259,12 +259,15 @@ body {
 
 #container {
     left: 35%;
-    top: 50%;
+    top: 55%;
+    
+    height: 20%;
 }
 
 #plasmidContainer {
-    left: 22.5%;
-    top: 50%;
+    left: 25.5%;
+    top: 55%;
+     height: 20%;
 }
 
 .pipette {
@@ -273,6 +276,10 @@ body {
     position: absolute;
     left: 2%;
     top: 2%;
+}
+
+#pipette1 {
+    position: absolute;
 }
 
 #part2 {
@@ -293,8 +300,8 @@ body {
 
 .starterPlate {
     position: absolute;
-    width: 20%;
     height: 12%;
+    width: auto;
     top: 35%;
     left: 25%;
 }
@@ -672,4 +679,23 @@ writing animation
     height: 20%;
     animation-name: moveWords;
     animation-duration: 1s;
+}
+
+#trashBin {
+    position: absolute;
+    height: 35%;
+    width: auto;
+    top: 70%;
+    left: 100%;
+}
+
+@keyframes gotoTrashBin {
+    0% {
+        position: absolute;
+    }
+    100% {
+        position: absolute;
+        top: 70%;
+        left: 100%;
+    }
 }
