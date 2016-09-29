@@ -44,7 +44,6 @@ var sortable = Sortable.create(el, {
     }
 });
 checkOrder();
-
 function checkOrder() {
     for (i = 1; i < 13; i++) {
         if ($("#answer" + i).next().attr("id") == "answer" + (i + 1) || $("#answer" + i).prev().attr("id") == "answer" + (i - 1)) {
@@ -122,7 +121,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
-setTimer(300, 1000);
+//setTimer(300, 1000);
 function state0() {
     var state01 = 0;
     $("#tube1").click(function () {
@@ -372,6 +371,7 @@ function state2() {
             }
             if (state == 2) {
                 gameState++;
+                setTimer(600, 10);
                 state3();
                 state++;
             }
@@ -414,10 +414,10 @@ function state3() {
                 $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
             }
             if (event.relatedTarget.getAttribute("id") == "tube2") {
-                $("#tube2").css("left", "46.5%");
+                $("#tube2").css("lsdseft", "46.5%");
                 $("#tube2").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
-                $("#tube2").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
+                $("#tube2").attr("src", "pictures/closed centrifuge tube with fluid P.svg");
             }
             event.relatedTarget.setAttribute("data-x", "0");
             event.relatedTarget.setAttribute("data-y", "0");
@@ -651,6 +651,7 @@ function state6() {
                 $(".origin").show();
                 $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
                 $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
+                setTimer(120, 10);
                 state7();
             }, 2000);
         }
@@ -899,8 +900,3 @@ function setTimer(duration, speed) {
         }
     }, speed);
 }
-window.onload = function () {
-    var fiveMinutes = 60 * 5
-        , display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
