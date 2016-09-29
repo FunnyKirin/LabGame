@@ -122,6 +122,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
+setTimer(300, 1000);
 function state0() {
     var state01 = 0;
     $("#tube1").click(function () {
@@ -880,3 +881,26 @@ function gotoTrashBin(x) {
         $(x).hide(1000);
     }, 1500);
 }
+
+function setTimer(duration, speed) {
+    $("#timer").show();
+    var timer = duration
+        , minutes, seconds;
+    display = document.querySelector('#timerNumber');
+    var myVar = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = minutes + ":" + seconds;
+        if (--timer < 0) {
+            clearInterval(myVar);
+            $("#timer").hide();
+        }
+    }, speed);
+}
+window.onload = function () {
+    var fiveMinutes = 60 * 5
+        , display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
