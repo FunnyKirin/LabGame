@@ -393,7 +393,7 @@ body {
 .loop {
     position: absolute;
     top: 2%;
-    left: 7%;
+    left: 27%;
     width: auto;
     height: 50%;
 }
@@ -669,16 +669,6 @@ writing animation
     left: 100%;
 }
 
-@keyframes gotoTrashBin {
-    0% {
-        position: absolute;
-    }
-    100% {
-        position: absolute;
-        top: 70%;
-        left: 100%;
-    }
-}
 
 #timer {
     position: absolute;

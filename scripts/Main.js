@@ -44,6 +44,7 @@ var sortable = Sortable.create(el, {
     }
 });
 checkOrder();
+
 function checkOrder() {
     for (i = 1; i < 13; i++) {
         if ($("#answer" + i).next().attr("id") == "answer" + (i + 1) || $("#answer" + i).prev().attr("id") == "answer" + (i - 1)) {
@@ -121,6 +122,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
+
 //setTimer(300, 1000);
 function state0() {
     var state01 = 0;
@@ -258,8 +260,36 @@ function state1() {
                     tubeCounter++;
                     if (tubeCounter == 2) {
                         gameState++;
-                        gotoTrashBin($("#pipette1"));
-                        state2();
+                        interact('#trashBin').dropzone({
+                            // only accept elements matching this CSS selector
+                            accept: '#pipette1', // Require a 75% element overlap for a drop to be possible
+                            overlap: 0.10, // listen for drop related events:
+                            ondropactivate: function (event) {
+                                // add active dropzone feedback
+                                event.target.classList.add('drop-active');
+                            }
+                            , ondragenter: function (event) {
+                                var draggableElement = event.relatedTarget
+                                    , dropzoneElement = event.target;
+                                // feedback the possibility of a drop
+                                dropzoneElement.classList.add('drop-target');
+                                draggableElement.classList.add('can-drop');
+                            }
+                            , ondragleave: function (event) {
+                                // remove the drop feedback style
+                                event.target.classList.remove('drop-target');
+                                event.relatedTarget.classList.remove('can-drop');
+                            }
+                            , ondrop: function (event) {
+                                $(event.relatedTarget).hide();
+                                state2();
+                            }
+                            , ondropdeactivate: function (event) {
+                                // remove active dropzone feedback
+                                event.target.classList.remove('drop-active');
+                                event.target.classList.remove('drop-target');
+                            }
+                        });
                     }
                 }
             }
@@ -877,10 +907,7 @@ window.setInterval(function () {
 }, 500);
 
 function gotoTrashBin(x) {
-    $(x).css('animation', 'gotoTrashBin 2s forwards');
-    setTimeout(function () {
-        $(x).hide(1000);
-    }, 1500);
+    $(x).hide(1000);
 }
 
 function setTimer(duration, speed) {
