@@ -486,6 +486,7 @@ function state3() {
             if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
+                    $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                 }
             }
         }
