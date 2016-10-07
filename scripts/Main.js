@@ -850,6 +850,10 @@ function state8() {
     });
 }
 
+function state9(){
+    $(".plate").onclick(Function(){});
+}
+
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
 }
