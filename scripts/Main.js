@@ -122,7 +122,6 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
-
 //setTimer(300, 1000);
 function state0() {
     var state01 = 0;
@@ -486,7 +485,9 @@ function state3() {
             if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
+                    $("#loop1").css("animation", "loop 1s forwards");
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
+                    $(event.target).attr("src","pictures/starterplate without.svg");
                 }
             }
         }
