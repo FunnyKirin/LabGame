@@ -852,7 +852,14 @@ function state8() {
 }
 function state9() {
 
+<<<<<<< HEAD
 }
+=======
+function state9(){
+    $(".plate").onclick(Function(){});
+}
+
+>>>>>>> origin/master
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
 }

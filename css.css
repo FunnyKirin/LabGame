@@ -687,6 +687,7 @@ writing animation
 
 @keyframes loop{
     0%{
+<<<<<<< HEAD
         transform: rotate(50deg) translate(8vw,0vw);
     }
     40%{
@@ -694,8 +695,19 @@ writing animation
     }
     80%{
         transform: rotate(50deg) translate(8vw,0vw);
+=======
+        transform: rotate(50deg) translate(7vw,-13vw);
+    }
+    40%{
+        transform: rotate(70deg) translate(7vw,-13vw);
+    }
+    80%{
+        transform: rotate(50deg) translate(7vw,-13vw);
+>>>>>>> origin/master
 
     }
-    100%{}
+    100%{
+        transform: translate(7vw, -5vw);
+    }
     
 }
