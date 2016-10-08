@@ -803,6 +803,7 @@ function state8() {
                 counter++;
                 if (counter == 4) {
                     alert("WIN!");
+                    state9();
                 }
             }
         }
@@ -849,7 +850,9 @@ function state8() {
         }
     });
 }
+function state9() {
 
+}
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
 }

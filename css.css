@@ -687,13 +687,13 @@ writing animation
 
 @keyframes loop{
     0%{
-        transform: rotate(50deg) translate(3vw,0vw);
+        transform: rotate(50deg) translate(8vw,0vw);
     }
     40%{
-        transform: rotate(70deg) translate(3vw,0vw);
+        transform: rotate(70deg) translate(8vw,0vw);
     }
     80%{
-        transform: rotate(50deg) translate(3vw,0vw);
+        transform: rotate(50deg) translate(8vw,0vw);
 
     }
     100%{}
