@@ -440,13 +440,13 @@ function state3() {
                 $("#tube1").css("left", "53.5%");
                 $("#tube1").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
-                $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
+                $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
             }
             if (event.relatedTarget.getAttribute("id") == "tube2") {
                 $("#tube2").css("lsdseft", "46.5%");
                 $("#tube2").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
-                $("#tube2").attr("src", "pictures/closed centrifuge tube with fluid P.svg");
+                $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
             }
             event.relatedTarget.setAttribute("data-x", "0");
             event.relatedTarget.setAttribute("data-y", "0");
@@ -850,16 +850,9 @@ function state8() {
         }
     });
 }
-function state9() {
-
-<<<<<<< HEAD
-}
-=======
 function state9(){
-    $(".plate").onclick(Function(){});
 }
 
->>>>>>> origin/master
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
 }
