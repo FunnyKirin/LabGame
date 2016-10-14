@@ -486,6 +486,8 @@ function state3() {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
                     $("#loop1").css("animation", "loop 1s forwards");
+
+                    $("#loop1").finish();
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                     $(event.target).attr("src","pictures/starterplate without.svg");
                 }
