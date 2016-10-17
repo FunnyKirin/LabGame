@@ -701,3 +701,11 @@ writing animation
     }
     
 }
+
+.topview{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    height:50%;
+    width: auto;
+}

@@ -120,7 +120,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state0();
+state9();
 //setTimer(300, 1000);
 function state0() {
     var state01 = 0;
@@ -852,9 +852,41 @@ function state8() {
 }
 
 function state9() {
+    var thisDish;
     $(".petriDish").click(function () {
-        alert("Handler for .click() called.");
+        if ($(this).attr("data-state2") == "0") {
+            $("#topview").show();
+            thisDish = this;
+        }
     });
+    $("#topview").click(function () {
+        var state = $(this).attr("data-state");
+        switch (state) {
+        case "0":
+            $(this).attr("src", "pictures/top%20view%201.svg");
+            $(this).attr("data-state", "1");
+            break;
+        case "1":
+            $(this).attr("src", "pictures/top%20view%202.svg");
+            $(this).attr("data-state", "2");
+            break;
+        case "2":
+            $(this).attr("src", "pictures/top%20view%203.svg");
+            $(this).attr("data-state", "3");
+            break;
+        case "3":
+            $(this).attr("src", "pictures/top%20view%204.svg");
+            $(this).attr("data-state", "4");
+            break;
+        case "4":
+            $(this).hide();
+            $(this).attr("src", "pictures/top%20view%200.svg");
+            $(this).attr("data-state", "0");
+            $(thisDish).attr("src", "pictures/top%20view%204.svg");
+            $(thisDish).attr("data-state2", "1");
+            break;
+        }
+    })
 }
 
 function openWaterBath() {
