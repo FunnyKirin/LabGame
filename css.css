@@ -289,7 +289,6 @@ body {
 
 #gameTable {
     top: -5%;
-
     height: 100%;
     left: 2%;
     width: 71.7%;
@@ -702,4 +701,26 @@ writing animation
     left: 35%;
     height: 50%;
     width: auto;
+}
+
+#messager {
+    position: absolute;
+    top: 88%;
+    left: -3%;
+    width: 97%;
+    height: 10%;
+    padding: 10px;
+    margin: 50px;
+    font-size: 200%;
+}
+
+#rotate {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    width: 20%;
+    height: 5%;
+    padding: 10px;
+    margin: 50px;
+    font-size: 200%;
 }

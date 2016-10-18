@@ -853,6 +853,7 @@ function state8() {
 
 function state9() {
     var thisDish;
+    $("#messager").text("Click petri Dishes to draw e-coli lines on them.");
     $(".petriDish").click(function () {
         if ($(this).attr("data-state2") == "0") {
             $("#topview").show();
