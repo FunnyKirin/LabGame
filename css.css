@@ -716,11 +716,15 @@ writing animation
 
 #rotate {
     position: absolute;
-    top: 5%;
-    left: 40%;
+    top: 3%;
+    left: 39%;
     width: 20%;
-    height: 5%;
+    height: 7%;
     padding: 10px;
     margin: 50px;
     font-size: 200%;
+}
+
+.rotated {
+  transform: rotate(90deg);
 }

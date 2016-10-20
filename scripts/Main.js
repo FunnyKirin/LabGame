@@ -857,6 +857,7 @@ function state9() {
     $(".petriDish").click(function () {
         if ($(this).attr("data-state2") == "0") {
             $("#topview").show();
+            $("#rotate").show();
             thisDish = this;
         }
     });
@@ -868,16 +869,27 @@ function state9() {
             $(this).attr("data-state", "1");
             break;
         case "1":
-            $(this).attr("src", "pictures/top%20view%202.svg");
-            $(this).attr("data-state", "2");
+            if ($(this).attr("data-rotate") == "1") {
+                $(this).attr("src", "pictures/top%20view%202.svg");
+                $(this).attr("data-state", "2");
+                $(this).attr("data-rotate", "0");
+            }
             break;
         case "2":
-            $(this).attr("src", "pictures/top%20view%203.svg");
-            $(this).attr("data-state", "3");
+            if ($(this).attr("data-rotate") == "1") {
+                $(this).attr("src", "pictures/top%20view%203.svg");
+                $(this).attr("data-state", "3");
+                $(this).attr("data-rotate", "0");
+            }
             break;
         case "3":
-            $(this).attr("src", "pictures/top%20view%204.svg");
-            $(this).attr("data-state", "4");
+            if ($(this).attr("data-rotate") == "1") {
+                $(this).attr("src", "pictures/top%20view%204.svg");
+                $(this).attr("data-state", "4");
+                $(this).attr("data-rotate", "0");
+
+                $("#rotate").hide();
+            }
             break;
         case "4":
             $(this).hide();
@@ -885,10 +897,42 @@ function state9() {
             $(this).attr("data-state", "0");
             $(thisDish).attr("src", "pictures/top%20view%204.svg");
             $(thisDish).attr("data-state2", "1");
+            $("#topview").css("transform", "rotate(0deg)");
             break;
+        }
+        var checkValue = 0;
+        $('.petriDish').each(function () {
+            //if statement here
+            // use $(this) to reference the current div in the loop
+            //you can try something like...
+            if ($(this).attr("data-state2") == "1") {
+                checkValue++;
+            }
+        });
+
+
+        if (checkValue == 4) {
+            state10();
+        } else {
+            checkValue = 0;
+        }
+    })
+    var angle = 90;
+    $("#rotate").click(function () {
+        if ($("#topview").attr("data-rotate") == "0") {
+            $("#topview").attr("data-rotate", "1");
+            $("#topview").css("transform", "rotate(" + angle + "deg)");
+            angle += 90;
+            if (angle == 360) {
+                angle = 90;
+            }
         }
     })
 }
+
+function state10()[
+
+]
 
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
