@@ -895,7 +895,7 @@ function state9() {
             $(this).hide();
             $(this).attr("src", "pictures/top%20view%200.svg");
             $(this).attr("data-state", "0");
-            $(thisDish).attr("src", "pictures/top%20view%204.svg");
+            //$(thisDish).attr("src", "pictures/top%20view%204.svg");
             $(thisDish).attr("data-state2", "1");
             $("#topview").css("transform", "rotate(0deg)");
             break;
@@ -930,9 +930,9 @@ function state9() {
     })
 }
 
-function state10()[
+function state10(){
 
-]
+}
 
 function openWaterBath() {
     $("#waterBath2").css("animation", "waterBathLeft 1s forwards");
