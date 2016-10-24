@@ -935,20 +935,29 @@ function state9() {
 }
 
 function state10() {
+
+    var state
     gameState++;
     if (hint == 1) {
         $("#messager").text("Click petri Dishes to stack them");
-        $("#petriDish1").css("animation", "stack1 1s forwards");
-        $("#petriDish2").css("animation", "stack2 1s forwards");
-        $("#petriDish3").css("animation", "stack3 1s forwards");
-        $("#petriDish4").css("animation", "stack4 1s forwards");
-        setTimeout(function () {
-            $(".petriDish").hide();
-            $("#stack").show(1000);
-            $("#messager").text("Click the petri Dishe stack to turn it up side down");
-        }, 1000);
-        $("#stack").click(function(){$(this).css("animation", "upSideDown 1s forwards")})
     }
+    $("#petriDish1").css("animation", "stack1 1s forwards");
+    $("#petriDish2").css("animation", "stack2 1s forwards");
+    $("#petriDish3").css("animation", "stack3 1s forwards");
+    $("#petriDish4").css("animation", "stack4 1s forwards");
+    setTimeout(function () {
+        $(".petriDish").hide();
+        $("#stack").show(1000);
+        if (hint == 1)
+            $("#messager").text("Click the petri Dishe stack to turn it up side down");
+    }, 1000);
+    $("#stack").click(
+        function () {
+            $(this).css("animation", "upSideDown 1s forwards");
+            if (hint == 1)
+                $("#messager").text("Drag the stack into incubator");
+        }
+    )
 }
 
 function openWaterBath() {

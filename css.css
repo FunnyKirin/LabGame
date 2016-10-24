@@ -770,3 +770,10 @@ writing animation
         transform: rotate(180deg)
     }
 }
+#incubator{
+    position: absolute;
+    height: 25%;
+    width: auto;
+    top: 18%;
+    left: 75%;
+}
