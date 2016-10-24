@@ -104,6 +104,7 @@ function backToMenu() {
 var gameState = 0;
 var tube = 0;
 var pipetteFluid = false;
+var hint = 1;
 $("#pipette2").hide();
 
 function setupTable() {
@@ -120,7 +121,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state9();
+state10();
 //setTimer(300, 1000);
 function state0() {
     var state01 = 0;
@@ -852,8 +853,11 @@ function state8() {
 }
 
 function state9() {
+    gameState++;
     var thisDish;
-    $("#messager").text("Click petri Dishes to draw e-coli lines on them.");
+    if (hint == 1) {
+        $("#messager").text("Click petri Dishes to draw e-coli lines on them.");
+    }
     $(".petriDish").click(function () {
         if ($(this).attr("data-state2") == "0") {
             $("#topview").show();
@@ -930,8 +934,21 @@ function state9() {
     })
 }
 
-function state10(){
-
+function state10() {
+    gameState++;
+    if (hint == 1) {
+        $("#messager").text("Click petri Dishes to stack them");
+        $("#petriDish1").css("animation", "stack1 1s forwards");
+        $("#petriDish2").css("animation", "stack2 1s forwards");
+        $("#petriDish3").css("animation", "stack3 1s forwards");
+        $("#petriDish4").css("animation", "stack4 1s forwards");
+        setTimeout(function () {
+            $(".petriDish").hide();
+            $("#stack").show(1000);
+            $("#messager").text("Click the petri Dishe stack to turn it up side down");
+        }, 1000);
+        $("#stack").click(function(){$(this).css("animation", "upSideDown 1s forwards")})
+    }
 }
 
 function openWaterBath() {
