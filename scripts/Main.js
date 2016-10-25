@@ -956,8 +956,14 @@ function state10() {
             $(this).css("animation", "upSideDown 1s forwards");
             if (hint == 1)
                 $("#messager").text("Drag the stack into incubator");
+
+            $("#stack").finish();
+
         }
+
+
     )
+
 }
 
 function openWaterBath() {
