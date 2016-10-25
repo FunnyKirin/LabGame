@@ -1049,37 +1049,37 @@ function instruction() {
     var picSrc = $("#insPic").attr("src");
     switch (gameState) {
     case 1:
-        $("#insPic").attr("src", "pictures/02.png");
+        $("#insPic").attr("src", "pictures/02.PNG");
         break;
     case 2:
-        $("#insPic").attr("src", "pictures/03.png");
+        $("#insPic").attr("src", "pictures/03.PNG");
         break;
     case 3:
-        $("#insPic").attr("src", "pictures/04.png");
+        $("#insPic").attr("src", "pictures/04.PNG");
         break;
     case 6:
-        $("#insPic").attr("src", "pictures/05.png");
+        $("#insPic").attr("src", "pictures/05.PNG");
         break;
     case 8:
-        $("#insPic").attr("src", "pictures/06.png");
+        $("#insPic").attr("src", "pictures/06.PNG");
         break;
         //case 6:
         //    $("#insPic").attr("src", "pictures/07.png");
         //    break;
     case 9:
-        $("#insPic").attr("src", "pictures/08.png");
+        $("#insPic").attr("src", "pictures/08.PNG");
         break;
     case 10:
-        $("#insPic").attr("src", "pictures/09.png");
+        $("#insPic").attr("src", "pictures/09.PNG");
         break;
     case 11:
-        $("#insPic").attr("src", "pictures/10.png");
+        $("#insPic").attr("src", "pictures/10.PNG");
         break;
     case 12:
-        $("#insPic").attr("src", "pictures/11.png");
+        $("#insPic").attr("src", "pictures/11.PNG");
         break;
     case 13:
-        $("#insPic").attr("src", "pictures/12.png");
+        $("#insPic").attr("src", "pictures/12.PNG");
         break;
     }
     var newSrc = $("#insPic").attr("src");
