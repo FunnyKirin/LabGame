@@ -936,7 +936,7 @@ function state9() {
 
 function state10() {
 
-    var state
+    var state = 0
     gameState++;
     if (hint == 1) {
         $("#messager").text("Click petri Dishes to stack them");
@@ -953,17 +953,73 @@ function state10() {
     }, 1000);
     $("#stack").click(
         function () {
-            $(this).css("animation", "upSideDown 1s forwards");
-            if (hint == 1)
-                $("#messager").text("Drag the stack into incubator");
+            if (state == 0) {
+                $(this).css("animation", "upSideDown 1s forwards");
 
-            $("#stack").finish();
+                state++;
+                if (hint == 1)
+                    $("#messager").text("Drag the stack into incubator");
 
+                setTimeout(function () {
+                    $("#stack").css("animation", "null");
+                    $("#stack").removeClass("stackUpSideDown");
+                }, 1000);
+
+                interact('#stack').draggable({
+                    // enable inertial throwing
+                    inertia: false, // keep the element within the area of it's parent
+                    restrict: {
+                        restriction: "#part2",
+                        endOnly: true,
+                        elementRect: {
+                            top: 0,
+                            left: 0,
+                            bottom: 1,
+                            right: 1
+                        }
+                    }, // enable autoScroll
+                    autoScroll: true, // call this function on every dragmove event
+                    onmove: dragMoveListener, // call this function on every dragend event
+                    onend: function (event) {
+                        var textEl = event.target.querySelector('p');
+                        textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+                    }
+                });
+                // enable draggables to be dropped into this
+                interact('#incubator').dropzone({
+                    // only accept elements matching this CSS selector
+                    accept: '#stack', // Require a 75% element overlap for a drop to be possible
+                    overlap: 0.15, // listen for drop related events:
+                    ondropactivate: function (event) {
+                        // add active dropzone feedback
+                        event.target.classList.add('drop-active');
+                    },
+                    ondragenter: function (event) {
+                        var draggableElement = event.relatedTarget,
+                            dropzoneElement = event.target;
+                        // feedback the possibility of a drop
+                        dropzoneElement.classList.add('drop-target');
+                        draggableElement.classList.add('can-drop');
+                    },
+                    ondragleave: function (event) {
+                        // remove the drop feedback style
+                        event.target.classList.remove('drop-target');
+                        event.relatedTarget.classList.remove('can-drop');
+                    },
+                    ondrop: function (event) {
+                        $("#incubator").attr("src", "pictures/incubator with stack.svg");
+                        $("#stack").hide(1000);
+
+                    },
+                    ondropdeactivate: function (event) {
+                        // remove active dropzone feedback
+                        event.target.classList.remove('drop-active');
+                        event.target.classList.remove('drop-target');
+                    }
+                });
+            }
         }
-
-
     )
-
 }
 
 function openWaterBath() {

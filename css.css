@@ -736,6 +736,10 @@ writing animation
     width: 20%;
 }
 
+.stackUpSideDown {
+    transform: rotate(180deg);
+}
+
 @keyframes stack1 {
     0% {}
     100% {
@@ -764,13 +768,16 @@ writing animation
     }
 }
 
-@keyframes upSideDown{
-    0%{}
-    100%{
+@keyframes upSideDown {
+    0% {
         transform: rotate(180deg)
     }
+    100% {
+        transform: rotate(0deg)
+    }
 }
-#incubator{
+
+#incubator {
     position: absolute;
     height: 25%;
     width: auto;
