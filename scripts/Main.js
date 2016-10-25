@@ -24,7 +24,7 @@ function selectIntro() {
     $("#part1").show();
 }
 
-function selectPractice() {}
+function selectPractice() {
     hint=1;
     $("#selectPanel").hide();
     $("#part2").show();
