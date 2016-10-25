@@ -5,25 +5,37 @@
 $(document).ready(function () {
     resizeWindow();
 });
+
+var hint=1;
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
 });
 $("#practiceSelectButton").click(function () {
+
     selectPractice();
 })
+$("#advancedSelectButton").click(function () {
 
+    selectAdvanced();
+})
 function selectIntro() {
     $("#selectPanel").hide();
     $("#part1").show();
 }
 
-function selectPractice() {
+function selectPractice() {}
+    hint=1;
     $("#selectPanel").hide();
     $("#part2").show();
-    setupTable();
 }
-selectPractice();
+
+function selectAdvanced(){
+        hint=0;
+    $("#selectPanel").hide();
+    $("#part2").show();
+}
+//selectPractice();
 //Intro Mode
 $("#backFromIntro").click(function () {
     backToMenu();
@@ -104,12 +116,8 @@ function backToMenu() {
 var gameState = 0;
 var tube = 0;
 var pipetteFluid = false;
-var hint = 1;
 $("#pipette2").hide();
 
-function setupTable() {
-    //$("#tube1").css("left","90%")
-}
 
 function dragMoveListener(event) {
     var target = event.target, // keep the dragged position in the data-x/data-y attributes
@@ -121,9 +129,12 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state10();
+state0();
 //setTimer(300, 1000);
 function state0() {
+    if(hint==1){
+        $("#messager").text("instruction message.");
+    }
     var state01 = 0;
     $("#tube1").click(function () {
         if ($(this).attr("data-state") == "-1") {
@@ -1020,6 +1031,10 @@ function state10() {
             }
         }
     )
+}
+
+function state11(){
+
 }
 
 function openWaterBath() {
