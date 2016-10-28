@@ -784,3 +784,18 @@ writing animation
     top: 18%;
     left: 75%;
 }
+
+#incubator2 {
+    position: absolute;
+    height: 25%;
+    width: auto;
+    top: 18%;
+    left: 5%;
+}
+
+#transilluminator{
+    position: absolute;
+    height: 50%;
+    top: 15%;
+    left:20%;
+}

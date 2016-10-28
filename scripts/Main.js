@@ -7,6 +7,7 @@ $(document).ready(function () {
 });
 
 var hint=1;
+selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
@@ -129,7 +130,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state9();
+state11();
 //setTimer(300, 1000);
 function state0() {
     if(hint==1){
@@ -1018,7 +1019,7 @@ function state10() {
                         event.relatedTarget.classList.remove('can-drop');
                     },
                     ondrop: function (event) {
-                        $("#incubator").attr("src", "pictures/incubator with stack.svg");
+                        $("#incubator").attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
                         $("#stack").hide(1000);
 
                     },
@@ -1034,7 +1035,8 @@ function state10() {
 }
 
 function state11(){
-
+    $("#part2").hide();
+    $("#part3").show();
 }
 
 function openWaterBath() {
@@ -1099,7 +1101,7 @@ function gotoTrashBin(x) {
     $(x).hide(1000);
 }
 
-function setTimer(duration, speed) {
+function setTimer(duration, speed, answer) {
     $("#timer").show();
     var timer = duration,
         minutes, seconds;
