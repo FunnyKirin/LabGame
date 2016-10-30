@@ -295,6 +295,14 @@ body {
     position: absolute;
 }
 
+#gameTable2 {
+    top: -5%;
+    height: 100%;
+    left: 2%;
+    width: 71.7%;
+    position: absolute;
+}
+
 .starterPlate {
     position: absolute;
     height: 12%;
@@ -705,7 +713,7 @@ writing animation
 
 #messager {
     position: absolute;
-    top: 88%;
+    top: 82%;
     left: -3%;
     width: 97%;
     height: 10%;
@@ -787,15 +795,35 @@ writing animation
 
 #incubator2 {
     position: absolute;
-    height: 25%;
+    height: 35%;
     width: auto;
-    top: 18%;
-    left: 5%;
+    top: 25%;
+    left: 10%;
 }
 
 #transilluminator{
     position: absolute;
-    height: 50%;
-    top: 15%;
-    left:20%;
+    height: 40%;
+    top: 30%;
+    left:40%;
+}
+
+#petriDish21 {
+    left: 10%;
+    top: 70%;
+}
+
+#petriDish22 {
+    left: 25%;
+    top: 70%;
+}
+
+#petriDish23 {
+    left: 40%;
+    top: 70%;
+}
+
+#petriDish24 {
+    left: 55%;
+    top: 70%;
 }

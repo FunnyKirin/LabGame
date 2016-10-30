@@ -5,34 +5,32 @@
 $(document).ready(function () {
     resizeWindow();
 });
-
-var hint=1;
+var hint = 1;
 selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
 });
 $("#practiceSelectButton").click(function () {
-
     selectPractice();
 })
 $("#advancedSelectButton").click(function () {
-
     selectAdvanced();
 })
+
 function selectIntro() {
     $("#selectPanel").hide();
     $("#part1").show();
 }
 
 function selectPractice() {
-    hint=1;
+    hint = 1;
     $("#selectPanel").hide();
     $("#part2").show();
 }
 
-function selectAdvanced(){
-        hint=0;
+function selectAdvanced() {
+    hint = 0;
     $("#selectPanel").hide();
     $("#part2").show();
 }
@@ -46,9 +44,9 @@ $("#backFromPractice").click(function () {
 })
 var el = document.getElementById('answerDiv');
 var sortable = Sortable.create(el, {
-    animation: 400,
-    ghostClass: 'ghost',
-    onUpdate: function ( /**Event*/ evt) {
+    animation: 400
+    , ghostClass: 'ghost'
+    , onUpdate: function ( /**Event*/ evt) {
         evt.oldIndex; // element index within parent
         checkOrder();
         if (checkAnswer()) {
@@ -62,7 +60,8 @@ function checkOrder() {
     for (i = 1; i < 13; i++) {
         if ($("#answer" + i).next().attr("id") == "answer" + (i + 1) || $("#answer" + i).prev().attr("id") == "answer" + (i - 1)) {
             $("#answer" + i).addClass("rightAnswer");
-        } else {
+        }
+        else {
             $("#answer" + i).removeClass("rightAnswer");
         }
     }
@@ -99,8 +98,8 @@ function postAnswer() {
     $.post( //call the server
         "data.php", //At this url
         {
-            Answer: answer,
-        } //And send this data to it
+            Answer: answer
+        , } //And send this data to it
     ).done(function (msg) {
         alert("Data Saved: " + msg);
     }).fail(function () {
@@ -119,11 +118,10 @@ var tube = 0;
 var pipetteFluid = false;
 $("#pipette2").hide();
 
-
 function dragMoveListener(event) {
     var target = event.target, // keep the dragged position in the data-x/data-y attributes
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+        , y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
     // translate the element
     target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
     // update the posiion attributes
@@ -133,7 +131,7 @@ function dragMoveListener(event) {
 state11();
 //setTimer(300, 1000);
 function state0() {
-    if(hint==1){
+    if (hint == 1) {
         $("#messager").text("instruction message.");
     }
     var state01 = 0;
@@ -187,13 +185,13 @@ function state1() {
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
         restrict: {
-            restriction: "#part2",
-            endOnly: true,
-            elementRect: {
-                top: 0,
-                left: 0,
-                bottom: 1,
-                right: 1
+            restriction: "#part2"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
             }
         }, // enable autoScroll
         autoScroll: true, // call this function on every dragmove event
@@ -211,25 +209,25 @@ function state1() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
             $("#pipette1").attr("data-state", "1");
             pipetteFluid = true;
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -243,24 +241,25 @@ function state1() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if (pipetteFluid == true && $("#pipette1").offset().top + $("#pipette1").height() < ($(event.target).offset().top + $(event.target).height()) && $("#pipette1").attr("data-state") == 1) {
                 if ($(event.target).attr("id") == "tube2") {
                     event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid P.svg");
-                } else {
+                }
+                else {
                     event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
                 }
                 $("#pipette1").attr("src", "pictures/Resized pipette without fluid.svg");
@@ -277,24 +276,24 @@ function state1() {
                             ondropactivate: function (event) {
                                 // add active dropzone feedback
                                 event.target.classList.add('drop-active');
-                            },
-                            ondragenter: function (event) {
-                                var draggableElement = event.relatedTarget,
-                                    dropzoneElement = event.target;
+                            }
+                            , ondragenter: function (event) {
+                                var draggableElement = event.relatedTarget
+                                    , dropzoneElement = event.target;
                                 // feedback the possibility of a drop
                                 dropzoneElement.classList.add('drop-target');
                                 draggableElement.classList.add('can-drop');
-                            },
-                            ondragleave: function (event) {
+                            }
+                            , ondragleave: function (event) {
                                 // remove the drop feedback style
                                 event.target.classList.remove('drop-target');
                                 event.relatedTarget.classList.remove('can-drop');
-                            },
-                            ondrop: function (event) {
+                            }
+                            , ondrop: function (event) {
                                 $(event.relatedTarget).hide();
                                 state2();
-                            },
-                            ondropdeactivate: function (event) {
+                            }
+                            , ondropdeactivate: function (event) {
                                 // remove active dropzone feedback
                                 event.target.classList.remove('drop-active');
                                 event.target.classList.remove('drop-target');
@@ -303,8 +302,8 @@ function state1() {
                     }
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -314,13 +313,13 @@ function state1() {
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
         restrict: {
-            restriction: "parent",
-            endOnly: true,
-            elementRect: {
-                top: 0,
-                left: 0,
-                bottom: 1,
-                right: 1
+            restriction: "parent"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
             }
         }, // enable autoScroll
         autoScroll: true, // call this function on every dragmove event
@@ -335,12 +334,12 @@ function state1() {
         inertia: false, // keep the element within the area of it's parent
         restrict: {
             //restriction: "parent",
-            endOnly: true,
-            elementRect: {
-                top: 0,
-                left: 0,
-                bottom: 1,
-                right: 1
+            endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
             }
         }, // enable autoScroll
         autoScroll: true, // call this function on every dragmove event
@@ -358,16 +357,16 @@ function state2() {
     interact('.tube').draggable({
         // keep the element within the area of it's parent
         restrict: {
-            restriction: "#part2",
-            endOnly: true,
-            elementRect: {
-                top: 0,
-                left: 0,
-                bottom: 1,
-                right: 1
+            restriction: "#part2"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
             }
-        },
-    });
+        }
+    , });
     interact('.icebox').dropzone({
         // only accept elements matching this CSS selector
         accept: '.tube', // Require a 75% element overlap for a drop to be possible
@@ -375,20 +374,20 @@ function state2() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("id") == "tube1") {
                 var left = $(event.target).position().left / $("#part2").width() * 100 + 22;
                 $(event.relatedTarget).css("left", left + "%");
@@ -415,8 +414,8 @@ function state2() {
                 state3();
                 state++;
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -433,20 +432,20 @@ function state3() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("id") == "tube1") {
                 $("#tube1").css("left", "53.5%");
                 $("#tube1").css("top", "51%");
@@ -465,8 +464,8 @@ function state3() {
                 event.relatedTarget.setAttribute("data-state", "3");
                 gameState++;
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -479,32 +478,31 @@ function state3() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
                     $("#loop1").css("animation", "loop 1s forwards");
-
                     $("#loop1").finish();
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                     $(event.target).attr("src", "pictures/starterplate without.svg");
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -517,20 +515,20 @@ function state3() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("data-state") == "1") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     if (event.target.getAttribute("data-state") == "3") {
@@ -546,8 +544,8 @@ function state3() {
                     }
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -558,32 +556,32 @@ function state3() {
 function state4() {
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.loop',
-        overlap: 0.05, // listen for drop related events:
+        accept: '.loop'
+        , overlap: 0.05, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     event.relatedTarget.setAttribute("data-state", 1);
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -602,8 +600,8 @@ function state4() {
                 gameState++;
                 $(event.relatedTarget).hide();
             }
-        },
-    });
+        }
+    , });
     $("#tube1").click(function (event) {
         event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
         gameState++;
@@ -620,13 +618,13 @@ function state5() {
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
         restrict: {
-            restriction: "#part2",
-            endOnly: true,
-            elementRect: {
-                top: 0,
-                left: 0,
-                bottom: 1,
-                right: 1
+            restriction: "#part2"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
             }
         }, // enable autoScroll
         autoScroll: true, // call this function on every dragmove event
@@ -643,22 +641,22 @@ function state5() {
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
             openWaterBath();
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
             closeWaterBath();
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             $(event.relatedTarget).hide(1000, function () {
                 $("#tubeInWaterbath").show()
             });
@@ -671,8 +669,8 @@ function state5() {
                 $(event.relatedTarget).show(1000)
             }, 3000);
             state6();
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -682,8 +680,8 @@ function state5() {
 
 function state6() {
     interact('#icebox').dropzone({
-        accept: "#cubeWithTubes",
-        ondrop: function (event) {
+        accept: "#cubeWithTubes"
+        , ondrop: function (event) {
             $(event.relatedTarget).hide(1000, function () {
                 $("#tubeInIcebox").show()
             });
@@ -706,31 +704,31 @@ function state6() {
 function state7() {
     interact('#BrothContainer').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.pipette',
-        overlap: 0.05, // listen for drop related events:
+        accept: '.pipette'
+        , overlap: 0.05, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($("#pipette2").attr("data-state") == "0") {
                 $("#pipette2").attr("data-state", "1");
                 $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -739,25 +737,25 @@ function state7() {
     var counter = 0
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.pipette',
-        overlap: 0.05, // listen for drop related events:
+        accept: '.pipette'
+        , overlap: 0.05, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($("#pipette2").attr("data-state") == "1") {
                 $("#pipette2").attr("data-state", "0");
                 $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
@@ -770,8 +768,8 @@ function state7() {
                     state8();
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -783,25 +781,25 @@ function state8() {
     var counter = 0;
     interact('.petriDish').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.pipette',
-        overlap: 0.05, // listen for drop related events:
+        accept: '.pipette'
+        , overlap: 0.05, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($(event.target).attr("data-state") == "P" && $("#pipette2").attr("data-state") == "2") {
                 $("#pipette2").attr("data-state", "0");
                 $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
@@ -819,8 +817,8 @@ function state8() {
                     state9();
                 }
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -828,25 +826,25 @@ function state8() {
     });
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
-        accept: '.pipette',
-        overlap: 0.05, // listen for drop related events:
+        accept: '.pipette'
+        , overlap: 0.05, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
-        },
-        ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
             // feedback the possibility of a drop
             dropzoneElement.classList.add('drop-target');
             draggableElement.classList.add('can-drop');
-        },
-        ondragleave: function (event) {
+        }
+        , ondragleave: function (event) {
             // remove the drop feedback style
             event.target.classList.remove('drop-target');
             event.relatedTarget.classList.remove('can-drop');
-        },
-        ondrop: function (event) {
+        }
+        , ondrop: function (event) {
             if ($(event.target).attr("id") == "tube2") {
                 $("#pipette2").attr("data-state", "2");
                 $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
@@ -855,8 +853,8 @@ function state8() {
                 $("#pipette2").attr("data-state", "3");
                 $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
             }
-        },
-        ondropdeactivate: function (event) {
+        }
+        , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
@@ -903,7 +901,6 @@ function state9() {
                 $(this).attr("src", "pictures/top%20view%204.svg");
                 $(this).attr("data-state", "4");
                 $(this).attr("data-rotate", "0");
-
                 $("#rotate").hide();
             }
             break;
@@ -925,11 +922,10 @@ function state9() {
                 checkValue++;
             }
         });
-
-
         if (checkValue == 4) {
             state10();
-        } else {
+        }
+        else {
             checkValue = 0;
         }
     })
@@ -947,7 +943,6 @@ function state9() {
 }
 
 function state10() {
-
     var state = 0
     gameState++;
     if (hint == 1) {
@@ -960,83 +955,82 @@ function state10() {
     setTimeout(function () {
         $(".petriDish").hide();
         $("#stack").show(1000);
-        if (hint == 1)
-            $("#messager").text("Click the petri Dishe stack to turn it up side down");
+        if (hint == 1) $("#messager").text("Click the petri Dishe stack to turn it up side down");
     }, 1000);
-    $("#stack").click(
-        function () {
-            if (state == 0) {
-                $(this).css("animation", "upSideDown 1s forwards");
-
-                state++;
-                if (hint == 1)
-                    $("#messager").text("Drag the stack into incubator");
-
-                setTimeout(function () {
-                    $("#stack").css("animation", "null");
-                    $("#stack").removeClass("stackUpSideDown");
-                }, 1000);
-
-                interact('#stack').draggable({
-                    // enable inertial throwing
-                    inertia: false, // keep the element within the area of it's parent
-                    restrict: {
-                        restriction: "#part2",
-                        endOnly: true,
-                        elementRect: {
-                            top: 0,
-                            left: 0,
-                            bottom: 1,
-                            right: 1
-                        }
-                    }, // enable autoScroll
-                    autoScroll: true, // call this function on every dragmove event
-                    onmove: dragMoveListener, // call this function on every dragend event
-                    onend: function (event) {
-                        var textEl = event.target.querySelector('p');
-                        textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+    $("#stack").click(function () {
+        if (state == 0) {
+            $(this).css("animation", "upSideDown 1s forwards");
+            state++;
+            if (hint == 1) $("#messager").text("Drag the stack into incubator");
+            setTimeout(function () {
+                $("#stack").css("animation", "null");
+                $("#stack").removeClass("stackUpSideDown");
+            }, 1000);
+            interact('#stack').draggable({
+                // enable inertial throwing
+                inertia: false, // keep the element within the area of it's parent
+                restrict: {
+                    restriction: "#part2"
+                    , endOnly: true
+                    , elementRect: {
+                        top: 0
+                        , left: 0
+                        , bottom: 1
+                        , right: 1
                     }
-                });
-                // enable draggables to be dropped into this
-                interact('#incubator').dropzone({
-                    // only accept elements matching this CSS selector
-                    accept: '#stack', // Require a 75% element overlap for a drop to be possible
-                    overlap: 0.15, // listen for drop related events:
-                    ondropactivate: function (event) {
-                        // add active dropzone feedback
-                        event.target.classList.add('drop-active');
-                    },
-                    ondragenter: function (event) {
-                        var draggableElement = event.relatedTarget,
-                            dropzoneElement = event.target;
-                        // feedback the possibility of a drop
-                        dropzoneElement.classList.add('drop-target');
-                        draggableElement.classList.add('can-drop');
-                    },
-                    ondragleave: function (event) {
-                        // remove the drop feedback style
-                        event.target.classList.remove('drop-target');
-                        event.relatedTarget.classList.remove('can-drop');
-                    },
-                    ondrop: function (event) {
-                        $("#incubator").attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
-                        $("#stack").hide(1000);
-
-                    },
-                    ondropdeactivate: function (event) {
-                        // remove active dropzone feedback
-                        event.target.classList.remove('drop-active');
-                        event.target.classList.remove('drop-target');
-                    }
-                });
-            }
+                }, // enable autoScroll
+                autoScroll: true, // call this function on every dragmove event
+                onmove: dragMoveListener, // call this function on every dragend event
+                onend: function (event) {
+                    var textEl = event.target.querySelector('p');
+                    textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+                }
+            });
+            // enable draggables to be dropped into this
+            interact('#incubator').dropzone({
+                // only accept elements matching this CSS selector
+                accept: '#stack', // Require a 75% element overlap for a drop to be possible
+                overlap: 0.15, // listen for drop related events:
+                ondropactivate: function (event) {
+                    // add active dropzone feedback
+                    event.target.classList.add('drop-active');
+                }
+                , ondragenter: function (event) {
+                    var draggableElement = event.relatedTarget
+                        , dropzoneElement = event.target;
+                    // feedback the possibility of a drop
+                    dropzoneElement.classList.add('drop-target');
+                    draggableElement.classList.add('can-drop');
+                }
+                , ondragleave: function (event) {
+                    // remove the drop feedback style
+                    event.target.classList.remove('drop-target');
+                    event.relatedTarget.classList.remove('can-drop');
+                }
+                , ondrop: function (event) {
+                    $("#incubator").attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
+                    $("#stack").hide(1000);
+                }
+                , ondropdeactivate: function (event) {
+                    // remove active dropzone feedback
+                    event.target.classList.remove('drop-active');
+                    event.target.classList.remove('drop-target');
+                }
+            });
         }
-    )
+    })
 }
 
-function state11(){
-    $("#part2").hide();
-    $("#part3").show();
+function state11() {
+    $("#gameTable").hide();
+    $("#gameTable2").show();
+    if (hint == 1) $("#messager").text("click the incubator to get dishes");
+    $("#incubator2").click(function () {
+        $("#petriDish21").show();
+        $("#petriDish22").show();
+        $("#petriDish23").show();
+        $("#petriDish24").show();
+    });
 }
 
 function openWaterBath() {
@@ -1103,8 +1097,8 @@ function gotoTrashBin(x) {
 
 function setTimer(duration, speed, answer) {
     $("#timer").show();
-    var timer = duration,
-        minutes, seconds;
+    var timer = duration
+        , minutes, seconds;
     display = document.querySelector('#timerNumber');
     var myVar = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
