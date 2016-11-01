@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="217.46541mm"
+   width="221.46541mm"
    height="153.97971mm"
-   viewBox="0 0 770.54672 545.59738"
+   viewBox="0 0 784.71996 545.59738"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="transilluminatorC1 (Modified).svg">
+   sodipodi:docname="015_transilluminatorC1.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -31,8 +31,8 @@
      inkscape:document-units="px"
      inkscape:current-layer="g4180"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="837"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -61,7 +61,8 @@
        id="g4180"
        transform="matrix(0.9782562,0,0,0.94084958,136.39958,103.01576)">
       <g
-         id="g4148">
+         id="g4148"
+         transform="matrix(0.99939281,-0.03622783,0.03351023,0.99939281,-2.6579512,7.3715955)">
         <g
            id="g4157">
           <path

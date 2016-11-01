@@ -1022,15 +1022,104 @@ function state10() {
 }
 
 function state11() {
+    var dishType = 0;
+    var exam = 0;
+    var counter = 0;
     $("#gameTable").hide();
     $("#gameTable2").show();
     if (hint == 1) $("#messager").text("click the incubator to get dishes");
     $("#incubator2").click(function () {
-        $("#petriDish21").show();
-        $("#petriDish22").show();
-        $("#petriDish23").show();
-        $("#petriDish24").show();
+        $("#incubator2").attr("src", "pictures/incubator.svg")
+        $(".dish2").show();
+        if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
+        interact('.dish2').draggable({
+            // enable inertial throwing
+            inertia: false, // keep the element within the area of it's parent
+            restrict: {
+                restriction: "#part2"
+                , endOnly: true
+                , elementRect: {
+                    top: 0
+                    , left: 0
+                    , bottom: 1
+                    , right: 1
+                }
+            }, // enable autoScroll
+            autoScroll: true, // call this function on every dragmove event
+            onmove: dragMoveListener, // call this function on every dragend event
+            onend: function (event) {
+                var textEl = event.target.querySelector('p');
+                textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+
+            }
+        });
     });
+    interact('.transilluminator').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '.dish2', // Require a 75% element overlap for a drop to be possible
+        overlap: 0.15, // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        }
+        , ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        }
+        , ondrop: function (event) {
+            $(event.target).hide();
+            $(event.relatedTarget).hide();
+            if ($(event.relatedTarget).attr("id") == "petriDish22") {
+                dishType = 2
+                $("#transillumintorWithDish").attr("src", "pictures/058_green dots transiluminator.svg")
+            }
+            else {
+                dishType = 1;
+                $("#transillumintorWithDish").attr("src", "pictures/053_rotated%20transiliuminator.svg")
+            }
+            $("#transillumintorWithDish").show();
+            exam = 1;
+            if (hint == 1) $("#messager").text("click the transilluminator to zoom in");
+        }
+        , ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+        }
+    });
+    $(".transilluminator").click(function () {
+        if (exam == 1) {
+            if (dishType == 0) {
+                $("#zoomedPic").attr("src", "pictures/016_transiluminatorC2.svg");
+            }
+            else if (dishType == 1) {
+                $("#zoomedPic").attr("src", "pictures/017_transiluminatorC3.svg");
+            }
+            else {
+                $("#zoomedPic").attr("src", "pictures/018_transiluminatorC4.svg");
+            }
+            $("#zoomedPic").show();
+            exam=0;
+            counter++;
+
+        }
+        if (hint == 1) $("#messager").text("click again to close it");
+    })
+    $("#zoomedPic").click(function () {
+        if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
+        $("#zoomedPic").hide();
+        if(counter==4){
+            alert("End");
+        }
+    })
 }
 
 function openWaterBath() {

@@ -801,29 +801,45 @@ writing animation
     left: 10%;
 }
 
-#transilluminator{
+#transilluminator {
     position: absolute;
     height: 40%;
     top: 30%;
-    left:40%;
+    left: 40%;
 }
 
 #petriDish21 {
     left: 10%;
-    top: 70%;
+    top: 75%;
 }
 
 #petriDish22 {
-    left: 25%;
-    top: 70%;
+    left: 32%;
+    top: 75%;
 }
 
 #petriDish23 {
-    left: 40%;
-    top: 70%;
+    left: 54%;
+    top: 75%;
 }
 
 #petriDish24 {
-    left: 55%;
-    top: 70%;
+    left: 76%;
+    top: 75%;
+}
+
+#transillumintorWithDish {
+    position: absolute;
+    height: 25%;
+    top: 45%;
+    left: 54%;
+}
+
+#dish2 {}
+
+#zoomedPic {
+    position: absolute;
+    height: 80%;
+    top: 10%;
+    left: 25%;
 }
