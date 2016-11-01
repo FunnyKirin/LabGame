@@ -128,7 +128,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state11();
+state0();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
