@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="83.356873mm"
+   height="266.55557mm"
+   viewBox="0 0 295.359 944.48824"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="044_pGLO pasmid no stopper.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="-177.91112"
+     inkscape:cy="705.10249"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-209.7,-94.403779)">
+    <path
+       style="opacity:0.85;fill:#f2f2f2;stroke:#000000;stroke-width:0.84683025;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 37.271484 0.57421875 C 16.941235 0.57421875 0.57421875 16.941235 0.57421875 37.271484 L 0.57421875 83.144531 C 0.57421875 103.47478 16.941235 119.8418 37.271484 119.8418 L 37.916016 119.8418 C 37.461083 122.29739 37.212891 124.82671 37.212891 127.41797 L 37.212891 218.19531 C 18.838246 231.75228 6.9570312 253.55673 6.9570312 278.24414 L 6.9570312 869.49219 C 6.9570312 910.80494 40.214588 944.06445 81.527344 944.06445 L 220.36328 944.06445 C 261.67604 944.06445 294.93555 910.80494 294.93555 869.49219 L 294.93555 278.24414 C 294.93555 250.10177 279.49507 225.70823 256.5957 213.00781 L 256.5957 127.41797 C 256.5957 124.82671 256.34751 122.29739 255.89258 119.8418 L 258.08594 119.8418 C 278.41619 119.8418 294.7832 103.47478 294.7832 83.144531 L 294.7832 37.271484 C 294.7832 16.941235 278.41619 0.57421875 258.08594 0.57421875 L 37.271484 0.57421875 z "
+       id="rect3336"
+       transform="translate(209.7,94.403779)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.854;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 465.37984,215.41296 247.74777,214.89623"
+       id="path4148"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:0.85;fill:#ffff00;stroke:none;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4156"
+       width="284.1875"
+       height="460.57974"
+       x="218.55231"
+       y="424.09991"
+       ry="4.0318689" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40.48191452px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="237.19049"
+       y="554.39142"
+       id="text4158"
+       sodipodi:linespacing="125%"
+       transform="scale(0.95990883,1.0417656)"><tspan
+         sodipodi:role="line"
+         id="tspan4160"
+         x="237.19049"
+         y="554.39142">pGLO Plasmid</tspan></text>
+  </g>
+</svg>

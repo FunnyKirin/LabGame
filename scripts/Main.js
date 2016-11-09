@@ -128,7 +128,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state0();
+state11();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
@@ -175,6 +175,53 @@ function state0() {
                 state1();
             };
             $(this).attr("data-state", "0");
+        }
+    });
+    $(".petriDish").click(function () {
+
+        switch ($(this).attr("id")) {
+        case "petriDish1":
+
+            setTimeout(function () {
+                $("#penMover").show();
+            });
+            setTimeout(function () {
+                $("#penMover").hide();
+            }, 1800);
+            $("#label1").show();
+            break;
+        case "petriDish2":
+
+            setTimeout(function () {
+                $("#penMover2").show();
+            });
+            setTimeout(function () {
+                $("#penMover2").hide();
+            }, 1800);
+            $("#label2").show();
+            break;
+        case "petriDish3":
+
+            setTimeout(function () {
+                $("#penMover3").show();
+            });
+            setTimeout(function () {
+                $("#penMover3").hide();
+            }, 1800);
+            $("#label3").show();
+            break;
+        case "petriDish4":
+
+            setTimeout(function () {
+                $("#penMover4").show();
+            });
+            setTimeout(function () {
+                $("#penMover4").hide();
+            }, 1800);
+            $("#label4").show();
+            break;
+        default:
+            break;
         }
     });
 }
@@ -497,7 +544,6 @@ function state3() {
                     event.relatedTarget.setAttribute("data-state", "1")
                     $("#loop1").css("animation", "loop 1s forwards");
                     $("#loop1").finish();
-                    $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                     $(event.target).attr("src", "pictures/starterplate without.svg");
                 }
             }
@@ -577,6 +623,7 @@ function state4() {
         , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
+                    $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                     event.relatedTarget.setAttribute("data-state", 1);
                 }
             }
@@ -1030,6 +1077,7 @@ function state11() {
     if (hint == 1) $("#messager").text("click the incubator to get dishes");
     $("#incubator2").click(function () {
         $("#incubator2").attr("src", "pictures/incubator.svg")
+        $(".label").show();
         $(".dish2").show();
         if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
         interact('.dish2').draggable({
@@ -1050,7 +1098,6 @@ function state11() {
             onend: function (event) {
                 var textEl = event.target.querySelector('p');
                 textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
-
             }
         });
     });
@@ -1107,16 +1154,15 @@ function state11() {
                 $("#zoomedPic").attr("src", "pictures/018_transiluminatorC4.svg");
             }
             $("#zoomedPic").show();
-            exam=0;
+            exam = 0;
             counter++;
-
         }
         if (hint == 1) $("#messager").text("click again to close it");
     })
     $("#zoomedPic").click(function () {
         if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
         $("#zoomedPic").hide();
-        if(counter==4){
+        if (counter == 4) {
             alert("End");
         }
     })

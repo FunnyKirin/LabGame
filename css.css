@@ -318,23 +318,23 @@ body {
 }
 
 #petriDish1 {
-    left: 12%;
-    top: 78%;
+    left: 10%;
+    top: 75%;
 }
 
 #petriDish2 {
     left: 32%;
-    top: 78%;
+    top: 75%;
 }
 
 #petriDish3 {
-    left: 52%;
-    top: 78%;
+    left: 54%;
+    top: 75%;
 }
 
 #petriDish4 {
-    left: 72%;
-    top: 78%;
+    left: 76%;
+    top: 75%;
 }
 
 #debug {
@@ -667,6 +667,38 @@ writing animation
     animation-duration: 1s;
 }
 
+#penMover1 {
+    position: absolute;
+    top: -5%;
+    left: 22%;
+    height: 20%;
+    animation-name: moveWords;
+    animation-duration: 1s;
+}
+#penMover2 {
+    position: absolute;
+    top: -5%;
+    left: 22%;
+    height: 20%;
+    animation-name: moveWords;
+    animation-duration: 1s;
+}
+#penMover3 {
+    position: absolute;
+    top: -5%;
+    left: 22%;
+    height: 20%;
+    animation-name: moveWords;
+    animation-duration: 1s;
+}
+#penMover4 {
+    position: absolute;
+    top: -5%;
+    left: 22%;
+    height: 20%;
+    animation-name: moveWords;
+    animation-duration: 1s;
+}
 #trashBin {
     position: absolute;
     height: 35%;
@@ -842,4 +874,31 @@ writing animation
     height: 80%;
     top: 10%;
     left: 25%;
+}
+
+.label {
+    position: absolute;
+    height: 80%;
+    font-family: cursive;
+    color: aliceblue;
+}
+
+#label1{
+    top: 87%;
+    left: 12%;
+}
+
+#label2{
+    top: 87%;
+    left: 32%;
+}
+
+#label3{
+    top: 87%;
+    left: 55%;
+}
+
+#label4{
+    top: 87%;
+    left: 80%;
 }
