@@ -128,7 +128,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state11();
+state10();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
@@ -178,50 +178,69 @@ function state0() {
         }
     });
     $(".petriDish").click(function () {
+        if($(this).attr("data-state3")=="0"){
 
         switch ($(this).attr("id")) {
         case "petriDish1":
-
+            $("#writeDish").show(1000);
             setTimeout(function () {
-                $("#penMover").show();
-            });
+                $("#penMover1").show();
+            }, 1000);
             setTimeout(function () {
-                $("#penMover").hide();
-            }, 1800);
-            $("#label1").show();
+                $("#penMover1").hide();
+                $(".dishLabel").attr("src", "pictures/dishLabel" + "1" + ".svg");
+                $(".dishLabel").show();
+                $("#label1").show();
+                $("#writeDish").hide(2500);
+                $(".dishLabel").hide(2000);
+            }, 2000);
             break;
         case "petriDish2":
-
+            $("#writeDish").show(1000);
             setTimeout(function () {
-                $("#penMover2").show();
-            });
+                $("#penMover1").show();
+            }, 1000);
             setTimeout(function () {
-                $("#penMover2").hide();
-            }, 1800);
-            $("#label2").show();
+                $("#penMover1").hide();
+                $(".dishLabel").attr("src", "pictures/dishLabel" + "2" + ".svg");
+                $(".dishLabel").show();
+                $("#label2").show();
+                $("#writeDish").hide(2500);
+                $(".dishLabel").hide(2000);
+            }, 2000);
             break;
         case "petriDish3":
-
+            $("#writeDish").show(1000);
             setTimeout(function () {
-                $("#penMover3").show();
-            });
+                $("#penMover1").show();
+            }, 1000);
             setTimeout(function () {
-                $("#penMover3").hide();
-            }, 1800);
-            $("#label3").show();
+                $("#penMover1").hide();
+                $(".dishLabel").attr("src", "pictures/dishLabel" + "3" + ".svg");
+                $(".dishLabel").show();
+                $("#label3").show();
+                $("#writeDish").hide(2500);
+                $(".dishLabel").hide(2000);
+            }, 2000);
             break;
         case "petriDish4":
-
+            $("#writeDish").show(1000);
             setTimeout(function () {
-                $("#penMover4").show();
-            });
+                $("#penMover1").show();
+            }, 1000);
             setTimeout(function () {
-                $("#penMover4").hide();
-            }, 1800);
-            $("#label4").show();
+                $("#penMover1").hide();
+                $(".dishLabel").attr("src", "pictures/dishLabel" + "4" + ".svg");
+                $(".dishLabel").show();
+                $("#label4").show();
+                $("#writeDish").hide(2500);
+                $(".dishLabel").hide(2000);
+            }, 2000);
             break;
         default:
             break;
+        }
+            $(this).attr("data-state3", "1");
         }
     });
 }
@@ -576,6 +595,7 @@ function state3() {
         }
         , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("data-state") == "1") {
+                $(event.relatedTarget).attr("data-state", "0");
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     if (event.target.getAttribute("data-state") == "3") {
                         event.target.setAttribute("data-state", "4")
@@ -600,6 +620,8 @@ function state3() {
 }
 
 function state4() {
+
+                    alert("!");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
@@ -621,6 +643,7 @@ function state4() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
+
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
@@ -1057,6 +1080,9 @@ function state10() {
                 , ondrop: function (event) {
                     $("#incubator").attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
                     $("#stack").hide(1000);
+                    setTimeout(function(){
+                        state11();
+                    },1000)
                 }
                 , ondropdeactivate: function (event) {
                     // remove active dropzone feedback

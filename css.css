@@ -669,35 +669,23 @@ writing animation
 
 #penMover1 {
     position: absolute;
-    top: -5%;
-    left: 22%;
+    top: 5%;
+    left: 40%;
     height: 20%;
     animation-name: moveWords;
     animation-duration: 1s;
 }
-#penMover2 {
+#writeDish{
     position: absolute;
-    top: -5%;
-    left: 22%;
-    height: 20%;
-    animation-name: moveWords;
-    animation-duration: 1s;
+    height: 70%;
+    top:10%;
+    left: 23%;
 }
-#penMover3 {
+.dishLabel{
     position: absolute;
-    top: -5%;
-    left: 22%;
-    height: 20%;
-    animation-name: moveWords;
-    animation-duration: 1s;
-}
-#penMover4 {
-    position: absolute;
-    top: -5%;
-    left: 22%;
-    height: 20%;
-    animation-name: moveWords;
-    animation-duration: 1s;
+    height: 30%;
+    top:15%;
+    left: 27%;
 }
 #trashBin {
     position: absolute;
