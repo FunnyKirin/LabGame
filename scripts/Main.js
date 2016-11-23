@@ -128,7 +128,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state10();
+state11();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
@@ -178,68 +178,67 @@ function state0() {
         }
     });
     $(".petriDish").click(function () {
-        if($(this).attr("data-state3")=="0"){
-
-        switch ($(this).attr("id")) {
-        case "petriDish1":
-            $("#writeDish").show(1000);
-            setTimeout(function () {
-                $("#penMover1").show();
-            }, 1000);
-            setTimeout(function () {
-                $("#penMover1").hide();
-                $(".dishLabel").attr("src", "pictures/dishLabel" + "1" + ".svg");
-                $(".dishLabel").show();
-                $("#label1").show();
-                $("#writeDish").hide(2500);
-                $(".dishLabel").hide(2000);
-            }, 2000);
-            break;
-        case "petriDish2":
-            $("#writeDish").show(1000);
-            setTimeout(function () {
-                $("#penMover1").show();
-            }, 1000);
-            setTimeout(function () {
-                $("#penMover1").hide();
-                $(".dishLabel").attr("src", "pictures/dishLabel" + "2" + ".svg");
-                $(".dishLabel").show();
-                $("#label2").show();
-                $("#writeDish").hide(2500);
-                $(".dishLabel").hide(2000);
-            }, 2000);
-            break;
-        case "petriDish3":
-            $("#writeDish").show(1000);
-            setTimeout(function () {
-                $("#penMover1").show();
-            }, 1000);
-            setTimeout(function () {
-                $("#penMover1").hide();
-                $(".dishLabel").attr("src", "pictures/dishLabel" + "3" + ".svg");
-                $(".dishLabel").show();
-                $("#label3").show();
-                $("#writeDish").hide(2500);
-                $(".dishLabel").hide(2000);
-            }, 2000);
-            break;
-        case "petriDish4":
-            $("#writeDish").show(1000);
-            setTimeout(function () {
-                $("#penMover1").show();
-            }, 1000);
-            setTimeout(function () {
-                $("#penMover1").hide();
-                $(".dishLabel").attr("src", "pictures/dishLabel" + "4" + ".svg");
-                $(".dishLabel").show();
-                $("#label4").show();
-                $("#writeDish").hide(2500);
-                $(".dishLabel").hide(2000);
-            }, 2000);
-            break;
-        default:
-            break;
-        }
+        if ($(this).attr("data-state3") == "0") {
+            switch ($(this).attr("id")) {
+            case "petriDish1":
+                $("#writeDish").show(1000);
+                setTimeout(function () {
+                    $("#penMover1").show();
+                }, 1000);
+                setTimeout(function () {
+                    $("#penMover1").hide();
+                    $(".dishLabel").attr("src", "pictures/dishLabel" + "1" + ".svg");
+                    $(".dishLabel").show();
+                    $("#label1").show();
+                    $("#writeDish").hide(2500);
+                    $(".dishLabel").hide(2000);
+                }, 2000);
+                break;
+            case "petriDish2":
+                $("#writeDish").show(1000);
+                setTimeout(function () {
+                    $("#penMover1").show();
+                }, 1000);
+                setTimeout(function () {
+                    $("#penMover1").hide();
+                    $(".dishLabel").attr("src", "pictures/dishLabel" + "2" + ".svg");
+                    $(".dishLabel").show();
+                    $("#label2").show();
+                    $("#writeDish").hide(2500);
+                    $(".dishLabel").hide(2000);
+                }, 2000);
+                break;
+            case "petriDish3":
+                $("#writeDish").show(1000);
+                setTimeout(function () {
+                    $("#penMover1").show();
+                }, 1000);
+                setTimeout(function () {
+                    $("#penMover1").hide();
+                    $(".dishLabel").attr("src", "pictures/dishLabel" + "3" + ".svg");
+                    $(".dishLabel").show();
+                    $("#label3").show();
+                    $("#writeDish").hide(2500);
+                    $(".dishLabel").hide(2000);
+                }, 2000);
+                break;
+            case "petriDish4":
+                $("#writeDish").show(1000);
+                setTimeout(function () {
+                    $("#penMover1").show();
+                }, 1000);
+                setTimeout(function () {
+                    $("#penMover1").hide();
+                    $(".dishLabel").attr("src", "pictures/dishLabel" + "4" + ".svg");
+                    $(".dishLabel").show();
+                    $("#label4").show();
+                    $("#writeDish").hide(2500);
+                    $(".dishLabel").hide(2000);
+                }, 2000);
+                break;
+            default:
+                break;
+            }
             $(this).attr("data-state3", "1");
         }
     });
@@ -620,8 +619,7 @@ function state3() {
 }
 
 function state4() {
-
-                    alert("!");
+    alert("!");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
@@ -643,7 +641,6 @@ function state4() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
@@ -1036,73 +1033,77 @@ function state10() {
                 $("#stack").css("animation", "null");
                 $("#stack").removeClass("stackUpSideDown");
             }, 1000);
-            interact('#stack').draggable({
-                // enable inertial throwing
-                inertia: false, // keep the element within the area of it's parent
-                restrict: {
-                    restriction: "#part2"
-                    , endOnly: true
-                    , elementRect: {
-                        top: 0
-                        , left: 0
-                        , bottom: 1
-                        , right: 1
-                    }
-                }, // enable autoScroll
-                autoScroll: true, // call this function on every dragmove event
-                onmove: dragMoveListener, // call this function on every dragend event
-                onend: function (event) {
-                    var textEl = event.target.querySelector('p');
-                    textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
-                }
-            });
-            // enable draggables to be dropped into this
-            interact('#incubator').dropzone({
-                // only accept elements matching this CSS selector
-                accept: '#stack', // Require a 75% element overlap for a drop to be possible
-                overlap: 0.15, // listen for drop related events:
-                ondropactivate: function (event) {
-                    // add active dropzone feedback
-                    event.target.classList.add('drop-active');
-                }
-                , ondragenter: function (event) {
-                    var draggableElement = event.relatedTarget
-                        , dropzoneElement = event.target;
-                    // feedback the possibility of a drop
-                    dropzoneElement.classList.add('drop-target');
-                    draggableElement.classList.add('can-drop');
-                }
-                , ondragleave: function (event) {
-                    // remove the drop feedback style
-                    event.target.classList.remove('drop-target');
-                    event.relatedTarget.classList.remove('can-drop');
-                }
-                , ondrop: function (event) {
-                    $("#incubator").attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
-                    $("#stack").hide(1000);
-                    setTimeout(function(){
-                        state11();
-                    },1000)
-                }
-                , ondropdeactivate: function (event) {
-                    // remove active dropzone feedback
-                    event.target.classList.remove('drop-active');
-                    event.target.classList.remove('drop-target');
-                }
-            });
+            setTimeout(function () {
+                state11();
+            }, 2000);
         }
     })
 }
 
 function state11() {
+
+    $("#gameTable").hide();
+    $("#gameTable2").show();
+    interact('#stack').draggable({
+        // enable inertial throwing
+        inertia: false, // keep the element within the area of it's parent
+        restrict: {
+            restriction: "#part2"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
+            }
+        }, // enable autoScroll
+        autoScroll: true, // call this function on every dragmove event
+        onmove: dragMoveListener, // call this function on every dragend event
+        onend: function (event) {
+            var textEl = event.target.querySelector('p');
+            textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+        }
+    });
+    interact('#incubator').dropzone({
+        // only accept elements matching this CSS selector
+        accept: '#stack', // Require a 75% element overlap for a drop to be possible
+        overlap: 0.15, // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        }
+        , ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        }
+        , ondrop: function (event) {
+            $(event.relatedTarget).hide(1000);
+            $(evetn.target).attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
+            state12();
+        }
+        , ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+        }
+    });
+}
+
+function state12(){
     var dishType = 0;
     var exam = 0;
     var counter = 0;
-    $("#gameTable").hide();
-    $("#gameTable2").show();
     if (hint == 1) $("#messager").text("click the incubator to get dishes");
-    $("#incubator2").click(function () {
-        $("#incubator2").attr("src", "pictures/incubator.svg")
+    $("#incubator").click(function () {
+        $("#incubator").attr("src", "pictures/incubator.svg")
         $(".label").show();
         $(".dish2").show();
         if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
