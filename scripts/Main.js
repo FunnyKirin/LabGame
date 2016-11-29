@@ -128,7 +128,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state11();
+state0();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
@@ -619,11 +619,10 @@ function state3() {
 }
 
 function state4() {
-    alert("!");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
-        , overlap: 0.05, // listen for drop related events:
+        , overlap: 0.3, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
@@ -948,12 +947,14 @@ function state9() {
         case "0":
             $(this).attr("src", "pictures/top%20view%201.svg");
             $(this).attr("data-state", "1");
+                loopDraw();
             break;
         case "1":
             if ($(this).attr("data-rotate") == "1") {
                 $(this).attr("src", "pictures/top%20view%202.svg");
                 $(this).attr("data-state", "2");
                 $(this).attr("data-rotate", "0");
+                loopDraw();
             }
             break;
         case "2":
@@ -961,6 +962,7 @@ function state9() {
                 $(this).attr("src", "pictures/top%20view%203.svg");
                 $(this).attr("data-state", "3");
                 $(this).attr("data-rotate", "0");
+                loopDraw();
             }
             break;
         case "3":
@@ -968,6 +970,7 @@ function state9() {
                 $(this).attr("src", "pictures/top%20view%204.svg");
                 $(this).attr("data-state", "4");
                 $(this).attr("data-rotate", "0");
+                loopDraw();
                 $("#rotate").hide();
             }
             break;
@@ -978,6 +981,7 @@ function state9() {
             //$(thisDish).attr("src", "pictures/top%20view%204.svg");
             $(thisDish).attr("data-state2", "1");
             $("#topview").css("transform", "rotate(0deg)");
+                loopDraw();
             break;
         }
         var checkValue = 0;
@@ -1007,6 +1011,14 @@ function state9() {
             }
         }
     })
+}
+
+function loopDraw(){
+    $("#drawLoop").show();
+    setTimeout(function(){
+        $("#drawLoop").hide();
+    },1000)
+
 }
 
 function state10() {
@@ -1086,7 +1098,13 @@ function state11() {
         }
         , ondrop: function (event) {
             $(event.relatedTarget).hide(1000);
-            $(evetn.target).attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
+            $(event.target).attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
+            setTimeout(function(){
+                $("#nextDay").show();
+            }, 500);
+            setTimeout(function(){
+                $("#nextDay").hide(1000);
+            }, 3000);
             state12();
         }
         , ondropdeactivate: function (event) {
