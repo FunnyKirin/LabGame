@@ -117,6 +117,7 @@ var gameState = 0;
 var tube = 0;
 var pipetteFluid = false;
 $("#pipette2").hide();
+var labelCounter = 0;
 
 function dragMoveListener(event) {
     var target = event.target, // keep the dragged position in the data-x/data-y attributes
@@ -128,7 +129,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state11();
+state0();
 //setTimer(300, 1000);
 function state0() {
     if (hint == 1) {
@@ -175,71 +176,6 @@ function state0() {
                 state1();
             };
             $(this).attr("data-state", "0");
-        }
-    });
-    $(".petriDish").click(function () {
-        if ($(this).attr("data-state3") == "0") {
-            switch ($(this).attr("id")) {
-            case "petriDish1":
-                $("#writeDish").show(1000);
-                setTimeout(function () {
-                    $("#penMover1").show();
-                }, 1000);
-                setTimeout(function () {
-                    $("#penMover1").hide();
-                    $(".dishLabel").attr("src", "pictures/dishLabel" + "1" + ".svg");
-                    $(".dishLabel").show();
-                    $("#label1").show();
-                    $("#writeDish").hide(2500);
-                    $(".dishLabel").hide(2000);
-                }, 2000);
-                break;
-            case "petriDish2":
-                $("#writeDish").show(1000);
-                setTimeout(function () {
-                    $("#penMover1").show();
-                }, 1000);
-                setTimeout(function () {
-                    $("#penMover1").hide();
-                    $(".dishLabel").attr("src", "pictures/dishLabel" + "2" + ".svg");
-                    $(".dishLabel").show();
-                    $("#label2").show();
-                    $("#writeDish").hide(2500);
-                    $(".dishLabel").hide(2000);
-                }, 2000);
-                break;
-            case "petriDish3":
-                $("#writeDish").show(1000);
-                setTimeout(function () {
-                    $("#penMover1").show();
-                }, 1000);
-                setTimeout(function () {
-                    $("#penMover1").hide();
-                    $(".dishLabel").attr("src", "pictures/dishLabel" + "3" + ".svg");
-                    $(".dishLabel").show();
-                    $("#label3").show();
-                    $("#writeDish").hide(2500);
-                    $(".dishLabel").hide(2000);
-                }, 2000);
-                break;
-            case "petriDish4":
-                $("#writeDish").show(1000);
-                setTimeout(function () {
-                    $("#penMover1").show();
-                }, 1000);
-                setTimeout(function () {
-                    $("#penMover1").hide();
-                    $(".dishLabel").attr("src", "pictures/dishLabel" + "4" + ".svg");
-                    $(".dishLabel").show();
-                    $("#label4").show();
-                    $("#writeDish").hide(2500);
-                    $(".dishLabel").hide(2000);
-                }, 2000);
-                break;
-            default:
-                break;
-            }
-            $(this).attr("data-state3", "1");
         }
     });
 }
@@ -355,7 +291,7 @@ function state1() {
                                 event.relatedTarget.classList.remove('can-drop');
                             }
                             , ondrop: function (event) {
-                                $(event.relatedTarget).hide();
+                                $(event.relatedTarget).hide(1000);
                                 state2();
                             }
                             , ondropdeactivate: function (event) {
@@ -454,6 +390,9 @@ function state2() {
         }
         , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("id") == "tube1") {
+                if (event.relatedTarget.getAttribute("data-state") == "5") {
+                    state++;
+                }
                 var left = $(event.target).position().left / $("#part2").width() * 100 + 22;
                 $(event.relatedTarget).css("left", left + "%");
                 var top = $(event.target).position().top / $("#part2").height() * 100 - 3;
@@ -461,6 +400,9 @@ function state2() {
                 $(event.relatedTarget).css("transform", "");
             }
             if (event.relatedTarget.getAttribute("id") == "tube2") {
+                if (event.relatedTarget.getAttribute("data-state") == "5") {
+                    state++;
+                }
                 var left = $(event.target).position().left / $("#part2").width() * 100 + 14;
                 $(event.relatedTarget).css("left", left + "%");
                 var top = $(event.target).position().top / $("#part2").height() * 100 - 3;
@@ -478,6 +420,89 @@ function state2() {
                 setTimer(600, 10);
                 state3();
                 state++;
+            }
+            if (state == 5) {
+                $(".petriDish").click(function () {
+                    if ($(this).attr("data-state3") == "0") {
+                        switch ($(this).attr("id")) {
+                        case "petriDish1":
+                            $("#writeDish").show(1000);
+                            setTimeout(function () {
+                                $("#penMover1").show();
+                            }, 1000);
+                            setTimeout(function () {
+                                $("#penMover1").hide();
+                                $(".dishLabel").attr("src", "pictures/dishLabel" + "1" + ".svg");
+                                $(".dishLabel").show();
+                                $("#label1").show();
+                                $("#writeDish").hide(2500);
+                                $(".dishLabel").hide(2000);
+                            }, 2000);
+                            labelCounter++;
+                            if (labelCounter == 4) {
+                                state6();
+                            }
+                            break;
+                        case "petriDish2":
+                            $("#writeDish").show(1000);
+                            setTimeout(function () {
+                                $("#penMover1").show();
+                            }, 1000);
+                            setTimeout(function () {
+                                $("#penMover1").hide();
+                                $(".dishLabel").attr("src", "pictures/dishLabel" + "2" + ".svg");
+                                $(".dishLabel").show();
+                                $("#label2").show();
+                                $("#writeDish").hide(2500);
+                                $(".dishLabel").hide(2000);
+                            }, 2000);
+                            labelCounter++;
+                            if (labelCounter == 4) {
+                                state6();
+                            }
+                            break;
+                        case "petriDish3":
+                            $("#writeDish").show(1000);
+                            setTimeout(function () {
+                                $("#penMover1").show();
+                            }, 1000);
+                            setTimeout(function () {
+                                $("#penMover1").hide();
+                                $(".dishLabel").attr("src", "pictures/dishLabel" + "3" + ".svg");
+                                $(".dishLabel").show();
+                                $("#label3").show();
+                                $("#writeDish").hide(2500);
+                                $(".dishLabel").hide(2000);
+                            }, 2000);
+                            labelCounter++;
+                            if (labelCounter == 4) {
+                                state6();
+                            }
+                            break;
+                        case "petriDish4":
+                            $("#writeDish").show(1000);
+                            setTimeout(function () {
+                                $("#penMover1").show();
+                            }, 1000);
+                            setTimeout(function () {
+                                $("#penMover1").hide();
+                                $(".dishLabel").attr("src", "pictures/dishLabel" + "4" + ".svg");
+                                $(".dishLabel").show();
+                                $("#label4").show();
+                                $("#writeDish").hide(2500);
+                                $(".dishLabel").hide(2000);
+                            }, 2000);
+                            labelCounter++;
+                            if (labelCounter == 4) {
+                                state6();
+                            }
+                            break;
+                        default:
+                            break;
+                        }
+                        $(this).attr("data-state3", "1");
+                    }
+                });
             }
         }
         , ondropdeactivate: function (event) {
@@ -518,7 +543,7 @@ function state3() {
                 $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
             }
             if (event.relatedTarget.getAttribute("id") == "tube2") {
-                $("#tube2").css("lsdseft", "46.5%");
+                $("#tube2").css("left", "47.5%");
                 $("#tube2").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
                 $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
@@ -560,8 +585,8 @@ function state3() {
             if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
-                    $("#loop1").css("animation", "loop 1s forwards");
-                    $("#loop1").finish();
+                    $(event.relatedTarget).css("animation", "loop 1s forwards");
+                    $(event.relatedTarget).finish();
                     $(event.target).attr("src", "pictures/starterplate without.svg");
                 }
             }
@@ -619,7 +644,6 @@ function state3() {
 }
 
 function state4() {
-    alert("!");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
@@ -658,27 +682,24 @@ function state4() {
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop', // Require a 75% element overlap for a drop to be possible
-        overlap: 0.10, // listen for drop related events:
+        overlap: 0.02, // listen for drop related events:
         ondrop: function (event) {
-            if (pipetteFluid == true && $("#pipette1").offset().top + $("#pipette1").height() < ($(event.target).offset().top + $(event.target).height())) {
-                if ($(event.target).attr("id") == "tube2") {
-                    event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid P.svg");
-                }
-                gameState++;
+            if ($(event.target).attr("id") == "tube2") {
+                gameState = 9;
+                event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
+                $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
                 $(event.relatedTarget).hide();
+                state5();
             }
         }
     , });
-    $("#tube1").click(function (event) {
-        event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
-        gameState++;
-        if (gameState == 9) {
-            state5();
-        }
-    });
 }
 
 function state5() {
+    $(".tube").attr("data-state", "5");
+}
+
+function state6() {
     $("#cubeWithTubes").show();
     $(".origin").hide();
     interact('#cubeWithTubes').draggable({
@@ -733,37 +754,50 @@ function state5() {
                 $("#tubeInWaterbath").hide()
             }, 3000);
             setTimeout(function () {
-                $(event.relatedTarget).show(1000)
+                $(event.relatedTarget).show(1000);
+                interact('#icebox').dropzone({
+                    // only accept elements matching this CSS selector
+                    accept: '#cubeWithTubes', // Require a 75% element overlap for a drop to be possible
+                    overlap: 0.10, // listen for drop related events:
+                    ondropactivate: function (event) {
+                        // add active dropzone feedback
+                        event.target.classList.add('drop-active');
+                    }
+                    , ondragenter: function (event) {
+                        var draggableElement = event.relatedTarget
+                            , dropzoneElement = event.target;
+                        // feedback the possibility of a drop
+                        dropzoneElement.classList.add('drop-target');
+                        draggableElement.classList.add('can-drop');
+                    }
+                    , ondragleave: function (event) {
+                        // remove the drop feedback style
+                        event.target.classList.remove('drop-target');
+                        event.relatedTarget.classList.remove('can-drop');
+                    }
+                    , ondrop: function (event) {
+                        $("#tubeInIcebox").show();
+                        $("#cubeWithTubes").hide();
+                        setTimeout(function () {
+                            $("#tubeInIcebox").hide();
+                            $(".tube").show();
+                            $("#cube").show();
+                            $("#cubeTop").show();
+                            state7();
+                        }, 2000);
+                    }
+                    , ondropdeactivate: function (event) {
+                        // remove active dropzone feedback
+                        event.target.classList.remove('drop-active');
+                        event.target.classList.remove('drop-target');
+                    }
+                });
             }, 3000);
-            state6();
         }
         , ondropdeactivate: function (event) {
             // remove active dropzone feedback
             event.target.classList.remove('drop-active');
             event.target.classList.remove('drop-target');
-        }
-    });
-}
-
-function state6() {
-    interact('#icebox').dropzone({
-        accept: "#cubeWithTubes"
-        , ondrop: function (event) {
-            $(event.relatedTarget).hide(1000, function () {
-                $("#tubeInIcebox").show()
-            });
-            setTimeout(function () {
-                $("#tubeInIcebox").hide();
-                $(event.relatedTarget).show(1000);
-                //gameState 10
-                gameState++;
-                $("#cubeWithTubes").hide();
-                $(".origin").show();
-                $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
-                $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
-                setTimer(120, 10);
-                state7();
-            }, 2000);
         }
     });
 }
@@ -1041,7 +1075,6 @@ function state10() {
 }
 
 function state11() {
-
     $("#gameTable").hide();
     $("#gameTable2").show();
     interact('#stack').draggable({
@@ -1097,7 +1130,7 @@ function state11() {
     });
 }
 
-function state12(){
+function state12() {
     var dishType = 0;
     var exam = 0;
     var counter = 0;
