@@ -781,6 +781,10 @@ function state6() {
                         setTimeout(function () {
                             $("#tubeInIcebox").hide();
                             $(".tube").show();
+                            $("#tube1").css("top", "10");
+                            $("#tube1").css("left", "10");
+                            $("#tube2").css("top", "10");
+                            $("#tube2").css("left", "10");
                             $("#cube").show();
                             $("#cubeTop").show();
                             state7();
@@ -906,7 +910,7 @@ function state8() {
                 $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 4) {
-                    alert("WIN!");
+                    state9();
                 }
             }
             if ($(event.target).attr("data-state") == "M" && $("#pipette2").attr("data-state") == "3") {
@@ -914,7 +918,6 @@ function state8() {
                 $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 4) {
-                    alert("WIN!");
                     state9();
                 }
             }
@@ -1251,12 +1254,12 @@ function instruction() {
     case 6:
         $("#insPic").attr("src", "pictures/05.PNG");
         break;
-    case 8:
+    case 7:
         $("#insPic").attr("src", "pictures/06.PNG");
         break;
-        //case 6:
-        //    $("#insPic").attr("src", "pictures/07.png");
-        //    break;
+    case 8:
+        $("#insPic").attr("src", "pictures/07.png");
+        break;
     case 9:
         $("#insPic").attr("src", "pictures/08.PNG");
         break;
