@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="90.393875mm"
+   height="240.56944mm"
+   viewBox="0 0 320.29326 852.4114"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="trash bin.svg">
+   sodipodi:docname="063_trash bin.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,12 +25,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-60.714286"
-     inkscape:cy="520"
+     inkscape:zoom="0.63998688"
+     inkscape:cx="-269.30952"
+     inkscape:cy="430.15653"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
      inkscape:window-width="1600"
      inkscape:window-height="837"
      inkscape:window-x="-8"
@@ -51,43 +55,76 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-208.96432,-110.87056)">
     <path
-       style="opacity:1;fill:#ffcc00;stroke:#000000;stroke-opacity:1"
-       d="m 200.33322,266.64792 340.36119,0 c 22.85576,0 42.69011,18.17895 41.25589,40.66045 l -27.07433,424.39337 c -1.43422,22.4815 -18.39988,40.66045 -41.25564,40.66045 l -286.21294,0 c -22.85577,0 -39.82142,-18.17895 -41.25564,-40.66045 L 159.07731,307.30837 c -1.43421,-22.4815 18.40013,-40.66045 41.25591,-40.66045 z"
-       id="rect3336"
+       style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.87823915;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 304.48407,286.68181 145.21984,-0.0601 c 35.95096,-0.0162 67.93898,43.24879 64.91155,96.57758 L 487.2269,865.65138 c 0.01,53.5189 -36.52434,96.60467 -72.47531,96.63149 l -80.79151,0.06 c -35.95097,0.0162 -72.56838,-45.54543 -69.23751,-96.57758 l -25.11386,-482.452 c -0.01,-53.51892 28.9244,-96.61657 64.87536,-96.63148 z"
+       id="rect4148-1"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssssssss" />
-    <rect
-       style="opacity:1;fill:#ffcc00;stroke:#000000;stroke-opacity:1"
-       id="rect3339"
-       width="471.42859"
-       height="100"
-       x="131.42856"
-       y="229.50507"
-       ry="43.243256" />
+       sodipodi:nodetypes="scscscccs" />
+    <path
+       style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.29661357;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 210.0382,181.29991 239.74755,368.14255 264.85452,886.4258 218.80357,561.37687 Z"
+       id="rect4219"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.28569031px;line-height:125%;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="242.13989"
-       y="586.88348"
-       id="text4141"
+       style="font-style:normal;font-weight:normal;font-size:64.83067322px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.62076688px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="264.27792"
+       y="540.88623"
+       id="text4223"
        sodipodi:linespacing="125%"
-       transform="scale(1.0916522,0.91604264)"><tspan
+       transform="matrix(0.99953327,-0.03054891,0.03054891,0.99953327,0,0)"><tspan
          sodipodi:role="line"
-         id="tspan4143"
-         x="242.13989"
-         y="586.88348">Waste</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-1068.5714"
-       y="386.64792"
-       id="text4145"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4147"
-         x="-1068.5714"
-         y="386.64792" /></text>
+         id="tspan4225"
+         x="264.27792"
+         y="540.88623"
+         style="stroke-width:1.62076688px">Waste</tspan></text>
+    <g
+       id="g4186"
+       transform="matrix(1.1313429,0,0,1.0740892,-384.65059,-394.8673)">
+      <rect
+         transform="matrix(0.99949561,-0.03175731,0.14642589,0.98922164,0,0)"
+         rx="128.36069"
+         ry="61.767162"
+         y="495.23703"
+         x="444.423"
+         height="290.16064"
+         width="256.72137"
+         id="rect4148-2-9-7"
+         style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.4483521;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         transform="matrix(0.99949561,-0.03175731,0.14642589,0.98922164,0,0)"
+         rx="107.00872"
+         ry="51.492599"
+         y="516.55499"
+         x="464.01862"
+         height="241.89432"
+         width="214.01746"
+         id="rect4148-2-9-1"
+         style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.20742834;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         transform="matrix(0.99949561,-0.03175731,0.14642589,0.98922164,0,0)"
+         rx="93.570091"
+         ry="45.025928"
+         y="527.06354"
+         x="478.51965"
+         height="211.51616"
+         width="187.1402"
+         id="rect4148-2-9"
+         style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.24200027;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         transform="matrix(0.99949561,-0.0317573,-0.14642588,-0.98922164,0,0)"
+         ry="52.522736"
+         rx="35.467625"
+         y="-692.02673"
+         x="482.59509"
+         height="146.26584"
+         width="173.39726"
+         id="rect4180"
+         style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:#000000;stroke-width:0.8497951;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>
