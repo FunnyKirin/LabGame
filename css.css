@@ -691,8 +691,8 @@ writing animation
     position: absolute;
     height: 35%;
     width: auto;
-    top: 70%;
-    left: 100%;
+    top: 0%;
+    left: 80%;
 }
 
 #timer {

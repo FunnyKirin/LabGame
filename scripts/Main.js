@@ -417,7 +417,19 @@ function state2() {
             }
             if (state == 2) {
                 gameState++;
-                setTimer(600, 10);
+                $("#timer").show();
+                $("#timerConfirm").click(function () {
+                
+                var time = $("#timerInput").val();
+                    if(time==600){
+                        
+                        $("#timerInput").hide();
+                        $("#timerConfirm").hide();
+                    setTimer(time, 10);
+                    }else{
+                        alert("wrong time");
+                    }
+                });
                 state3();
                 state++;
             }
@@ -624,7 +636,7 @@ function state3() {
                     if (event.target.getAttribute("data-state") == "3") {
                         event.target.setAttribute("data-state", "4")
                         $("#loop2").show();
-                        gotoTrashBin($(event.relatedTarget));
+                        gotoTrashBin($(event.relatedTarget).attr("id"));
                         state++;
                         if (state == 2) {
                             gameState++;
@@ -1155,7 +1167,7 @@ function state12() {
                     , bottom: 1
                     , right: 1
                 }
-            }, // enable autoScroll
+            }, // enable autoScroll `
             autoScroll: true, // call this function on every dragmove event
             onmove: dragMoveListener, // call this function on every dragend event
             onend: function (event) {
@@ -1290,11 +1302,39 @@ window.setInterval(function () {
 }, 500);
 
 function gotoTrashBin(x) {
-    $(x).hide(1000);
+    interact('#trashBin').dropzone({
+        // only accept elements matching this CSS selector
+        accept: x, // Require a 75% element overlap for a drop to be possible
+        overlap: 0.10, // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+        }
+        , ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+        }
+        , ondrop: function (event) {
+            $(event.relatedTarget).hide(1000);
+            state2();
+        }
+        , ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+        }
+    });
 }
 
 function setTimer(duration, speed, answer) {
-    $("#timer").show();
     var timer = duration
         , minutes, seconds;
     display = document.querySelector('#timerNumber');
