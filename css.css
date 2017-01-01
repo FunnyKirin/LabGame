@@ -695,13 +695,13 @@ writing animation
     left: 80%;
 }
 
-#timer {
+.timerPanel {
     position: absolute;
     top: 10%;
     left: 0%;
     height: 80%;
     width: 100%;
-    background: rgba(200, 200, 200, 0.8);
+    background: rgba(200, 200, 200, 0.9);
     font-family: cursive;
     font-size: 170%;
     text-align: center;
@@ -882,4 +882,29 @@ writing animation
 #label4{
     top: 87%;
     left: 80%;
+}
+
+#drawLoop{
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: auto;
+    height: 50%;
+    transform: rotate(30deg);
+
+    animation-name: loopDraw;
+    animation-duration: 0.4s;
+    animation-iteration-count: 4;
+}
+
+@keyframes loopDraw {
+    0% {
+        transform: rotate(30deg);
+    }
+    50% {
+        transform: translate(7vw, -3vw) rotate(30deg);
+    }
+    100% {
+        transform: rotate(30deg);
+    }
 }
