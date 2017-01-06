@@ -710,6 +710,7 @@ writing animation
     align-items: center;
 }
 
+
 @keyframes loop {
     0% {
         transform: rotate(50deg) translate(7vw, -13vw);
@@ -908,3 +909,4 @@ writing animation
         transform: rotate(30deg);
     }
 }
+

@@ -132,9 +132,7 @@ function dragMoveListener(event) {
 state0();
 //setTimer(300, 1000);
 function state0() {
-    if (hint == 1) {
-        $("#messager").text("instruction message.");
-    }
+    messager("Click tubes to label them");
     var state01 = 0;
     $("#tube1").click(function () {
         if ($(this).attr("data-state") == "-1") {
@@ -182,6 +180,7 @@ function state0() {
 
 function state1() {
     //state 1
+    messager("drag pipette to Tansformation Solution container to get some solution");
     interact('.pipette').draggable({
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
@@ -224,8 +223,11 @@ function state1() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
-            $("#pipette1").attr("data-state", "1");
+            if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
+                $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
+                $("#pipette1").attr("data-state", "1");
+                messager("drag pipette to tubes");
+            }
             pipetteFluid = true;
         }
         , ondropdeactivate: function (event) {
@@ -268,8 +270,10 @@ function state1() {
                 if (event.target.getAttribute("data-state") == "0") {
                     event.target.setAttribute("data-state", "1")
                     tubeCounter++;
+                    messager("drag pipette to Tansformation Solution container to get some solution");
                     if (tubeCounter == 2) {
                         gameState++;
+                        messager("Drag pipette to trash bin to trash it");
                         interact('#trashBin').dropzone({
                             // only accept elements matching this CSS selector
                             accept: '#pipette1', // Require a 75% element overlap for a drop to be possible
@@ -353,6 +357,7 @@ function state1() {
 }
 //state 2 
 function state2() {
+    messager("Drag tubes to icebox to chill them");
     var state = 0;
     $("#pipette2").show();
     interact('.tube').draggable({
@@ -416,24 +421,27 @@ function state2() {
                 state++;
             }
             if (state == 2) {
+                messager("Type 60 to chill tubes for 60 seconds");
                 gameState++;
                 $("#timer").show();
                 $("#timerConfirm").click(function () {
-                
-                var time = $("#timerInput").val();
-                    if(time==600){
-                        
-                        $("#timerInput").hide();
-                        $("#timerConfirm").hide();
-                    setTimer(time, 10);
-                    }else{
-                        alert("wrong time");
+                    if (state == 2) {
+                        var time = $("#timerInput").val();
+                        if (time == 60) {
+                            $("#timerInput").hide();
+                            $("#timerConfirm").hide();
+                            setTimer(time, 10);
+                            state3();
+                            state++;
+                        }
+                        else {
+                            swal("Wrong time!");
+                        }
                     }
                 });
-                state3();
-                state++;
             }
             if (state == 5) {
+                messager("Click petri dish to label them");
                 $(".petriDish").click(function () {
                     if ($(this).attr("data-state3") == "0") {
                         switch ($(this).attr("id")) {
@@ -526,6 +534,7 @@ function state2() {
 }
 //state 3 
 function state3() {
+    messager("Drag tubes back to cube");
     var state = 0;
     interact('.cube').dropzone({
         // only accept elements matching this CSS selector
@@ -565,6 +574,7 @@ function state3() {
             if (event.relatedTarget.getAttribute("data-state") == "2") {
                 event.relatedTarget.setAttribute("data-state", "3");
                 gameState++;
+                messager("Drag loops over starterPlate to grab colony and put them into both tubes. Don't forget to trash loops.");
             }
         }
         , ondropdeactivate: function (event) {
@@ -636,12 +646,13 @@ function state3() {
                     if (event.target.getAttribute("data-state") == "3") {
                         event.target.setAttribute("data-state", "4")
                         $("#loop2").show();
-                        gotoTrashBin($(event.relatedTarget).attr("id"));
+                        gotoTrashBin("#loop1");
                         state++;
                         if (state == 2) {
                             gameState++;
                             state4();
                             $("#loop3").show();
+                            gotoTrashBin("#loop2");
                         }
                     }
                 }
@@ -656,6 +667,7 @@ function state3() {
 }
 
 function state4() {
+    messager("Drag a loop in to plasmid container to get some solution. Don't forget to double check if you actually get the solution");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
@@ -680,6 +692,7 @@ function state4() {
             if (event.relatedTarget.getAttribute("data-state") == "0") {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
+                    messager("Place the loop into tube with +pGlo")
                     event.relatedTarget.setAttribute("data-state", 1);
                 }
             }
@@ -709,9 +722,11 @@ function state4() {
 
 function state5() {
     $(".tube").attr("data-state", "5");
+    messager("Drag cube into icebox for 10 minutes, and click petri dishes to label them.");
 }
 
 function state6() {
+    messager("Drag cube into waterbase for 50 sec");
     $("#cubeWithTubes").show();
     $(".origin").hide();
     interact('#cubeWithTubes').draggable({
@@ -766,6 +781,7 @@ function state6() {
                 $("#tubeInWaterbath").hide()
             }, 3000);
             setTimeout(function () {
+                messager("Drag tubes into icebox for 2 minutes");
                 $(event.relatedTarget).show(1000);
                 interact('#icebox').dropzone({
                     // only accept elements matching this CSS selector
@@ -790,17 +806,31 @@ function state6() {
                     , ondrop: function (event) {
                         $("#tubeInIcebox").show();
                         $("#cubeWithTubes").hide();
-                        setTimeout(function () {
-                            $("#tubeInIcebox").hide();
-                            $(".tube").show();
-                            $("#tube1").css("top", "10");
-                            $("#tube1").css("left", "10");
-                            $("#tube2").css("top", "10");
-                            $("#tube2").css("left", "10");
-                            $("#cube").show();
-                            $("#cubeTop").show();
-                            state7();
-                        }, 2000);
+                        $("#timer").show();
+                        $("#timerInput").show();
+                        $("#timerConfirm").show();
+                        $("#timerConfirm").click(function () {
+                            var time = $("#timerInput").val();
+                            if (time == 120) {
+                                $("#timerInput").hide();
+                                $("#timerConfirm").hide();
+                                setTimer(time, 10);
+                                setTimeout(function () {
+                                    $("#tubeInIcebox").hide();
+                                    $(".tube").show();
+                                    $("#tube1").css("top", "10");
+                                    $("#tube1").css("left", "10");
+                                    $("#tube2").css("top", "10");
+                                    $("#tube2").css("left", "10");
+                                    $("#cube").show();
+                                    $("#cubeTop").show();
+                                    state7();
+                                }, 2000);
+                            }
+                            else {
+                                swal("Wrong time!")
+                            }
+                        });
                     }
                     , ondropdeactivate: function (event) {
                         // remove active dropzone feedback
@@ -997,7 +1027,7 @@ function state9() {
         case "0":
             $(this).attr("src", "pictures/top%20view%201.svg");
             $(this).attr("data-state", "1");
-                loopDraw();
+            loopDraw();
             break;
         case "1":
             if ($(this).attr("data-rotate") == "1") {
@@ -1031,7 +1061,7 @@ function state9() {
             //$(thisDish).attr("src", "pictures/top%20view%204.svg");
             $(thisDish).attr("data-state2", "1");
             $("#topview").css("transform", "rotate(0deg)");
-                loopDraw();
+            loopDraw();
             break;
         }
         var checkValue = 0;
@@ -1063,12 +1093,11 @@ function state9() {
     })
 }
 
-function loopDraw(){
+function loopDraw() {
     $("#drawLoop").show();
-    setTimeout(function(){
+    setTimeout(function () {
         $("#drawLoop").hide();
-    },1000)
-
+    }, 1000)
 }
 
 function state10() {
@@ -1148,10 +1177,10 @@ function state11() {
         , ondrop: function (event) {
             $(event.relatedTarget).hide(1000);
             $(event.target).attr("src", "pictures/043_ rezized petri dish stack in incubator.svg");
-            setTimeout(function(){
+            setTimeout(function () {
                 $("#nextDay").show();
             }, 500);
-            setTimeout(function(){
+            setTimeout(function () {
                 $("#nextDay").hide(1000);
             }, 3000);
             state12();
@@ -1343,7 +1372,6 @@ function gotoTrashBin(x) {
         }
         , ondrop: function (event) {
             $(event.relatedTarget).hide(1000);
-            state2();
         }
         , ondropdeactivate: function (event) {
             // remove active dropzone feedback
@@ -1365,7 +1393,14 @@ function setTimer(duration, speed, answer) {
         display.textContent = minutes + ":" + seconds;
         if (--timer < 0) {
             clearInterval(myVar);
+            display.textContent = "";
             $("#timer").hide();
         }
     }, speed);
+}
+
+function messager(message) {
+    if (hint == 1) {
+        $("#messager").text(message);
+    }
 }
