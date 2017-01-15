@@ -689,10 +689,10 @@ writing animation
 }
 #trashBin {
     position: absolute;
-    height: 35%;
+    height: 25%;
     width: auto;
-    top: 0%;
-    left: 80%;
+    top: 65%;
+    left: 2%;
 }
 
 .timerPanel {

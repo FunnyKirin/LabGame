@@ -295,7 +295,8 @@ function state1() {
                                 event.relatedTarget.classList.remove('can-drop');
                             }
                             , ondrop: function (event) {
-                                $(event.relatedTarget).hide(1000);
+                                
+                                trashItem($("#pipette1"));
                                 state2();
                             }
                             , ondropdeactivate: function (event) {
@@ -1403,4 +1404,15 @@ function messager(message) {
     if (hint == 1) {
         $("#messager").text(message);
     }
+}
+
+function trashItem(item) {
+    interact(item).unset();
+    var target = $("#trashBin").offset();
+    $(item).animate({
+        top: target.top
+        , left: target.left
+    }, 2000, function () {
+        $(this).fadeOut();
+    });
 }
