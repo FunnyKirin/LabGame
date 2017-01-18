@@ -675,18 +675,21 @@ writing animation
     animation-name: moveWords;
     animation-duration: 1s;
 }
-#writeDish{
+
+#writeDish {
     position: absolute;
     height: 70%;
-    top:10%;
+    top: 10%;
     left: 23%;
 }
-.dishLabel{
+
+.dishLabel {
     position: absolute;
     height: 30%;
-    top:15%;
+    top: 15%;
     left: 27%;
 }
+
 #trashBin {
     position: absolute;
     height: 25%;
@@ -699,17 +702,15 @@ writing animation
     position: absolute;
     top: 10%;
     left: 0%;
-    height: 80%;
+    height: 83%;
     width: 100%;
     background: rgba(200, 200, 200, 0.9);
     font-family: cursive;
     font-size: 170%;
     text-align: center;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 @keyframes loop {
     0% {
@@ -806,7 +807,6 @@ writing animation
     }
 }
 
-
 #incubator {
     position: absolute;
     height: 35%;
@@ -865,34 +865,33 @@ writing animation
     color: aliceblue;
 }
 
-#label1{
+#label1 {
     top: 87%;
     left: 12%;
 }
 
-#label2{
+#label2 {
     top: 87%;
     left: 32%;
 }
 
-#label3{
+#label3 {
     top: 87%;
     left: 55%;
 }
 
-#label4{
+#label4 {
     top: 87%;
     left: 80%;
 }
 
-#drawLoop{
+#drawLoop {
     position: absolute;
     top: -10%;
     left: 50%;
     width: auto;
     height: 50%;
     transform: rotate(30deg);
-
     animation-name: loopDraw;
     animation-duration: 0.4s;
     animation-iteration-count: 4;
@@ -908,5 +907,36 @@ writing animation
     100% {
         transform: rotate(30deg);
     }
+}
+@keyframes twist2 {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+
+}
+@keyframes twist1 {
+    0% {
+        transform: rotateY(0deg);
+    }
+    
+    50% {
+        transform: rotateY(360deg);
+    }
+}
+
+.twistLoc1{
+    
+    left: 54.5%;
+    top: 11%;
+}
+.twistLoc2{
+    
+    left: 61%;
+    top: 11%;
 }
 

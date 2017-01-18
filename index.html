@@ -4,15 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <title>Transformation Kit</title>
-    <link rel="stylesheet" type="text/css" href="css.css" /> </head>
-<script src="sweetalert.min.js"></script>
-<link rel="stylesheet" type="text/css" href="sweetalert.css">
-<link rel="stylesheet" type="text/css" href="w3.css">
-<script src="jquery-1.12.4.min.js"></script>
-<script src=jquery.keyframes.min.js></script>
-<script src="Sortable.js"></script>
-<script src="interact.js"></script>
-<script src="scripts/resize.js"></script>
+    <script src="sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="w3.css">
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src=jquery.keyframes.min.js></script>
+    <script src="Sortable.js"></script>
+    <script src="interact.js"></script>
+    <script src="scripts/resize.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css" />
+</head>
 
 <body>
     <div id="select" class="main screen">
@@ -61,11 +62,13 @@
             <div hidden id="cubeWithTubes"> <img id="CWTcubeTop" src="pictures/cubetop.svg" /> <img id="CWTTube1" src="pictures/closed centrifuge tube with fluid P.svg" /> <img id="CWTTube2" src="pictures/closed centrifuge tube with fluid M.svg" /> <img id="CWTcube" src="pictures/cube.svg" /> </div> <img hidden id="writeDish" src="pictures/top%20view%200.svg"> <img hidden id="dishLabel1" class="dishLabel" src="pictures/dishLabel1.svg">
             <div hidden id="penMover"> <img id="pen" class="mover" src="pictures/black-ink-pen.svg"> </div>
             <div hidden id="penMover1"> <img id="pen" class="mover" src="pictures/black-ink-pen.svg"> </div>
-            <div hidden id="timer" class="timerPanel">Time Remaining: <span id="timerNumber"></span>
-                <input id="timerInput" value="600" type="number">
-                <br>
-                <input id="timerConfirm" value="Enter" type="button">
-                <br> </div> <img hidden id="stack" class="stackUpSideDown" src="pictures/059_stacked plates no dots.svg" />
+            <div hidden id="timer" class="timerPanel">
+                <div> Wait time: <span id="timerNumber"></span>
+                    <input id="timerInput" value="600" type="number" style="width:11%"><span id="timerNumber">seconds</span>
+                    <br>
+                    <input class="w3-center w3-btn w3-light-grey w3-container" id="timerConfirm" value="Enter" type="button">
+                    <br> </div>
+            </div> <img hidden id="stack" class="stackUpSideDown" src="pictures/059_stacked plates no dots.svg" />
             <div id="debug" class="debug"> </div>
             <button hidden id="rotate" type="button">Rotate</button>
         </div>
