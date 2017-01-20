@@ -1431,7 +1431,7 @@ function gotoTrashBin(x) {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            $(event.relatedTarget).hide(1000);
+            $(event.relatedTarget).fadeOut(1000);
         }
         , ondropdeactivate: function (event) {
             // remove active dropzone feedback
@@ -1466,5 +1466,5 @@ function messager(message) {
 }
 
 function trashItem(item) {
-    $(item).fadeOut(2000);
+    $(item).fadeOut(1000);
 }
