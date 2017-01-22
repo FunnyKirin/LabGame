@@ -452,6 +452,7 @@ function state2() {
                         if (time == 600) {
                             $("#timer").hide();
                             messager("Click petri dish to label them while waiting for cubes.");
+                            gameState = 8;
                         }
                         else {
                             swal("Wrong time!")
@@ -748,7 +749,7 @@ function state4() {
         overlap: 0.02, // listen for drop related events:
         ondrop: function (event) {
             if ($(event.target).attr("id") == "tube2") {
-                gameState = 9;
+                gameState = 7;
                 event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
                 $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
                 $(event.relatedTarget).hide();
@@ -767,6 +768,7 @@ function state5() {
 }
 
 function state6() {
+    gameState=9;
     messager("Drag cube into waterbase for 50 sec");
     $("#cubeWithTubes").show();
     $(".origin").hide();
@@ -909,6 +911,7 @@ function state6() {
 }
 
 function state7() {
+    gameState=10;
     interact('#BrothContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.pipette'

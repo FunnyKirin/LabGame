@@ -918,7 +918,7 @@ writing animation
 }
 
 
-}
+
 @keyframes twist1 {
     0% {
         transform: rotateY(0deg);
