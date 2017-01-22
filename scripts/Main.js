@@ -223,6 +223,24 @@ function state1() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
+            $(event.relatedTarget).hide();
+            $("#fakepipette1").show();
+            $("#part2").addClass("anim_zoom");
+            setTimeout(function(){
+                $("#p1").show();
+                
+            },500);
+            
+            setTimeout(function () {
+                $("#p1").hide();
+                $("#part2").addClass("anim_zoomRe");
+                $("#fakepipette1").hide();
+                $(event.relatedTarget).show();
+            }, 5000)
+            setTimeout(function () {
+                $("#part2").removeClass("anim_zoomRe");
+                $("#part2").removeClass("anim_zoom");
+            }, 5500)
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
                 $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 $("#pipette1").attr("data-state", "1");
@@ -768,7 +786,7 @@ function state5() {
 }
 
 function state6() {
-    gameState=9;
+    gameState = 9;
     messager("Drag cube into waterbase for 50 sec");
     $("#cubeWithTubes").show();
     $(".origin").hide();
@@ -794,124 +812,127 @@ function state6() {
     });
     var timer1 = 0;
     interact('#waterBath1').dropzone({
-        
         // only accept elements matching this CSS selector
         accept: '#cubeWithTubes', // Require a 75% element overlap for a drop to be possible
-            overlap: 0.10, // listen for drop related events:
-            ondropactivate: function (event) {
-                // add active dropzone feedback
-                event.target.classList.add('drop-active');
-            }, ondragenter: function (event) {
-                var draggableElement = event.relatedTarget
-                    , dropzoneElement = event.target;
-                // feedback the possibility of a drop
-                dropzoneElement.classList.add('drop-target');
-                draggableElement.classList.add('can-drop');
-                openWaterBath();
-            }, ondragleave: function (event) {
-                // remove the drop feedback style
-                event.target.classList.remove('drop-target');
-                event.relatedTarget.classList.remove('can-drop');
-                closeWaterBath();
-            }, ondrop: function (event) {
-                $(event.relatedTarget).hide(1000, function () {
-                    $("#tubeInWaterbath").show()
-                });
-                closeWaterBath()
-                setTimeout(openWaterBath, 2500); {
-                    $("#timer").show();
-                    $("#timerInput").show();
-                    $("#timerConfirm").show();
-                    $("#timerConfirm").click(function () {
-                        if (timer1 == 0) {
-                            timer1 = 1;
-                            var time = $("#timerInput").val();
-                            if (time == 50) {
-                                $("#timerInput").hide();
-                                $("#timerConfirm").hide();
-                                setTimer(time, 10);
+        overlap: 0.10, // listen for drop related events:
+        ondropactivate: function (event) {
+            // add active dropzone feedback
+            event.target.classList.add('drop-active');
+        }
+        , ondragenter: function (event) {
+            var draggableElement = event.relatedTarget
+                , dropzoneElement = event.target;
+            // feedback the possibility of a drop
+            dropzoneElement.classList.add('drop-target');
+            draggableElement.classList.add('can-drop');
+            openWaterBath();
+        }
+        , ondragleave: function (event) {
+            // remove the drop feedback style
+            event.target.classList.remove('drop-target');
+            event.relatedTarget.classList.remove('can-drop');
+            closeWaterBath();
+        }
+        , ondrop: function (event) {
+            $(event.relatedTarget).hide(1000, function () {
+                $("#tubeInWaterbath").show()
+            });
+            closeWaterBath()
+            setTimeout(openWaterBath, 2500); {
+                $("#timer").show();
+                $("#timerInput").show();
+                $("#timerConfirm").show();
+                $("#timerConfirm").click(function () {
+                    if (timer1 == 0) {
+                        timer1 = 1;
+                        var time = $("#timerInput").val();
+                        if (time == 50) {
+                            $("#timerInput").hide();
+                            $("#timerConfirm").hide();
+                            setTimer(time, 10);
+                            setTimeout(function () {
+                                $("#timer").hide();
                                 setTimeout(function () {
-                                    $("#timer").hide();
-                                    setTimeout(function () {
-                                        $("#tubeInWaterbath").hide()
-                                    }, 3000);
-                                    setTimeout(function () {
-                                        messager("Drag tubes into icebox for 2 minutes");
-                                        $(event.relatedTarget).show(1000);
-                                        interact('#icebox').dropzone({
-                                            // only accept elements matching this CSS selector
-                                            accept: '#cubeWithTubes', // Require a 75% element overlap for a drop to be possible
-                                            overlap: 0.10, // listen for drop related events:
-                                            ondropactivate: function (event) {
-                                                // add active dropzone feedback
-                                                event.target.classList.add('drop-active');
-                                            }
-                                            , ondragenter: function (event) {
-                                                var draggableElement = event.relatedTarget
-                                                    , dropzoneElement = event.target;
-                                                // feedback the possibility of a drop
-                                                dropzoneElement.classList.add('drop-target');
-                                                draggableElement.classList.add('can-drop');
-                                            }
-                                            , ondragleave: function (event) {
-                                                // remove the drop feedback style
-                                                event.target.classList.remove('drop-target');
-                                                event.relatedTarget.classList.remove('can-drop');
-                                            }
-                                            , ondrop: function (event) {
-                                                $("#tubeInIcebox").show();
-                                                $("#cubeWithTubes").hide();
-                                                $("#timer").show();
-                                                $("#timerInput").show();
-                                                $("#timerConfirm").show();
-                                                $("#timerConfirm").click(function () {
-                                                    var time = $("#timerInput").val();
-                                                    if (time == 120) {
-                                                        $("#timerInput").hide();
-                                                        $("#timerConfirm").hide();
-                                                        setTimer(time, 10);
-                                                        setTimeout(function () {
-                                                            $("#tubeInIcebox").hide();
-                                                            $(".tube").show();
-                                                            $("#tube1").css("top", "10");
-                                                            $("#tube1").css("left", "10");
-                                                            $("#tube2").css("top", "10");
-                                                            $("#tube2").css("left", "10");
-                                                            $("#cube").show();
-                                                            $("#cubeTop").show();
-                                                            state7();
-                                                        }, 2000);
-                                                    }
-                                                    else {
-                                                        swal("Wrong time!")
-                                                    }
-                                                });
-                                            }
-                                            , ondropdeactivate: function (event) {
-                                                // remove active dropzone feedback
-                                                event.target.classList.remove('drop-active');
-                                                event.target.classList.remove('drop-target');
-                                            }
-                                        });
-                                    }, 3000);
-                                }, 500);
-                            }
-                            else {
-                                swal("Wrong time!")
-                            }
+                                    $("#tubeInWaterbath").hide()
+                                }, 3000);
+                                setTimeout(function () {
+                                    messager("Drag tubes into icebox for 2 minutes");
+                                    $(event.relatedTarget).show(1000);
+                                    interact('#icebox').dropzone({
+                                        // only accept elements matching this CSS selector
+                                        accept: '#cubeWithTubes', // Require a 75% element overlap for a drop to be possible
+                                        overlap: 0.10, // listen for drop related events:
+                                        ondropactivate: function (event) {
+                                            // add active dropzone feedback
+                                            event.target.classList.add('drop-active');
+                                        }
+                                        , ondragenter: function (event) {
+                                            var draggableElement = event.relatedTarget
+                                                , dropzoneElement = event.target;
+                                            // feedback the possibility of a drop
+                                            dropzoneElement.classList.add('drop-target');
+                                            draggableElement.classList.add('can-drop');
+                                        }
+                                        , ondragleave: function (event) {
+                                            // remove the drop feedback style
+                                            event.target.classList.remove('drop-target');
+                                            event.relatedTarget.classList.remove('can-drop');
+                                        }
+                                        , ondrop: function (event) {
+                                            $("#tubeInIcebox").show();
+                                            $("#cubeWithTubes").hide();
+                                            $("#timer").show();
+                                            $("#timerInput").show();
+                                            $("#timerConfirm").show();
+                                            $("#timerConfirm").click(function () {
+                                                var time = $("#timerInput").val();
+                                                if (time == 120) {
+                                                    $("#timerInput").hide();
+                                                    $("#timerConfirm").hide();
+                                                    setTimer(time, 10);
+                                                    setTimeout(function () {
+                                                        $("#tubeInIcebox").hide();
+                                                        $(".tube").show();
+                                                        $("#tube1").css("top", "10");
+                                                        $("#tube1").css("left", "10");
+                                                        $("#tube2").css("top", "10");
+                                                        $("#tube2").css("left", "10");
+                                                        $("#cube").show();
+                                                        $("#cubeTop").show();
+                                                        state7();
+                                                    }, 2000);
+                                                }
+                                                else {
+                                                    swal("Wrong time!")
+                                                }
+                                            });
+                                        }
+                                        , ondropdeactivate: function (event) {
+                                            // remove active dropzone feedback
+                                            event.target.classList.remove('drop-active');
+                                            event.target.classList.remove('drop-target');
+                                        }
+                                    });
+                                }, 3000);
+                            }, 500);
                         }
-                    });
-                }
-            }, ondropdeactivate: function (event) {
-                // remove active dropzone feedback
-                event.target.classList.remove('drop-active');
-                event.target.classList.remove('drop-target');
+                        else {
+                            swal("Wrong time!")
+                        }
+                    }
+                });
             }
+        }
+        , ondropdeactivate: function (event) {
+            // remove active dropzone feedback
+            event.target.classList.remove('drop-active');
+            event.target.classList.remove('drop-target');
+        }
     });
 }
 
 function state7() {
-    gameState=10;
+    gameState = 10;
     interact('#BrothContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.pipette'

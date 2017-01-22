@@ -12,8 +12,7 @@
     <script src="Sortable.js"></script>
     <script src="interact.js"></script>
     <script src="scripts/resize.js"></script>
-    <link rel="stylesheet" type="text/css" href="css.css" />
-</head>
+    <link rel="stylesheet" type="text/css" href="css.css" /> </head>
 
 <body>
     <div id="select" class="main screen">
@@ -49,12 +48,12 @@
             <p id="gameDescription" class="fs-20">Place steps in the correct order. ~!@#$@!# someone write this for me plz.</p>
         </div>
     </div>
-    <div id="part2" class="main screen" style="display: none;">
+    <div id="part2" class="main  screen" style="display: none;">
         <input id="backFromPractice" class="button fs-25" type="button" value="back" />
         <div id="gameTable">
             <div id="table"></div>
             <div hidden id="tubeInWaterbath"> <img id="WBTube1" src="pictures/closed centrifuge tube with fluid P.svg" /> <img id="WBTube2" src="pictures/closed centrifuge tube with fluid M.svg" /> </div> <img id="starterPlate" class="starterPlate" src="pictures/starterplate with colonies.svg" /> <img id="waterBath1" src="pictures/water bath1.svg" /> <img id="waterBath2" src="pictures/water bath2.svg" /> <img id="cubeTop" class="cubeTop origin" src="pictures/cubetop.svg" /> <img id="tube1" class="tube origin" src="pictures/open centrifuge tube without fluid.svg" data-state="-1" /> <img id="tube2" class="tube origin" src="pictures/open centrifuge tube without fluid.svg" data-state="-1" />
-            <div hidden id="tubeInIcebox"> <img id="IceboxTube1" src="pictures/closed centrifuge tube with fluid P.svg" /> <img id="IceboxTube2" src="pictures/closed centrifuge tube with fluid M.svg" /> </div> <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" /> <img id="pipette1" class="pipette" src="pictures/Resized pipette without fluid.svg" data-state="0" /> <img id="pipette2" class="pipette" src="pictures/Resized pipette without fluid.svg" data-state="0" /> <img id="container" class="container" src="pictures/transformation solution.svg" data-state2="0" /> <img id="plasmidContainer" class="container" src="pictures/044_pGLO%20pasmid%20no%20stopper.svg" /> <img id="BrothContainer" class="container" src="pictures/052_reshaped%20lb%20broth%20bottle%20(no%20lid).svg" /> <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img id="cube" class="cube origin" src="pictures/cube.svg" /> <img id="trashBin" src="pictures/trash bin.svg" /> <img id="petriDish1" class="petriDish" src="pictures/control petri dish.svg" data-state="P" data-state2="0" data-state3="0" /> <img id="petriDish2" class="petriDish" src="pictures/control petri dish.svg" data-state="P" data-state2="0" data-state3="0" /> <img id="petriDish3" class="petriDish" src="pictures/control petri dish.svg" data-state="M" data-state2="0" data-state3="0" /> <img id="petriDish4" class="petriDish" src="pictures/control petri dish.svg" data-state="M" data-state2="0" data-state3="0" /> <img hidden id="topview" class="topview" src="pictures/top%20view%200.svg" data-state="0" data-rotate="0" /> <img id="drawLoop" hidden src="pictures/yellow%20loop.svg">
+            <div hidden id="tubeInIcebox"> <img id="IceboxTube1" src="pictures/closed centrifuge tube with fluid P.svg" /> <img id="IceboxTube2" src="pictures/closed centrifuge tube with fluid M.svg" /> </div> <img id="icebox" class="icebox" src="pictures/resized ice bucket 2.svg" /> <img id="pipette1" class="pipette" src="pictures/Resized pipette without fluid.svg" data-state="0" /> <img id="pipette2" class="pipette" src="pictures/Resized pipette without fluid.svg" data-state="0" /><img hidden id="fakepipette1" class="pipette" src="pictures/1000 ul pipette (250 ul).svg" data-state="0" /> <img id="container" class="container" src="pictures/transformation solution.svg" data-state2="0" /> <img id="plasmidContainer" class="container" src="pictures/044_pGLO%20pasmid%20no%20stopper.svg" /> <img id="BrothContainer" class="container" src="pictures/052_reshaped%20lb%20broth%20bottle%20(no%20lid).svg" /> <img id="loop1" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img hidden id="loop2" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img hidden id="loop3" class="loop" data-state="0" src="pictures/yellow loop.svg" /> <img id="cube" class="cube origin" src="pictures/cube.svg" /> <img id="trashBin" src="pictures/trash bin.svg" /> <img id="petriDish1" class="petriDish" src="pictures/control petri dish.svg" data-state="P" data-state2="0" data-state3="0" /> <img id="petriDish2" class="petriDish" src="pictures/control petri dish.svg" data-state="P" data-state2="0" data-state3="0" /> <img id="petriDish3" class="petriDish" src="pictures/control petri dish.svg" data-state="M" data-state2="0" data-state3="0" /> <img id="petriDish4" class="petriDish" src="pictures/control petri dish.svg" data-state="M" data-state2="0" data-state3="0" /> <img hidden id="topview" class="topview" src="pictures/top%20view%200.svg" data-state="0" data-rotate="0" /> <img id="drawLoop" hidden src="pictures/yellow%20loop.svg">
             <div hidden id="label1" class="label">+pGlo LB/amp</div>
             <div hidden id="label2" class="label">+pGlo LB/amp/ara</div>
             <div hidden id="label3" class="label">-pGlo LB/amp</div>
@@ -63,7 +62,7 @@
             <div hidden id="penMover"> <img id="pen" class="mover" src="pictures/black-ink-pen.svg"> </div>
             <div hidden id="penMover1"> <img id="pen" class="mover" src="pictures/black-ink-pen.svg"> </div>
             <div hidden id="timer" class="timerPanel">
-                <div  style="top: 40%; left:26%; position: absolute"> Wait time: <span id="timerNumber"></span>
+                <div style="top: 40%; left:26%; position: absolute"> Wait time: <span id="timerNumber"></span>
                     <input id="timerInput" value="600" type="number" style="width:11%"><span id="timerNumber">seconds</span>
                     <br>
                     <input class="w3-center w3-btn w3-light-grey w3-container" id="timerConfirm" value="Enter" type="button">
@@ -95,6 +94,8 @@
             <div id="step12" class="step fs-17"> step12 ~!@#$%^& </div>
         </div>
         <div id="messager"></div>
+        
+        <p hidden id="p1" class="speech">Make sure it's 250 ul!</p>
     </div>
     <script src="scripts/Main.js"></script>
 </body>

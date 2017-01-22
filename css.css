@@ -908,6 +908,7 @@ writing animation
         transform: rotate(30deg);
     }
 }
+
 @keyframes twist2 {
     0% {
         transform: rotateY(0deg);
@@ -917,26 +918,76 @@ writing animation
     }
 }
 
-
-
 @keyframes twist1 {
     0% {
         transform: rotateY(0deg);
     }
-    
     50% {
         transform: rotateY(360deg);
     }
 }
 
-.twistLoc1{
-    
+.twistLoc1 {
     left: 54.5%;
     top: 11%;
 }
-.twistLoc2{
-    
+
+.twistLoc2 {
     left: 61%;
     top: 11%;
 }
 
+@keyframes zoom {
+    from {
+    }
+    to {
+        left: -40.5%;
+        top: -100.5%;
+        width: 275%;
+        height: 275%;
+    }
+}
+
+@keyframes zoomRe {
+    from {
+        left: -40.5%;
+        top: -100.5%;
+        width: 275%;
+        height: 275%;
+    }
+    to {
+    }
+}
+p.speech {
+  position: absolute;
+  width: 7%;
+  height: 5%;
+  text-align: center;
+  line-height: 100px;
+  background-color: #fff;
+  border: 8px solid #666;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+
+#p1{
+    top:40%;
+    left: 33%;
+}
+
+.anim_zoom {
+    animation: zoom 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+.anim_zoomRe {
+    animation: zoomRe 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+#fakepipette1 {
+    position: absolute;
+    left: 38.3%;
+    top: 15%;
+}
