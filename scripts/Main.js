@@ -129,7 +129,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state0();
+state7();
 //setTimer(300, 1000);
 function state0() {
     messager("Click tubes to label them");
@@ -226,11 +226,9 @@ function state1() {
             $(event.relatedTarget).hide();
             $("#fakepipette1").show();
             $("#part2").addClass("anim_zoom");
-            setTimeout(function(){
+            setTimeout(function () {
                 $("#p1").show();
-                
-            },500);
-            
+            }, 500);
             setTimeout(function () {
                 $("#p1").hide();
                 $("#part2").addClass("anim_zoomRe");
@@ -932,6 +930,27 @@ function state6() {
 }
 
 function state7() {
+    interact('.pipette').draggable({
+        // enable inertial throwing
+        inertia: false, // keep the element within the area of it's parent
+        restrict: {
+            restriction: "#part2"
+            , endOnly: true
+            , elementRect: {
+                top: 0
+                , left: 0
+                , bottom: 1
+                , right: 1
+            }
+        }, // enable autoScroll
+        autoScroll: true, // call this function on every dragmove event
+        onmove: dragMoveListener, // call this function on every dragend event
+        onend: function (event) {
+            var textEl = event.target.querySelector('p');
+            textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
+        }
+    });
+    gotoTrashBin(".pipette");
     gameState = 10;
     interact('#BrothContainer').dropzone({
         // only accept elements matching this CSS selector
@@ -954,9 +973,9 @@ function state7() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($("#pipette2").attr("data-state") == "0") {
-                $("#pipette2").attr("data-state", "1");
-                $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
+            if ($(event.relatedTarget).attr("data-state") == "0") {
+                $(event.relatedTarget).attr("data-state", "1");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
         }
         , ondropdeactivate: function (event) {
@@ -987,11 +1006,9 @@ function state7() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($("#pipette2").attr("data-state") == "1") {
-                $("#pipette2").attr("data-state", "0");
-                $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
-                $(".pipette").css("left", "2%");
-                $(".pipette").css("top", "2%");
+            if ($(event.relatedTarget).attr("data-state") == "1") {
+                $(event.relatedTarget).attr("data-state", "2");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 2) {
                     //11
@@ -1031,17 +1048,18 @@ function state8() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($(event.target).attr("data-state") == "P" && $("#pipette2").attr("data-state") == "2") {
-                $("#pipette2").attr("data-state", "0");
-                $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
+            if ($(event.target).attr("data-state") == "P" && $(event.relatedTarget).attr("data-state") == "2") {
+                $(event.target).attr("data-state", "0");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 4) {
                     state9();
                 }
             }
-            if ($(event.target).attr("data-state") == "M" && $("#pipette2").attr("data-state") == "3") {
-                $("#pipette2").attr("data-state", "0");
-                $("#pipette2").attr("src", "pictures/Resized pipette without fluid.svg");
+            if ($(event.target).attr("data-state") == "M" && $(event.relatedTarget).attr("data-state") == "3") {
+                
+                $(event.target).attr("data-state", "0");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 4) {
                     state9();
@@ -1075,13 +1093,13 @@ function state8() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($(event.target).attr("id") == "tube2") {
-                $("#pipette2").attr("data-state", "2");
-                $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
+            if ($(event.target).attr("id") == "tube2" &&( $(event.relatedTarget).attr("data-state") == "0"||$(event.relatedTarget).attr("data-state") == "2")) {
+                $(event.relatedTarget).attr("data-state", "2");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
-            if ($(event.target).attr("id") == "tube1") {
-                $("#pipette2").attr("data-state", "3");
-                $("#pipette2").attr("src", "pictures/Resized pipette with fluid.svg");
+            if ($(event.target).attr("id") == "tube1" &&( $(event.relatedTarget).attr("data-state") == "0"||$(event.relatedTarget).attr("data-state") == "3")) {
+                $(event.relatedTarget).attr("data-state", "3");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
         }
         , ondropdeactivate: function (event) {
@@ -1187,9 +1205,6 @@ function loopDraw() {
 function state10() {
     var state = 0
     gameState++;
-    if (hint == 1) {
-        $("#messager").text("Click petri Dishes to stack them");
-    }
     $("#petriDish1").css("animation", "stack1 1s forwards");
     $("#petriDish2").css("animation", "stack2 1s forwards");
     $("#petriDish3").css("animation", "stack3 1s forwards");
@@ -1456,6 +1471,9 @@ function gotoTrashBin(x) {
         }
         , ondrop: function (event) {
             $(event.relatedTarget).fadeOut(1000);
+            if (gameState >= 10) {
+                $("#pipetteSpawn").append("<img class='pipette' src='pictures/Resized pipette without fluid.svg' data-state='0' />");
+            }
         }
         , ondropdeactivate: function (event) {
             // remove active dropzone feedback
