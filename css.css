@@ -937,7 +937,7 @@ writing animation
     top: 11%;
 }
 
-@keyframes zoom {
+@keyframes zoom1 {
     from {
     }
     to {
@@ -948,7 +948,7 @@ writing animation
     }
 }
 
-@keyframes zoomRe {
+@keyframes zoomRe1 {
     from {
         left: -40.5%;
         top: -100.5%;
@@ -958,6 +958,51 @@ writing animation
     to {
     }
 }
+@keyframes zoom2 {
+    from {
+    }
+    to {
+        left: -13.5%;
+        top: -130.5%;
+        width: 275%;
+        height: 275%;
+    }
+}
+
+@keyframes zoomRe2 {
+    from {
+        left: -13.5%;
+        top: -130.5%;
+        width: 275%;
+        height: 275%;
+    }
+    to {
+    }
+}
+.anim_zoom1 {
+    animation: zoom1 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+.anim_zoomRe1 {
+    animation: zoomRe1 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+.anim_zoom2 {
+    animation: zoom2 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+.anim_zoomRe2 {
+    animation: zoomRe2 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+#fakepipette1 {
+    position: absolute;
+    left: 38.3%;
+    top: 15%;
+}
+#fakeLoop{
+        position: absolute;
+    left: 27%;
+    top: 25%;
+}
+
 p.speech {
   position: absolute;
   width: 7%;
@@ -977,17 +1022,4 @@ p.speech {
 #p1{
     top:40%;
     left: 33%;
-}
-
-.anim_zoom {
-    animation: zoom 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
-}
-.anim_zoomRe {
-    animation: zoomRe 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
-}
-
-#fakepipette1 {
-    position: absolute;
-    left: 38.3%;
-    top: 15%;
 }
