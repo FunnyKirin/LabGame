@@ -129,7 +129,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state7();
+state0();
 //setTimer(300, 1000);
 function state0() {
     messager("Click tubes to label them");
@@ -234,11 +234,11 @@ function state1() {
                 $("#part2").addClass("anim_zoomRe");
                 $("#fakepipette1").hide();
                 $(event.relatedTarget).show();
-            }, 5000)
+            }, 2000)
             setTimeout(function () {
                 $("#part2").removeClass("anim_zoomRe");
                 $("#part2").removeClass("anim_zoom");
-            }, 5500)
+            }, 2500)
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
                 $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 $("#pipette1").attr("data-state", "1");
@@ -930,26 +930,8 @@ function state6() {
 }
 
 function state7() {
-    interact('.pipette').draggable({
-        // enable inertial throwing
-        inertia: false, // keep the element within the area of it's parent
-        restrict: {
-            restriction: "#part2"
-            , endOnly: true
-            , elementRect: {
-                top: 0
-                , left: 0
-                , bottom: 1
-                , right: 1
-            }
-        }, // enable autoScroll
-        autoScroll: true, // call this function on every dragmove event
-        onmove: dragMoveListener, // call this function on every dragend event
-        onend: function (event) {
-            var textEl = event.target.querySelector('p');
-            textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy) | 0) + 'px');
-        }
-    });
+    messager("Drag a pipette over LB broth containter to get some LB broth.");
+
     gotoTrashBin(".pipette");
     gameState = 10;
     interact('#BrothContainer').dropzone({
@@ -974,6 +956,7 @@ function state7() {
         }
         , ondrop: function (event) {
             if ($(event.relatedTarget).attr("data-state") == "0") {
+                messager("Add the LB broth to a tube.");
                 $(event.relatedTarget).attr("data-state", "1");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
@@ -1007,13 +990,14 @@ function state7() {
         }
         , ondrop: function (event) {
             if ($(event.relatedTarget).attr("data-state") == "1") {
+                messager("Trash the used pipette. And use another one for the other tube.");
                 $(event.relatedTarget).attr("data-state", "2");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 2) {
+                    messager("Trash the used pipette");
                     //11
                     gameState++;
-                    state8();
                 }
             }
         }
@@ -1026,6 +1010,7 @@ function state7() {
 }
 
 function state8() {
+    messager("Drag a pipette to a tube to get some solution.");
     var counter = 0;
     interact('.petriDish').dropzone({
         // only accept elements matching this CSS selector
@@ -1052,15 +1037,22 @@ function state8() {
                 $(event.target).attr("data-state", "0");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
+                messager("Drag the pipeete to the same tube to get some more solution");
+                if(counter==2){
+                    messager("Trash this pipette and get a new one for other dishes");
+                }
                 if (counter == 4) {
                     state9();
                 }
             }
             if ($(event.target).attr("data-state") == "M" && $(event.relatedTarget).attr("data-state") == "3") {
-                
                 $(event.target).attr("data-state", "0");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
+                messager("Drag the pipeete to the same tube to get some more solution");
+                if(counter==2){
+                    messager("Trash this pipette and get a new one for other dishes");
+                }
                 if (counter == 4) {
                     state9();
                 }
@@ -1093,11 +1085,14 @@ function state8() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            if ($(event.target).attr("id") == "tube2" &&( $(event.relatedTarget).attr("data-state") == "0"||$(event.relatedTarget).attr("data-state") == "2")) {
+            if ($(event.target).attr("id") == "tube2" && ($(event.relatedTarget).attr("data-state") == "0" || $(event.relatedTarget).attr("data-state") == "2")) {
+                messager("Drag the pipette to correct dishes.");
                 $(event.relatedTarget).attr("data-state", "2");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
-            if ($(event.target).attr("id") == "tube1" &&( $(event.relatedTarget).attr("data-state") == "0"||$(event.relatedTarget).attr("data-state") == "3")) {
+            if ($(event.target).attr("id") == "tube1" && ($(event.relatedTarget).attr("data-state") == "0" || $(event.relatedTarget).attr("data-state") == "3")) {
+                
+                messager("Drag the pipette to correct dishes.");
                 $(event.relatedTarget).attr("data-state", "3");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
@@ -1449,6 +1444,7 @@ window.setInterval(function () {
 }, 500);
 
 function gotoTrashBin(x) {
+    var trigger=0;
     interact('#trashBin').dropzone({
         // only accept elements matching this CSS selector
         accept: x, // Require a 75% element overlap for a drop to be possible
@@ -1473,6 +1469,10 @@ function gotoTrashBin(x) {
             $(event.relatedTarget).fadeOut(1000);
             if (gameState >= 10) {
                 $("#pipetteSpawn").append("<img class='pipette' src='pictures/Resized pipette without fluid.svg' data-state='0' />");
+            }
+            if(gameState==11&&trigger==0){
+                trigger=1;
+                state8();
             }
         }
         , ondropdeactivate: function (event) {
