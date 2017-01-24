@@ -1414,44 +1414,57 @@ function instruction() {
     switch (gameState) {
     case 1:
         $("#insPic").attr("src", "pictures/02.PNG");
+        $("#instruction").text("Step 2: Add transformation solution");
         break;
     case 2:
         $("#insPic").attr("src", "pictures/03.PNG");
+        $("#instruction").text("Step 3: Cool down transformation solution");
         break;
     case 3:
         $("#insPic").attr("src", "pictures/04.PNG");
+        $("#instruction").text("Step 4:  Add a colony of bacteria into transformation solution");
         break;
     case 6:
         $("#insPic").attr("src", "pictures/05.PNG");
+        $("#instruction").text("Step 5: Add plasmid only to the +pGLO tube");
         break;
     case 7:
         $("#insPic").attr("src", "pictures/06.PNG");
+        $("#instruction").text("Step 6: Chill the plasmid and transformation solution.");
         break;
     case 8:
         $("#insPic").attr("src", "pictures/07.png");
+        $("#instruction").text("Step 7: Label the bottom of agar plates");
         break;
     case 9:
         $("#insPic").attr("src", "pictures/08.PNG");
+        $("#instruction").text("Step 8: Heat Shock.");
         break;
     case 10:
         $("#insPic").attr("src", "pictures/09.PNG");
+        $("#instruction").text("Label the micro test tubes");
         break;
     case 11:
         $("#insPic").attr("src", "pictures/10.PNG");
+        $("#instruction").text("Label the micro test tubes");
         break;
     case 12:
         $("#insPic").attr("src", "pictures/11.PNG");
+        $("#instruction").text("Label the micro test tubes");
         break;
     case 13:
         $("#insPic").attr("src", "pictures/12.PNG");
+        $("#instruction").text("Label the micro test tubes");
         break;
     }
+    /*
     var newSrc = $("#insPic").attr("src");
     if (picSrc != newSrc) {
         $("#insPic").prev().css("background-color", "#99ff99");
         $("#insPic").insertAfter($("#insPic").next());
         console.log(newSrc);
     }
+    */
 }
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
