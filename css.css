@@ -979,19 +979,46 @@ writing animation
     to {
     }
 }
+@keyframes zoom3 {
+    from {
+    }
+    to {
+        left: -0.5%;
+        top: -30.5%;
+        width: 245%;
+        height: 245%;
+    }
+}
+
+@keyframes zoomRe3 {
+    from {
+        left: -0.5%;
+        top: -30.5%;
+        width: 245%;
+        height: 245%;
+    }
+    to {
+    }
+}
 .anim_zoom1 {
     animation: zoom1 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
 .anim_zoomRe1 {
-    animation: zoomRe1 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+    animation: zoomRe1 0.5s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
 .anim_zoom2 {
     animation: zoom2 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
 .anim_zoomRe2 {
-    animation: zoomRe2 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+    animation: zoomRe2 0.5s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
 
+.anim_zoom3 {
+    animation: zoom3 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+.anim_zoomRe3 {
+    animation: zoomRe3 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
 #fakepipette1 {
     position: absolute;
     left: 38.3%;

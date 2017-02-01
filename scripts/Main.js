@@ -132,7 +132,7 @@ function dragMoveListener(event) {
 state0();
 //setTimer(300, 1000);
 function state0() {
-    messager("•	Click micro test tubes to label them as +pGLO and –pGLO");
+    messager("Click micro test tubes to label them as +pGLO and –pGLO");
     var state01 = 0;
     $("#tube1").click(function () {
         if ($(this).attr("data-state") == "-1") {
@@ -233,22 +233,21 @@ function state1() {
             setTimeout(function () {
                 $("#p1").hide();
                 $("#part2").addClass("anim_zoomRe1");
+            }, 2500)
+            setTimeout(function () {
                 $("#fakepipette1").hide();
                 $(event.relatedTarget).show();
-            }, 2000)
-            setTimeout(function () {
                 $("#part2").removeClass("anim_zoomRe1");
                 $("#part2").removeClass("anim_zoom1");
-            }, 2500)
+            }, 3000)
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
                 $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 $("#pipette1").attr("data-state", "1");
-                if(tubeCounter==0){
-                    
-                messager("Transfer transformation solution to the micro test tube labeled as +pGLO");
-                }else{
-                    
-                messager("Transfer transformation solution to the micro test tube labeled as -pGLO");
+                if (tubeCounter == 0) {
+                    messager("Transfer transformation solution to the micro test tube labeled as +pGLO");
+                }
+                else {
+                    messager("Transfer transformation solution to the micro test tube labeled as -pGLO");
                 }
             }
             pipetteFluid = true;
@@ -658,6 +657,15 @@ function state3() {
                     $(event.relatedTarget).finish();
                     $(event.target).attr("src", "pictures/starterplate without.svg");
                     messager("Transfer the colony into the +pGLO tube.")
+                    
+                    $("#part2").addClass("anim_zoom3");
+                    setTimeout(function () {
+                        $("#part2").addClass("anim_zoomRe3");
+                    }, 2000)
+                    setTimeout(function () {
+                        $("#part2").removeClass("anim_zoomRe3");
+                        $("#part2").removeClass("anim_zoom3");
+                    }, 3000)
                 }
             }
         }
@@ -760,13 +768,13 @@ function state4() {
                     setTimeout(function () {}, 500);
                     setTimeout(function () {
                         $("#part2").addClass("anim_zoomRe2");
-                        $("#fakeLoop").hide();
-                        $(event.relatedTarget).show();
                     }, 2000)
                     setTimeout(function () {
+                        $("#fakeLoop").hide();
+                        $(event.relatedTarget).show();
                         $("#part2").removeClass("anim_zoomRe2");
                         $("#part2").removeClass("anim_zoom2");
-                    }, 2500)
+                    }, 3000)
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
                     messager("Mix the plasmid into the cells in +pGLO tube")
                     event.relatedTarget.setAttribute("data-state", 1);
