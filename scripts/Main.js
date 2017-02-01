@@ -132,7 +132,7 @@ function dragMoveListener(event) {
 state0();
 //setTimer(300, 1000);
 function state0() {
-    messager("Click tubes to label them");
+    messager("•	Click micro test tubes to label them as +pGLO and –pGLO");
     var state01 = 0;
     $("#tube1").click(function () {
         if ($(this).attr("data-state") == "-1") {
@@ -179,8 +179,9 @@ function state0() {
 }
 
 function state1() {
+    var tubeCounter = 0;
     //state 1
-    messager("drag pipette to Tansformation Solution container to get some solution");
+    messager("Drag a sterile transfer pipette to the Transformation solution bottle to withdraw 250µl of solution");
     interact('.pipette').draggable({
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
@@ -242,7 +243,13 @@ function state1() {
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
                 $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 $("#pipette1").attr("data-state", "1");
-                messager("drag pipette to tubes");
+                if(tubeCounter==0){
+                    
+                messager("Transfer transformation solution to the micro test tube labeled as +pGLO");
+                }else{
+                    
+                messager("Transfer transformation solution to the micro test tube labeled as -pGLO");
+                }
             }
             pipetteFluid = true;
         }
@@ -252,7 +259,6 @@ function state1() {
             event.target.classList.remove('drop-target');
         }
     });
-    var tubeCounter = 0;
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
         accept: '#pipette1', // Require a 75% element overlap for a drop to be possible
@@ -286,10 +292,10 @@ function state1() {
                 if (event.target.getAttribute("data-state") == "0") {
                     event.target.setAttribute("data-state", "1")
                     tubeCounter++;
-                    messager("drag pipette to Tansformation Solution container to get some solution");
+                    messager("Withdraw another 250µl of transformation solution ");
                     if (tubeCounter == 2) {
                         gameState++;
-                        messager("Drag pipette to trash bin to trash it");
+                        messager("Discard the transfer pipette into the waste container");
                         interact('#trashBin').dropzone({
                             // only accept elements matching this CSS selector
                             accept: '#pipette1', // Require a 75% element overlap for a drop to be possible
@@ -373,7 +379,7 @@ function state1() {
 }
 //state 2 
 function state2() {
-    messager("Drag tubes to icebox to chill them");
+    messager("Take both micro test tubes out of the holder and transfer them to the crushed ice.");
     var state = 0;
     $("#pipette2").show();
     interact('.tube').draggable({
@@ -437,7 +443,7 @@ function state2() {
                 state++;
             }
             if (state == 2) {
-                messager("Type 60 to chill tubes for 60 seconds");
+                messager("Time for 60 secs ");
                 gameState++;
                 $("#timer").show();
                 $("#timerInput").attr("value", "0");
@@ -458,7 +464,7 @@ function state2() {
                 });
             }
             if (state == 5) {
-                messager("Chill cubes for 10 minutes.");
+                messager("•	Start the timer for 10mins");
                 $("#timer").show();
                 $("#timerInput").show();
                 $("#timerInput").attr("value", "0");
@@ -469,7 +475,7 @@ function state2() {
                         var time = $("#timerInput").val();
                         if (time == 600) {
                             $("#timer").hide();
-                            messager("Click petri dish to label them while waiting for cubes.");
+                            messager("Click on each of the four plates to label only on the bottom, but not the lid while waiting");
                             gameState = 8;
                         }
                         else {
@@ -573,7 +579,7 @@ function state2() {
 }
 //state 3 
 function state3() {
-    messager("Drag tubes back to cube");
+    messager("Return the micro tubes to the holder");
     var state = 0;
     interact('.cube').dropzone({
         // only accept elements matching this CSS selector
@@ -614,7 +620,7 @@ function state3() {
                 event.relatedTarget.setAttribute("data-state", "3");
                 gameState++;
                 if (gameState == 5) {
-                    messager("Drag loops over starterPlate to grab colony");
+                    messager("Use a sterile loop to pick up a single colony of bacteria from your starter plate");
                 }
             }
         }
@@ -651,7 +657,7 @@ function state3() {
                     $(event.relatedTarget).css("animation", "loop 1s forwards");
                     $(event.relatedTarget).finish();
                     $(event.target).attr("src", "pictures/starterplate without.svg");
-                    messager("put loop into tubes. Don't forget to trash loops.")
+                    messager("Transfer the colony into the +pGLO tube.")
                 }
             }
         }
@@ -724,7 +730,7 @@ function state3() {
 }
 
 function state4() {
-    messager("Drag a loop in to plasmid container to get some solution. Don't forget to double check if you actually get the solution");
+    messager("Immerse a new sterile loop into the plasmid DNA stock tube to withdraw a loopful of plasmid");
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
@@ -762,7 +768,7 @@ function state4() {
                         $("#part2").removeClass("anim_zoom2");
                     }, 2500)
                     $(event.relatedTarget).attr("src", "pictures/yellow loop rainbow.svg");
-                    messager("Place the loop into tube with +pGlo")
+                    messager("Mix the plasmid into the cells in +pGLO tube")
                     event.relatedTarget.setAttribute("data-state", 1);
                 }
             }
@@ -795,12 +801,12 @@ function state4() {
 
 function state5() {
     $(".tube").attr("data-state", "5");
-    messager("Drag cube into icebox for 10 minutes, and click petri dishes to label them.");
+    messager("Return the micro test tubes to the crushed ice.");
 }
 
 function state6() {
     gameState = 9;
-    messager("Drag cube into waterbase for 50 sec");
+    messager("Transfer the micro test tubes with the holder to the water bath");
     $("#cubeWithTubes").show();
     $(".origin").hide();
     interact('#cubeWithTubes').draggable({
@@ -847,6 +853,7 @@ function state6() {
             closeWaterBath();
         }
         , ondrop: function (event) {
+            messager("Start the timer for 50 seconds");
             $(event.relatedTarget).hide(1000, function () {
                 $("#tubeInWaterbath").show()
             });
