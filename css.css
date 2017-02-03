@@ -719,13 +719,10 @@ writing animation
 
 @keyframes loop {
     0% {
-        transform: rotate(50deg) translate(7vw, -13vw);
+        transform: rotate(-50deg)
     }
     40% {
-        transform: rotate(70deg) translate(7vw, -13vw);
-    }
-    80% {
-        transform: rotate(50deg) translate(7vw, -13vw);
+        transform: rotate(-70deg)
     }
     100% {}
 }
@@ -1037,9 +1034,13 @@ writing animation
     left: 27%;
     top: 25%;
 }
+#fakeLoop0 {
+    left: 29%;
+    top: -10%;
+}
 
 #fakeLoop1 {
-    left: 54%;
+    left: 55%;
     top: 11%;
 }
 

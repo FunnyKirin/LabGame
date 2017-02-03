@@ -118,6 +118,7 @@ var tube = 0;
 var pipetteFluid = false;
 $("#pipette2").hide();
 var labelCounter = 0;
+var animationController = 0;
 
 function dragMoveListener(event) {
     var target = event.target, // keep the dragged position in the data-x/data-y attributes
@@ -224,22 +225,25 @@ function state1() {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
-            $(event.relatedTarget).hide();
-            $("#fakepipette1").show();
-            $("#part2").addClass("anim_zoom1");
-            setTimeout(function () {
-                $("#p1").show();
-            }, 500);
-            setTimeout(function () {
-                $("#p1").hide();
-                $("#part2").addClass("anim_zoomRe1");
-            }, 2500)
-            setTimeout(function () {
-                $("#fakepipette1").hide();
-                $(event.relatedTarget).show();
-                $("#part2").removeClass("anim_zoomRe1");
-                $("#part2").removeClass("anim_zoom1");
-            }, 3000)
+            if (animationController == 0) {
+                $(event.relatedTarget).hide();
+                $("#fakepipette1").show();
+                $("#part2").addClass("anim_zoom1");
+                setTimeout(function () {
+                    $("#p1").show();
+                }, 500);
+                setTimeout(function () {
+                    $("#p1").hide();
+                    $("#part2").addClass("anim_zoomRe1");
+                }, 2500)
+                setTimeout(function () {
+                    $("#fakepipette1").hide();
+                    $(event.relatedTarget).show();
+                    $("#part2").removeClass("anim_zoomRe1");
+                    $("#part2").removeClass("anim_zoom1");
+                }, 3000)
+                animationController = 1;
+            }
             if ($("#pipette1").offset().top + $("#pipette1").height() < ($("#container").offset().top + $("#container").height())) {
                 $("#pipette1").attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 $("#pipette1").attr("data-state", "1");
@@ -653,16 +657,20 @@ function state3() {
             if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                 if (event.relatedTarget.getAttribute("data-state") == "0") {
                     event.relatedTarget.setAttribute("data-state", "1")
-                    $(event.relatedTarget).css("animation", "loop 1s forwards");
-                    $(event.relatedTarget).finish();
-                    $(event.target).attr("src", "pictures/starterplate without.svg");
-                    messager("Transfer the colony into the +pGLO tube.")
-                    
+                    $(event.relatedTarget).hide();
+                    $("#fakeLoop0").show();
+                    messager("Transfer the colony into tubes.")
                     $("#part2").addClass("anim_zoom3");
+                    setTimeout(function () {
+                        $("#fakeLoop0").css("animation", "loop 1s forwards");
+                        $(event.target).attr("src", "pictures/starterplate without.svg");
+                    }, 1500);
                     setTimeout(function () {
                         $("#part2").addClass("anim_zoomRe3");
                     }, 2000)
                     setTimeout(function () {
+                        $("#fakeLoop0").hide();
+                        $(event.relatedTarget).show();
                         $("#part2").removeClass("anim_zoomRe3");
                         $("#part2").removeClass("anim_zoom3");
                     }, 3000)
@@ -701,27 +709,39 @@ function state3() {
                 if ($(event.relatedTarget).offset().top + $(event.relatedTarget).height() < ($(event.target).offset().top + $(event.target).height())) {
                     if (event.target.getAttribute("data-state") == "3") {
                         if ($(event.target).attr("id") == "tube1") {
-                            $(event.relatedTarget).css("animation", "twist2 0.1s 8");
-                            $(event.relatedTarget).addClass("twistLoc2");
-                            setTimeout(function () {
-                                $(event.relatedTarget).removeClass("twistLoc2");
-                            }, 800);
+                            messager("Click the loop to twist it");
+                            $(event.relatedTarget).hide();
+                            $("#fakeLoop2").show();
+                            $("#fakeLoop2").click(function () {
+                                messager("Discard the loop");
+                                $("#fakeLoop2").css("animation", "twist2 0.15s 8");
+                                setTimeout(function () {
+                                    $("#fakeLoop2").hide();
+                                    $(event.relatedTarget).show();
+                                }, 1000);
+                            });
                         }
                         else {
-                            $(event.relatedTarget).css("animation", "twist2 0.1s 8");
-                            $(event.relatedTarget).addClass("twistLoc1");
-                            setTimeout(function () {
-                                $(event.relatedTarget).removeClass("twistLoc1");
-                            }, 800);
+                            messager("Click the loop to twist it");
+                            $(event.relatedTarget).hide();
+                            $("#fakeLoop1").show();
+                            $("#fakeLoop1").click(function () {
+                                messager("Discard the loop");
+                                $("#fakeLoop1").css("animation", "twist2 0.15s 8");
+                                setTimeout(function () {
+                                    $("#fakeLoop1").hide();
+                                    $(event.relatedTarget).show();
+                                }, 1000);;
+                            });
                         }
                         event.target.setAttribute("data-state", "4")
-                        $("#loop2").show();
-                        messager("Drag loops over starterPlate to grab colony");
+                        if (state == 0) {
+                            $("#loop2").show();
+                        }
                         gotoTrashBin("#loop1");
                         state++;
                         if (state == 2) {
                             gameState++;
-                            state4();
                             $("#loop3").show();
                             gotoTrashBin("#loop2");
                         }
@@ -1510,6 +1530,12 @@ function gotoTrashBin(x) {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
+            if (gameState == 5) {
+                messager("Drag loops over starterPlate to grab colony");
+            }
+            if (gameState == 6) {
+                state4();
+            }
             $(event.relatedTarget).fadeOut(1000);
             if (gameState >= 10) {
                 $("#pipetteSpawn").append("<img class='pipette' src='pictures/Resized pipette without fluid.svg' data-state='0' />");
