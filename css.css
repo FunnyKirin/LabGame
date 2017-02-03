@@ -398,10 +398,15 @@ body {
 
 .loop {
     position: absolute;
+    
+    height: 50%;
+    width: auto;
+}
+
+.loopLoc{
+    
     top: 12%;
     left: 8%;
-    width: auto;
-    height: 50%;
 }
 
 .cube {
@@ -938,8 +943,7 @@ writing animation
 }
 
 @keyframes zoom1 {
-    from {
-    }
+    from {}
     to {
         left: -40.5%;
         top: -100.5%;
@@ -955,12 +959,11 @@ writing animation
         width: 275%;
         height: 275%;
     }
-    to {
-    }
+    to {}
 }
+
 @keyframes zoom2 {
-    from {
-    }
+    from {}
     to {
         left: -13.5%;
         top: -130.5%;
@@ -976,12 +979,11 @@ writing animation
         width: 275%;
         height: 275%;
     }
-    to {
-    }
+    to {}
 }
+
 @keyframes zoom3 {
-    from {
-    }
+    from {}
     to {
         left: -0.5%;
         top: -30.5%;
@@ -997,18 +999,21 @@ writing animation
         width: 245%;
         height: 245%;
     }
-    to {
-    }
+    to {}
 }
+
 .anim_zoom1 {
     animation: zoom1 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
+
 .anim_zoomRe1 {
     animation: zoomRe1 0.5s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
+
 .anim_zoom2 {
     animation: zoom2 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
+
 .anim_zoomRe2 {
     animation: zoomRe2 0.5s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
@@ -1016,37 +1021,50 @@ writing animation
 .anim_zoom3 {
     animation: zoom3 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
+
 .anim_zoomRe3 {
     animation: zoomRe3 0.25s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
 }
+
 #fakepipette1 {
     position: absolute;
     left: 38.3%;
     top: 15%;
 }
-#fakeLoop{
-        position: absolute;
+
+#fakeLoop {
+    position: absolute;
     left: 27%;
     top: 25%;
 }
 
-p.speech {
-  position: absolute;
-  width: 7%;
-  height: 5%;
-  text-align: center;
-  line-height: 100px;
-  background-color: #fff;
-  border: 8px solid #666;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 2px 4px #888;
-  -moz-box-shadow: 2px 2px 4px #888;
-  box-shadow: 2px 2px 4px #888;
+#fakeLoop1 {
+    left: 54%;
+    top: 11%;
 }
 
-#p1{
-    top:40%;
+#fakeLoop2 {
+    left: 61%;
+    top: 11%;
+}
+
+p.speech {
+    position: absolute;
+    width: 7%;
+    height: 5%;
+    text-align: center;
+    line-height: 100px;
+    background-color: #fff;
+    border: 8px solid #666;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 2px 2px 4px #888;
+    -moz-box-shadow: 2px 2px 4px #888;
+    box-shadow: 2px 2px 4px #888;
+}
+
+#p1 {
+    top: 40%;
     left: 33%;
 }
