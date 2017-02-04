@@ -352,7 +352,7 @@ body {
     height: 55%;
     left: 0%;
     pointer-events: none;
-    background-color: darkolivegreen;
+    background-color: #545556;
 }
 
 #icebox {
@@ -568,6 +568,10 @@ body {
     height: 88%;
 }
 
+#instructionTable{
+    font-family: Amaranth;
+}
+
 #insPic {
     width: 90%;
 }
@@ -744,6 +748,7 @@ writing animation
     padding: 10px;
     margin: 50px;
     font-size: 200%;
+    font-family: Amaranth;
 }
 
 #rotate {

@@ -660,11 +660,12 @@ function state3() {
                     $(event.relatedTarget).hide();
                     $("#fakeLoop0").show();
                     messager("Transfer the colony into tubes.")
-                    $("#part2").addClass("anim_zoom3");
                     setTimeout(function () {
                         $("#fakeLoop0").css("animation", "loop 1s forwards");
                         $(event.target).attr("src", "pictures/starterplate without.svg");
                     }, 1500);
+                    
+                    $("#part2").addClass("anim_zoom3");
                     setTimeout(function () {
                         $("#part2").addClass("anim_zoomRe3");
                     }, 2000)
@@ -815,7 +816,7 @@ function state4() {
         ondrop: function (event) {
             if ($(event.target).attr("id") == "tube2") {
                 gameState = 7;
-                event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid M.svg");
+                event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid P.svg");
                 $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
                 $(event.relatedTarget).hide();
                 state5();
