@@ -151,6 +151,7 @@ function state0() {
             }, 2300);
             if (state01 >= 2) {
                 gameState++;
+                instruction();
                 state1();
             };
             $(this).attr("data-state", "0");
@@ -172,6 +173,7 @@ function state0() {
             }, 2300);
             if (state01 >= 2) {
                 gameState++;
+                instruction();
                 state1();
             };
             $(this).attr("data-state", "0");
@@ -298,6 +300,7 @@ function state1() {
                     messager("Withdraw another 250µl of transformation solution ");
                     if (tubeCounter == 2) {
                         gameState++;
+                        instruction();
                         messager("Discard the transfer pipette into the waste container");
                         interact('#trashBin').dropzone({
                             // only accept elements matching this CSS selector
@@ -448,6 +451,7 @@ function state2() {
             if (state == 2) {
                 messager("Time for 60 secs ");
                 gameState++;
+                instruction();
                 $("#timer").show();
                 $("#timerInput").attr("value", "0");
                 $("#timerConfirm").click(function () {
@@ -622,6 +626,7 @@ function state3() {
             if (event.relatedTarget.getAttribute("data-state") == "2") {
                 event.relatedTarget.setAttribute("data-state", "3");
                 gameState++;
+                instruction();
                 if (gameState == 5) {
                     messager("Use a sterile loop to pick up a single colony of bacteria from your starter plate");
                 }
@@ -742,6 +747,7 @@ function state3() {
                         state++;
                         if (state == 2) {
                             gameState++;
+                            instruction();
                             $("#loop3").show();
                             gotoTrashBin("#loop2");
                         }
@@ -1048,6 +1054,7 @@ function state7() {
                     messager("Trash the used pipette");
                     //11
                     gameState++;
+                    instruction();
                 }
             }
         }
@@ -1158,6 +1165,7 @@ function state8() {
 
 function state9() {
     gameState++;
+    instruction();
     var thisDish;
     if (hint == 1) {
         $("#messager").text("Click petri Dishes to draw e-coli lines on them.");
@@ -1252,6 +1260,7 @@ function loopDraw() {
 function state10() {
     var state = 0
     gameState++;
+    instruction();
     $("#petriDish1").css("animation", "stack1 1s forwards");
     $("#petriDish2").css("animation", "stack2 1s forwards");
     $("#petriDish3").css("animation", "stack3 1s forwards");
@@ -1496,11 +1505,6 @@ function instruction() {
         break;
     }
 }
-window.setInterval(function () {
-    $("#debug").text("game state: " + gameState);
-    instruction();
-    9
-}, 500);
 var trigger = 0;
 
 function gotoTrashBin(x) {
