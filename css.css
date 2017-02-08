@@ -255,7 +255,6 @@ body {
     left: 55%;
     top: 50%;
     height: 20%;
-    
     position: absolute;
 }
 
@@ -263,7 +262,6 @@ body {
     left: 47.5%;
     top: 53%;
     height: 17%;
-    
     position: absolute;
 }
 
@@ -394,13 +392,11 @@ body {
 
 .loop {
     position: absolute;
-    
     height: 50%;
     width: auto;
 }
 
-.loopLoc{
-    
+.loopLoc {
     top: 12%;
     left: 8%;
 }
@@ -464,7 +460,7 @@ body {
 
 #cubeWithTubes {
     position: absolute;
-    left: 47%;
+    left: 69%;
     top: 50%;
     width: 20%;
     height: 20%;
@@ -565,7 +561,7 @@ body {
     height: 88%;
 }
 
-#instructionTable{
+#instructionTable {
     font-family: Amaranth;
 }
 
@@ -871,22 +867,22 @@ writing animation
 
 #label1 {
     top: 87%;
-    left: 12%;
+    left: 19%;
 }
 
 #label2 {
     top: 87%;
-    left: 32%;
+    left: 38%;
 }
 
 #label3 {
     top: 87%;
-    left: 55%;
+    left: 59%;
 }
 
 #label4 {
     top: 87%;
-    left: 80%;
+    left: 82%;
 }
 
 #drawLoop {
@@ -964,19 +960,19 @@ writing animation
 @keyframes zoom2 {
     from {}
     to {
-        left: -13.5%;
-        top: -130.5%;
-        width: 275%;
-        height: 275%;
+        left: -45.5%;
+        top: -70.5%;
+        width: 245%;
+        height: 245%;
     }
 }
 
 @keyframes zoomRe2 {
     from {
-        left: -13.5%;
-        top: -130.5%;
-        width: 275%;
-        height: 275%;
+        left: -45.5%;
+        top: -70.5%;
+        width: 245%;
+        height: 245%;
     }
     to {}
 }
@@ -984,19 +980,19 @@ writing animation
 @keyframes zoom3 {
     from {}
     to {
-        left: -0.5%;
-        top: -30.5%;
-        width: 245%;
-        height: 245%;
+        left: -13.5%;
+        top: -90.5%;
+        width: 275%;
+        height: 275%;
     }
 }
 
 @keyframes zoomRe3 {
     from {
-        left: -0.5%;
-        top: -30.5%;
-        width: 245%;
-        height: 245%;
+        left: -13.5%;
+        top: -90.5%;
+        width: 275%;
+        height: 275%;
     }
     to {}
 }
@@ -1033,21 +1029,22 @@ writing animation
 
 #fakeLoop {
     position: absolute;
-    left: 27%;
-    top: 25%;
+    left: 48.8%;
+    top: 20%;
 }
+
 #fakeLoop0 {
-    left: 29%;
-    top: -10%;
+    left: 27%;
+    top: 11%;
 }
 
 #fakeLoop1 {
-    left: 55%;
+    left: 76%;
     top: 11%;
 }
 
 #fakeLoop2 {
-    left: 61%;
+    left: 85%;
     top: 11%;
 }
 

@@ -7,6 +7,7 @@ $(document).ready(function () {
 });
 var hint = 1;
 selectPractice();
+
 //Select Panel
 $('#introSelectButton').click(function () {
     selectIntro();
@@ -131,6 +132,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 }
 state0();
+
 //setTimer(300, 1000);
 function state0() {
     messager("Click micro test tubes to label them as +pGLO and –pGLO");
@@ -715,7 +717,7 @@ function state3() {
                             $("#fakeLoop2").show();
                             $("#fakeLoop2").click(function () {
                                 messager("Discard the loop");
-                                $("#fakeLoop2").css("animation", "twist2 0.15s 8");
+                                $("#fakeLoop2").css("animation", "twist2 0.15s 4");
                                 setTimeout(function () {
                                     $("#fakeLoop2").hide();
                                     $(event.relatedTarget).show();
@@ -728,7 +730,7 @@ function state3() {
                             $("#fakeLoop1").show();
                             $("#fakeLoop1").click(function () {
                                 messager("Discard the loop");
-                                $("#fakeLoop1").css("animation", "twist2 0.15s 8");
+                                $("#fakeLoop1").css("animation", "twist2 0.15s 4");
                                 setTimeout(function () {
                                     $("#fakeLoop1").hide();
                                     $(event.relatedTarget).show();
@@ -1091,6 +1093,7 @@ function state8() {
                 messager("Drag the pipeete to the same tube to get some more solution");
                 if (counter == 2) {
                     messager("Trash this pipette and get a new one for other dishes");
+                    gotoTrashBin(".pipette");
                 }
                 if (counter == 4) {
                     state9();
@@ -1103,6 +1106,8 @@ function state8() {
                 messager("Drag the pipeete to the same tube to get some more solution");
                 if (counter == 2) {
                     messager("Trash this pipette and get a new one for other dishes");
+                    
+                    gotoTrashBin(".pipette");
                 }
                 if (counter == 4) {
                     state9();
