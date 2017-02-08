@@ -606,13 +606,13 @@ function state3() {
         }
         , ondrop: function (event) {
             if (event.relatedTarget.getAttribute("id") == "tube1") {
-                $("#tube1").css("left", "53.5%");
+                $("#tube1").css("left", "77.5%");
                 $("#tube1").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
                 $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
             }
             if (event.relatedTarget.getAttribute("id") == "tube2") {
-                $("#tube2").css("left", "47.5%");
+                $("#tube2").css("left", "68.5%");
                 $("#tube2").css("top", "51%");
                 $(event.relatedTarget).css("transform", "");
                 $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
