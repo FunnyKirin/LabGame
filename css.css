@@ -887,7 +887,7 @@ writing animation
 
 #drawLoop {
     position: absolute;
-    top: -10%;
+    top: 0%;
     left: 50%;
     width: auto;
     height: 50%;
@@ -902,7 +902,7 @@ writing animation
         transform: rotate(30deg);
     }
     50% {
-        transform: translate(7vw, -3vw) rotate(30deg);
+        transform: translate(7vw, -7vw) rotate(30deg);
     }
     100% {
         transform: rotate(30deg);
