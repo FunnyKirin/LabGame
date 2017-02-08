@@ -1062,7 +1062,7 @@ function state7() {
 function state8() {
     messager("Drag a pipette to a tube to get some solution.");
     var counter = 0;
-        interact('.tube').dropzone({
+    interact('.tube').dropzone({
         // only accept elements matching this CSS selector
         accept: '.pipette'
         , overlap: 0.05, // listen for drop related events:
@@ -1154,7 +1154,6 @@ function state8() {
             event.target.classList.remove('drop-target');
         }
     });
-
 }
 
 function state9() {
@@ -1209,8 +1208,9 @@ function state9() {
             $(this).attr("data-state", "0");
             //$(thisDish).attr("src", "pictures/top%20view%204.svg");
             $(thisDish).attr("data-state2", "1");
+            $(thisDish).attr("src", "pictures/dishWithLine.svg");
             $("#topview").css("transform", "rotate(0deg)");
-           // loopDraw();
+            // loopDraw();
             break;
         }
         var checkValue = 0;
@@ -1434,7 +1434,7 @@ function state12() {
         if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
         $("#zoomedPic").hide();
         if (counter == 4) {
-           swal("End!");
+            swal("End!");
         }
     })
 }
