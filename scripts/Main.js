@@ -467,7 +467,7 @@ function state2() {
                 });
             }
             if (state == 5) {
-                messager("•	Start the timer for 10mins");
+                messager("Start the timer for 10mins");
                 $("#timer").show();
                 $("#timerInput").show();
                 $("#timerInput").attr("value", "0");
@@ -1434,7 +1434,7 @@ function state12() {
         if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
         $("#zoomedPic").hide();
         if (counter == 4) {
-            alert("End");
+           swal("End!");
         }
     })
 }
@@ -1495,14 +1495,6 @@ function instruction() {
         $("#instruction").text("Label the micro test tubes");
         break;
     }
-    /*
-    var newSrc = $("#insPic").attr("src");
-    if (picSrc != newSrc) {
-        $("#insPic").prev().css("background-color", "#99ff99");
-        $("#insPic").insertAfter($("#insPic").next());
-        console.log(newSrc);
-    }
-    */
 }
 window.setInterval(function () {
     $("#debug").text("game state: " + gameState);
@@ -1534,7 +1526,7 @@ function gotoTrashBin(x) {
         }
         , ondrop: function (event) {
             if (gameState == 5) {
-                messager("Drag loops over starterPlate to grab colony");
+                messager("Drag loops over starter Plate to grab colony");
             }
             if (gameState == 6) {
                 state4();
