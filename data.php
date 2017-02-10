@@ -2,7 +2,7 @@
 $file = 'data/data.json';
 
 $a = new stdClass();
-$a ->name = $_SERVER['givenName']+$_SERVER['sn'];
+$a ->name = $_SERVER['givenName'] . ' ' . $_SERVER['sn'];
 $a ->Answer = $_REQUEST['Answer'];
 $a->time = date("Y-m-d h:i:sa");
 
