@@ -85,7 +85,7 @@ $(".answer").on('mouseover', function () {
 
 function succeed() {
     answer = true
-    window.alert("Correct!");
+    swal("Correct!");
     postAnswer();
     //or win
     //if (stepNumber == 5) {
@@ -133,6 +133,7 @@ function dragMoveListener(event) {
 state0();
 //setTimer(300, 1000);
 function state0() {
+    postAnswer();
     messager("Click micro test tubes to label them as +pGLO and –pGLO");
     var state01 = 0;
     $("#tube1").click(function () {
@@ -1444,6 +1445,7 @@ function state12() {
         $("#zoomedPic").hide();
         if (counter == 4) {
             swal("End!");
+            //Game ends here
         }
     })
 }
