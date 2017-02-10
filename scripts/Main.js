@@ -5,7 +5,7 @@
 $(document).ready(function () {
     resizeWindow();
 });
-var gameMode=0;
+var gameMode = 0;
 var hint = 1;
 selectPractice();
 //Select Panel
@@ -22,22 +22,21 @@ $("#advancedSelectButton").click(function () {
 function selectIntro() {
     $("#selectPanel").hide();
     $("#part1").show();
-    gameMode=1;
+    gameMode = 1;
 }
 
 function selectPractice() {
     hint = 1;
     $("#selectPanel").hide();
     $("#part2").show();
-    
-    gameMode=2;
+    gameMode = 2;
 }
 
 function selectAdvanced() {
     hint = 0;
     $("#selectPanel").hide();
     $("#part2").show();
-    gameMode=3;
+    gameMode = 3;
 }
 //selectPractice();
 //Intro Mode
@@ -90,7 +89,7 @@ $(".answer").on('mouseover', function () {
 
 function succeed() {
     swal("Correct!");
-    postAnswer("intro");
+    postAnswer();
     //or win
     //if (stepNumber == 5) {
     //    alert("GAME OVER");
@@ -104,8 +103,7 @@ function postAnswer() {
         {
             gameMode: gameMode
         , } //And send this data to it
-    ).done(function (msg) {
-    }).fail(function () {
+    ).done(function (msg) {}).fail(function () {
         alert("Error, please contact your professor.");
     });
 }
@@ -136,7 +134,6 @@ function dragMoveListener(event) {
 state0();
 //setTimer(300, 1000);
 function state0() {
-    postAnswer();
     messager("Click micro test tubes to label them as +pGLO and –pGLO");
     var state01 = 0;
     $("#tube1").click(function () {
@@ -488,6 +485,7 @@ function state2() {
                             $("#timer").hide();
                             messager("Click on each of the four plates to label only on the bottom, but not the lid while waiting");
                             gameState = 8;
+                            instruction();
                         }
                         else {
                             swal("Wrong time!")
@@ -632,7 +630,7 @@ function state3() {
                 gameState++;
                 instruction();
                 if (gameState == 5) {
-                    messager("Use a sterile loop to pick up a single colony of bacteria from your starter plate");
+                    messager("Use a sterile loop to pick up a colony for the +pGLO/-pGLO tube");
                 }
             }
         }
@@ -672,7 +670,7 @@ function state3() {
                     setTimeout(function () {
                         $("#fakeLoop0").css("animation", "loop 1s forwards");
                         $(event.target).attr("src", "pictures/starterplate without.svg");
-                    }, 1500);
+                    }, 500);
                     $("#part2").addClass("anim_zoom3");
                     setTimeout(function () {
                         $("#part2").addClass("anim_zoomRe3");
@@ -750,8 +748,6 @@ function state3() {
                         gotoTrashBin("#loop1");
                         state++;
                         if (state == 2) {
-                            gameState++;
-                            instruction();
                             $("#loop3").show();
                             gotoTrashBin("#loop2");
                         }
@@ -825,6 +821,7 @@ function state4() {
         ondrop: function (event) {
             if ($(event.target).attr("id") == "tube2") {
                 gameState = 7;
+                instruction();
                 event.target.setAttribute("src", "pictures/closed centrifuge tube with fluid P.svg");
                 $("#tube1").attr("src", "pictures/closed centrifuge tube with fluid M.svg");
                 $(event.relatedTarget).hide();
@@ -844,6 +841,7 @@ function state5() {
 
 function state6() {
     gameState = 9;
+    instruction();
     messager("Transfer the micro test tubes with the holder to the water bath");
     $("#cubeWithTubes").show();
     $(".origin").hide();
@@ -915,7 +913,7 @@ function state6() {
                                     $("#tubeInWaterbath").hide()
                                 }, 3000);
                                 setTimeout(function () {
-                                    messager("Drag tubes into icebox for 2 minutes");
+                                    messager("Drag tubes into crushed ice for 2 minutes");
                                     $(event.relatedTarget).show(1000);
                                     interact('#icebox').dropzone({
                                         // only accept elements matching this CSS selector
@@ -991,9 +989,10 @@ function state6() {
 }
 
 function state7() {
-    messager("Drag a pipette over LB broth containter to get some LB broth.");
+    messager("Add 250ul LB broth to the +pGLO/-pGLO tube");
     gotoTrashBin(".pipette");
     gameState = 10;
+    instruction();
     interact('#BrothContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.pipette'
@@ -1018,7 +1017,7 @@ function state7() {
             if ($(event.relatedTarget).attr("data-state") == "0") {
                 messager("Add the LB broth to a tube.");
                 $(event.relatedTarget).attr("data-state", "1");
-                $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
+                $(event.relatedTarget).attr("src", "pictures/1000 ul pipette (250 ul).svg");
             }
         }
         , ondropdeactivate: function (event) {
@@ -1050,9 +1049,9 @@ function state7() {
         }
         , ondrop: function (event) {
             if ($(event.relatedTarget).attr("data-state") == "1") {
-                messager("Trash the used pipette. And use another one for the other tube.");
+                messager("Trash the used pipette. And add 250ul LB broth to the other tube.");
                 $(event.relatedTarget).attr("data-state", "2");
-                $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
+                $(event.relatedTarget).attr("src", "pictures/1000 ul pipette (250 ul).svg");
                 counter++;
                 if (counter == 2) {
                     messager("Trash the used pipette");
@@ -1448,6 +1447,7 @@ function state12() {
         $("#zoomedPic").hide();
         if (counter == 4) {
             swal("End!");
+            postAnswer();
             //Game ends here
         }
     })
@@ -1494,7 +1494,7 @@ function instruction() {
         break;
     case 10:
         $("#insPic").attr("src", "pictures/09.PNG");
-        $("#instruction").text("Label the micro test tubes");
+        $("#instruction").text("Step 9: Add 250ul of LB-Broth");
         break;
     case 11:
         $("#insPic").attr("src", "pictures/10.PNG");
@@ -1534,8 +1534,12 @@ function gotoTrashBin(x) {
             event.relatedTarget.classList.remove('can-drop');
         }
         , ondrop: function (event) {
+            if (x == "#loop2") {
+                gameState++;
+                instruction();
+            }
             if (gameState == 5) {
-                messager("Drag loops over starter Plate to grab colony");
+                messager("Use another sterile loop to pick up a colony  for the other tube");
             }
             if (gameState == 6) {
                 state4();

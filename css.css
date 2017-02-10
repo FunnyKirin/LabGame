@@ -863,26 +863,27 @@ writing animation
     height: 80%;
     font-family: cursive;
     color: aliceblue;
+    font-size: 140%;
 }
 
 #label1 {
     top: 87%;
-    left: 19%;
+    left: 17%;
 }
 
 #label2 {
     top: 87%;
-    left: 38%;
+    left: 36%;
 }
 
 #label3 {
     top: 87%;
-    left: 59%;
+    left: 58%;
 }
 
 #label4 {
     top: 87%;
-    left: 82%;
+    left: 80%;
 }
 
 #drawLoop {
@@ -1053,6 +1054,7 @@ p.speech {
     width: 7%;
     height: 5%;
     text-align: center;
+    font-size: 150%;
     line-height: 100px;
     background-color: #fff;
     border: 8px solid #666;
