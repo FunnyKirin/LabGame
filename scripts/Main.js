@@ -5,6 +5,7 @@
 $(document).ready(function () {
     resizeWindow();
 });
+var gameMode;
 var hint = 1;
 selectPractice();
 //Select Panel
@@ -21,18 +22,22 @@ $("#advancedSelectButton").click(function () {
 function selectIntro() {
     $("#selectPanel").hide();
     $("#part1").show();
+    gameMode="Intro";
 }
 
 function selectPractice() {
     hint = 1;
     $("#selectPanel").hide();
     $("#part2").show();
+    
+    gameMode="Practice";
 }
 
 function selectAdvanced() {
     hint = 0;
     $("#selectPanel").hide();
     $("#part2").show();
+    gameMode="Advanced";
 }
 //selectPractice();
 //Intro Mode
@@ -93,11 +98,11 @@ function succeed() {
     //}
 }
 
-function postAnswer(mode) {
+function postAnswer() {
     $.post( //call the server
         "data.php", //At this url
         {
-            Mode: mode
+            Mode: gameMode
         , } //And send this data to it
     ).done(function (msg) {
     }).fail(function () {
