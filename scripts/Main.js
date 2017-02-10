@@ -84,7 +84,7 @@ $(".answer").on('mouseover', function () {
 });
 
 function succeed() {
-    answer = true
+    answer = true;
     swal("Correct!");
     postAnswer();
     //or win
@@ -101,9 +101,8 @@ function postAnswer() {
             Answer: answer
         , } //And send this data to it
     ).done(function (msg) {
-        alert("Data Saved: " + msg);
     }).fail(function () {
-        alert("There was an error with the server :(");
+        alert("Error, please contact your professor.");
     });
 }
 
