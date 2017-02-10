@@ -1,5 +1,5 @@
 <?php
-$file = 'data/intro.json';
+$file = 'data/adv.json';
 
 $a = new stdClass();
 $a ->name = $_SERVER['givenName'] . ' ' . $_SERVER['sn'];
