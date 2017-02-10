@@ -102,7 +102,7 @@ function postAnswer() {
     $.post( //call the server
         "data.php", //At this url
         {
-            Mode: gameMode
+            gameMode: gameMode
         , } //And send this data to it
     ).done(function (msg) {
     }).fail(function () {
@@ -110,28 +110,6 @@ function postAnswer() {
     });
 }
 
-function postLab() {
-    $.post( //call the server
-        "datalab.php", //At this url
-        {
-            Answer: answer
-        , } //And send this data to it
-    ).done(function (msg) {
-    }).fail(function () {
-        alert("Error, please contact your professor.");
-    });
-}
-function postAdv() {
-    $.post( //call the server
-        "dataAdv.php", //At this url
-        {
-            Answer: answer
-        , } //And send this data to it
-    ).done(function (msg) {
-    }).fail(function () {
-        alert("Error, please contact your professor.");
-    });
-}
 function backToMenu() {
     $("#part1").hide();
     $("#part2").hide();
