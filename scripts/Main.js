@@ -5,7 +5,7 @@
 $(document).ready(function () {
     resizeWindow();
 });
-var gameMode;
+var gameMode=0;
 var hint = 1;
 selectPractice();
 //Select Panel
@@ -22,7 +22,7 @@ $("#advancedSelectButton").click(function () {
 function selectIntro() {
     $("#selectPanel").hide();
     $("#part1").show();
-    gameMode="Intro";
+    gameMode=1;
 }
 
 function selectPractice() {
@@ -30,14 +30,14 @@ function selectPractice() {
     $("#selectPanel").hide();
     $("#part2").show();
     
-    gameMode="Practice";
+    gameMode=2;
 }
 
 function selectAdvanced() {
     hint = 0;
     $("#selectPanel").hide();
     $("#part2").show();
-    gameMode="Advanced";
+    gameMode=3;
 }
 //selectPractice();
 //Intro Mode
