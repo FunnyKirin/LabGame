@@ -7,6 +7,8 @@ $(document).ready(function () {
 });
 var gameMode = 0;
 var hint = 1;
+var startTime = Date.getTime()/60000;
+var endTime;
 selectPractice();
 //Select Panel
 $('#introSelectButton').click(function () {
@@ -98,9 +100,12 @@ function succeed() {
 }
 
 function postAnswer() {
+    endTime=Data.getTime()/60000;
+    var time = endTime-startTime;
     $.post( //call the server
         "data.php", //At this url
         {
+            time: time,
             gameMode: gameMode
         , } //And send this data to it
     ).done(function (msg) {}).fail(function () {
