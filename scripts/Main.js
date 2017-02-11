@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 var gameMode = 0;
 var hint = 1;
-var startTime = Date.getTime()/60000;
+var startTime = new Date().getTime()/60000;
 var endTime;
 selectPractice();
 //Select Panel
@@ -100,8 +100,8 @@ function succeed() {
 }
 
 function postAnswer() {
-    endTime=Data.getTime()/60000;
-    var time = endTime-startTime;
+    endTime=new Date().getTime()/60000;
+    var time = (endTime-startTime).toPrecision(2);
     $.post( //call the server
         "data.php", //At this url
         {
