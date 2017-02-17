@@ -1487,11 +1487,11 @@ function instruction() {
         break;
     case 7:
         $("#insPic").attr("src", "pictures/06.PNG");
-        $("#instruction").text("Step 6: Chill the plasmid and transformation solution.");
+        $("#instruction").text("Step 6: Incubate the mixture in both tubes on ice for 10 mins");
         break;
     case 8:
         $("#insPic").attr("src", "pictures/07.png");
-        $("#instruction").text("Step 7: Label the bottom of agar plates");
+        $("#instruction").text("Step 7: Label all plates on the bottom (not the lid)");
         break;
     case 9:
         $("#insPic").attr("src", "pictures/08.PNG");
