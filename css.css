@@ -710,16 +710,16 @@ writing animation
 
 .timerPanel {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 0%;
-    height: 83%;
+    height: 88%;
     width: 100%;
     background: rgba(200, 200, 200, 0.9);
     font-family: cursive;
     font-size: 170%;
-    text-align: center;
     justify-content: center;
     align-items: center;
+
 }
 
 @keyframes loop {

@@ -136,7 +136,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state0();
+state10();
 //setTimer(300, 1000);
 function state0() {
     messager("Click micro test tubes to label them as +pGLO and –pGLO");
@@ -1315,6 +1315,12 @@ function state11() {
     instruction();
     $("#gameTable").hide();
     $("#gameTable2").show();
+    setTimeout(function () {
+        $("#lightOff").show();
+    }, 500);
+    setTimeout(function () {
+        $("#lightOff").hide(1000);
+    }, 3000);
     interact('#stack').draggable({
         // enable inertial throwing
         inertia: false, // keep the element within the area of it's parent
@@ -1385,7 +1391,7 @@ function state12() {
         $("#incubator").attr("src", "pictures/incubator.svg")
         $(".label").show();
         $(".dish2").show();
-        if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
+        if (hint == 1) $("#messager").text("Light is turned off.  Drag one plate at a time to the transilluminator to examine the result");
         interact('.dish2').draggable({
             // enable inertial throwing
             inertia: false, // keep the element within the area of it's parent
@@ -1468,13 +1474,15 @@ function state12() {
         messager("Pay attention to the result.Click again to remove the plate from the transilluminator");
     })
     $("#zoomedPic").click(function () {
-        messager("Drag one dish into the transilluminator to examine the result");
+        messager("Light is turned off.  Drag one plate at a time to the transilluminator to examine the result");
         $("#zoomedPic").hide();
         if (counter == 4) {
             swal("Congrats!  You make e-coli glow in green!");
             postAnswer();
             //Game ends here
         }
+        $("#transilluminator").show();
+        $("#transillumintorWithDish").hide();
     })
 }
 
