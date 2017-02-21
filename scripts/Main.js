@@ -994,6 +994,12 @@ function state6() {
 }
 
 function state7() {
+    $("#tube1").css("left", "77.5%");
+    $("#tube1").css("top", "51%");
+    $("#tube2").css("left", "68.5%");
+    $("#tube2").css("top", "51%");
+    $("#tube1").attr("src", "pictures/open centrifuge tube with fluid M.svg");
+    $("#tube2").attr("src", "pictures/open centrifuge tube with fluid P.svg");
     messager("Add 250ul LB broth to the +pGLO/-pGLO tube");
     gotoTrashBin(".pipette");
     gameState = 10;
