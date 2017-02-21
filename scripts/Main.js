@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 var gameMode = 0;
 var hint = 1;
-var startTime = new Date().getTime()/60000;
+var startTime = new Date().getTime() / 60000;
 var endTime;
 selectPractice();
 //Select Panel
@@ -100,13 +100,13 @@ function succeed() {
 }
 
 function postAnswer() {
-    endTime=new Date().getTime()/60000;
-    var time = (endTime-startTime).toPrecision(2);
+    endTime = new Date().getTime() / 60000;
+    var time = (endTime - startTime).toPrecision(2);
     $.post( //call the server
         "data.php", //At this url
         {
-            time: time,
-            gameMode: gameMode
+            time: time
+            , gameMode: gameMode
         , } //And send this data to it
     ).done(function (msg) {}).fail(function () {
         alert("Error, please contact your professor.");
@@ -685,7 +685,7 @@ function state3() {
                         $(event.relatedTarget).show();
                         $("#part2").removeClass("anim_zoomRe3");
                         $("#part2").removeClass("anim_zoom3");
-                    }, 3000)
+                    }, 2500)
                 }
             }
         }
@@ -773,7 +773,7 @@ function state4() {
     interact('#plasmidContainer').dropzone({
         // only accept elements matching this CSS selector
         accept: '.loop'
-        , overlap: 0.3, // listen for drop related events:
+        , overlap: 0.1, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
@@ -916,7 +916,7 @@ function state6() {
                                 $("#timer").hide();
                                 setTimeout(function () {
                                     $("#tubeInWaterbath").hide()
-                                }, 3000);
+                                }, 1000);
                                 setTimeout(function () {
                                     messager("Drag tubes into crushed ice for 2 minutes");
                                     $(event.relatedTarget).show(1000);
@@ -975,7 +975,7 @@ function state6() {
                                             event.target.classList.remove('drop-target');
                                         }
                                     });
-                                }, 3000);
+                                }, 1000);
                             }, 500);
                         }
                         else {
@@ -1056,7 +1056,7 @@ function state7() {
             if ($(event.relatedTarget).attr("data-state") == "1") {
                 messager("Trash the used pipette. And add 250ul LB broth to the other tube.");
                 $(event.relatedTarget).attr("data-state", "2");
-                $(event.relatedTarget).attr("src", "pictures/1000 ul pipette (250 ul).svg");
+                $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
                 if (counter == 2) {
                     messager("Trash the used pipette");
@@ -1075,7 +1075,7 @@ function state7() {
 }
 
 function state8() {
-    messager("Drag a pipette to a tube to get some solution.");
+    messager("Transfer 100ul of mixture from  +pGLO/-pGLO to appropriate dishes");
     var counter = 0;
     interact('.tube').dropzone({
         // only accept elements matching this CSS selector
@@ -1099,12 +1099,12 @@ function state8() {
         }
         , ondrop: function (event) {
             if ($(event.target).attr("id") == "tube2" && ($(event.relatedTarget).attr("data-state") == "0" || $(event.relatedTarget).attr("data-state") == "2")) {
-                messager("Drag the pipette to correct dishes.");
+                messager("Transfer 100ul of mixture from  +pGLO to appropriate dishes");
                 $(event.relatedTarget).attr("data-state", "2");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
             if ($(event.target).attr("id") == "tube1" && ($(event.relatedTarget).attr("data-state") == "0" || $(event.relatedTarget).attr("data-state") == "3")) {
-                messager("Drag the pipette to correct dishes.");
+                messager("Transfer  100ul of mixture from –pGLO to appropriate dishes");
                 $(event.relatedTarget).attr("data-state", "3");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette with fluid.svg");
             }
@@ -1140,26 +1140,30 @@ function state8() {
                 $(event.target).attr("data-state", "0");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
-                messager("Drag the pipeete to the same tube to get some more solution");
+                messager("Transfer  100ul of mixture from  +pGLO to the second appropriate dish");
                 if (counter == 2) {
-                    messager("Trash this pipette and get a new one for other dishes");
+                    messager("Discard the used pipette");
                     gotoTrashBin(".pipette");
                 }
                 if (counter == 4) {
-                    state9();
+                    messager("Discard the used pipette");
+                    gotoTrashBin(".pipette");
+                    //state9();
                 }
             }
             if ($(event.target).attr("data-state") == "M" && $(event.relatedTarget).attr("data-state") == "3") {
                 $(event.target).attr("data-state", "0");
                 $(event.relatedTarget).attr("src", "pictures/Resized pipette without fluid.svg");
                 counter++;
-                messager("Drag the pipeete to the same tube to get some more solution");
+                messager("Transfer  100ul of mixture from –pGLO to the second appropriate dish");
                 if (counter == 2) {
-                    messager("Trash this pipette and get a new one for other dishes");
+                    messager("Discard the used pipette");
                     gotoTrashBin(".pipette");
                 }
                 if (counter == 4) {
-                    state9();
+                    messager("Discard the used pipette");
+                    gotoTrashBin(".pipette");
+                    //state9();
                 }
             }
         }
@@ -1176,13 +1180,14 @@ function state9() {
     instruction();
     var thisDish;
     if (hint == 1) {
-        $("#messager").text("Click petri Dishes to draw e-coli lines on them.");
+        $("#messager").text("Click on one of the plates to spread the suspension.");
     }
     $(".petriDish").click(function () {
         if ($(this).attr("data-state2") == "0") {
             $("#topview").show();
             $("#rotate").show();
             thisDish = this;
+            messager("Click on the dish surface to quickly skate the flat surface of the loop back and forth in one direction");
         }
     });
     $("#topview").click(function () {
@@ -1192,6 +1197,7 @@ function state9() {
             $(this).attr("src", "pictures/top%20view%201.svg");
             $(this).attr("data-state", "1");
             loopDraw();
+            messager("Click Rotate to rotate 45 degree before after skating the loop in a new direction");
             break;
         case "1":
             if ($(this).attr("data-rotate") == "1") {
@@ -1199,6 +1205,7 @@ function state9() {
                 $(this).attr("data-state", "2");
                 $(this).attr("data-rotate", "0");
                 loopDraw();
+                messager("Click Rotate to rotate 45 degree before after skating the loop in a new direction");
             }
             break;
         case "2":
@@ -1207,6 +1214,7 @@ function state9() {
                 $(this).attr("data-state", "3");
                 $(this).attr("data-rotate", "0");
                 loopDraw();
+                messager("Click Rotate to rotate 45 degree before after skating the loop in a new direction");
             }
             break;
         case "3":
@@ -1215,6 +1223,7 @@ function state9() {
                 $(this).attr("data-state", "4");
                 $(this).attr("data-rotate", "0");
                 loopDraw();
+                messager("Click on dish to close this panel.");
                 $("#rotate").hide();
             }
             break;
@@ -1248,6 +1257,7 @@ function state9() {
     var angle = -90;
     $("#rotate").click(function () {
         if ($("#topview").attr("data-rotate") == "0") {
+            messager("Click on the dish surface to quickly skate the flat surface of the loop back and forth in one direction");
             $("#topview").attr("data-rotate", "1");
             $("#topview").css("transform", "rotate(" + angle + "deg)");
             angle -= 90;
@@ -1276,7 +1286,7 @@ function state10() {
     setTimeout(function () {
         $(".petriDish").hide();
         $("#stack").show(1000);
-        if (hint == 1) $("#messager").text("Click the petri Dishe stack to turn it up side down");
+        if (hint == 1) $("#messager").text("Click on the stack of plates to turn it upside down");
     }, 1000);
     $("#stack").click(function () {
         if (state == 0) {
@@ -1295,6 +1305,8 @@ function state10() {
 }
 
 function state11() {
+    gameState++;
+    instruction();
     $("#gameTable").hide();
     $("#gameTable2").show();
     interact('#stack').draggable({
@@ -1360,8 +1372,10 @@ function state12() {
     var dishType = 0;
     var exam = 0;
     var counter = 0;
-    if (hint == 1) $("#messager").text("click the incubator to get dishes");
+    messager("Click the incubator to take out the stack of plates");
     $("#incubator").click(function () {
+        gameState++;
+        instruction();
         $("#incubator").attr("src", "pictures/incubator.svg")
         $(".label").show();
         $(".dish2").show();
@@ -1421,7 +1435,7 @@ function state12() {
                 }
                 $("#transillumintorWithDish").show();
                 exam = 1;
-                if (hint == 1) $("#messager").text("click the transilluminator to zoom in");
+                messager("Click the transilluminator to zoom in");
             }
         }
         , ondropdeactivate: function (event) {
@@ -1445,13 +1459,13 @@ function state12() {
             exam = 0;
             counter++;
         }
-        if (hint == 1) $("#messager").text("click again to close it");
+        messager("Pay attention to the result.Click again to remove the plate from the transilluminator");
     })
     $("#zoomedPic").click(function () {
-        if (hint == 1) $("#messager").text("Drag dishes into the transilluminator to exam them.");
+        messager("Drag one dish into the transilluminator to examine the result");
         $("#zoomedPic").hide();
         if (counter == 4) {
-            swal("End!");
+            swal("Congrats!  You make e-coli glow in green!");
             postAnswer();
             //Game ends here
         }
@@ -1503,15 +1517,22 @@ function instruction() {
         break;
     case 11:
         $("#insPic").attr("src", "pictures/10.PNG");
-        $("#instruction").text("Label the micro test tubes");
+        $("#instruction").text("Step 10: Pipet 100 µl from each of the tubes to the corresponding plates");
         break;
     case 12:
         $("#insPic").attr("src", "pictures/11.PNG");
-        $("#instruction").text("Label the micro test tubes");
+        $("#instruction").text("Step 11: Spread the e-coli suspension on each plate");
         break;
     case 13:
         $("#insPic").attr("src", "pictures/12.PNG");
-        $("#instruction").text("Label the micro test tubes");
+        $("#instruction").text("Step 12: Stack and invert the plates, and transfer them to incubator");
+        break;
+    case 14:
+        $("#insPic").hide();
+        $("#instruction").text("Step 13: Incubation at 37 Celcius until the next day");
+        break;
+    case 15:
+        $("#instruction").text("Step 14: Examine the result inside a transilluminator");
         break;
     }
 }
@@ -1521,7 +1542,7 @@ function gotoTrashBin(x) {
     interact('#trashBin').dropzone({
         // only accept elements matching this CSS selector
         accept: x, // Require a 75% element overlap for a drop to be possible
-        overlap: 0.05, // listen for drop related events:
+        overlap: 0.01, // listen for drop related events:
         ondropactivate: function (event) {
             // add active dropzone feedback
             event.target.classList.add('drop-active');
@@ -1556,6 +1577,15 @@ function gotoTrashBin(x) {
             if (gameState == 11 && trigger == 0) {
                 trigger = 1;
                 state8();
+            }
+            else
+            if (gameState == 11 && trigger == 1) {
+                messager("Transfer 100ul of mixture from the other pGlo tube to appropriate dishes");
+                trigger = 2;
+            }
+            else
+            if (gameState == 11 && trigger == 2) {
+                state9();
             }
         }
         , ondropdeactivate: function (event) {
