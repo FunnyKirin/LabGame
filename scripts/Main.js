@@ -136,7 +136,7 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-state10();
+state0();
 //setTimer(300, 1000);
 function state0() {
     messager("Click micro test tubes to label them as +pGLO and –pGLO");
