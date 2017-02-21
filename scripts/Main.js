@@ -1510,7 +1510,7 @@ function instruction() {
         $("#instruction").text("Step 6: Incubate the mixture in both tubes on ice for 10 mins");
         break;
     case 8:
-        $("#insPic").attr("src", "pictures/07.png");
+        $("#insPic").attr("src", "pictures/07.PNG");
         $("#instruction").text("Step 7: Label all plates on the bottom (not the lid)");
         break;
     case 9:
