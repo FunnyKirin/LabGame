@@ -671,7 +671,7 @@ function state3() {
                     event.relatedTarget.setAttribute("data-state", "1")
                     $(event.relatedTarget).hide();
                     $("#fakeLoop0").show();
-                    messager("Transfer the colony into tubes.")
+                    messager("Transfer the colony to one of the micro test tubes")
                     setTimeout(function () {
                         $("#fakeLoop0").css("animation", "loop 1s forwards");
                         $(event.target).attr("src", "pictures/starterplate without.svg");
