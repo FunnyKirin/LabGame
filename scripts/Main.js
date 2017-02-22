@@ -1242,6 +1242,7 @@ function state9() {
             $(thisDish).attr("src", "pictures/dishWithLine.svg");
             $("#topview").css("transform", "rotate(0deg)");
             // loopDraw();
+            messager("Click on one of the plates to spread the suspension.");
             break;
         }
         var checkValue = 0;
