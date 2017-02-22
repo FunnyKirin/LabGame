@@ -1188,7 +1188,7 @@ function state9() {
     if (hint == 1) {
         $("#messager").text("Click on one of the plates to spread the suspension.");
     }
-    $(".petriDish").click(function () {
+    $(".dish1").click(function () {
         if ($(this).attr("data-state2") == "0") {
             $("#topview").show();
             $("#rotate").show();
@@ -1472,7 +1472,7 @@ function state12() {
             exam = 0;
             counter++;
         }
-        messager("Pay attention to the result.Click again to remove the plate from the transilluminator");
+        messager("Pay attention to the result. Click again to remove the plate from the transilluminator");
     })
     $("#zoomedPic").click(function () {
         messager("Light is turned off.  Drag one plate at a time to the transilluminator to examine the result");
